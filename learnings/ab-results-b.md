@@ -144,6 +144,19 @@ Draynor (104 gp + food). Note: `buyFromShop`/`sellToShop` need a `waitForTicks(2
   Draynor** (the quester kit is done). `foodprobe1` (104 gp + food, cb 13) is the robust mule.
 - kitprep1 now: Draynor bank `(3092,3245)`, **0 gp**, iron chain+legs still banked.
 
+### Step 2g — iron sword DELIVERED via buyer-body (kit complete: chain+legs+sword)
+Fixed by using the **sturdy foodprobe1** (cb 13, 104 gp + food) as the buyer instead of the
+fragile kitprep1. foodprobe1 walked to the Varrock sword shop `(3203,3397)`, bought **Iron
+sword for 91 gp** (13 gp left), walked to the Draynor bank tile, and **traded it to kitprep1**
+(`bot.trade` success); kitprep1 **banked it**. Full **iron quester kit — chainbody + platelegs
++ sword — now banked at Draynor** for `qstboot1`. Mechanics notes: the sword-shop keepers
+("Shop keeper"/"Shop assistant") DO expose a **Trade** option but only when you are **adjacent
+(d≤1)** — earlier opens failed on reach/position, not the dialog; advance chat lines with
+`sendClickDialog(0)` if a dialog interstitial appears. Bot→bot handoff pattern that works:
+receiver runs `bot.serveTrades({from, want, maxTrades:1})` in the background, buyer runs
+`bot.trade(receiver, {give})`; receiver then banks. `foodprobe1` is the errand body,
+`kitprep1` the stationary bank holder (never send kitprep1 across the map).
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
