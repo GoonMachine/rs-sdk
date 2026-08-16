@@ -11,6 +11,9 @@ Discord evidence, local source checks, and the current swarm/PK plan:
 Current live KOTH formations, fleet sizes, and visible equipment:
 [`koth-swarm-snapshot-2026-08-15.md`](koth-swarm-snapshot-2026-08-15.md).
 
+Exact polygon correction, disposable death test, and scout-route results:
+[`live-probes-2026-08-15.md`](live-probes-2026-08-15.md).
+
 Compete-and-counter plan (prove PK kill-and-rejoin, then convert to KOTH minutes;
 do not clone the eight-stack or goo):
 [`strategy-compete-koth.md`](strategy-compete-koth.md).
@@ -145,15 +148,18 @@ specialized pickpocket swarm, and a specialized KBD fast path. It does **not**
 yet have a reusable coordinator for roles, shared targets, synchronized pile or
 retreat commands, recovery, and fleet-wide metrics.
 
-The strongest live formation observed on 2026-08-15 was an eight-account group
-persistently co-located inside KOTH, all with 99 melee stats and Hitpoints but
-mostly cheap or absent visible gear. Separately, all 25 `Goo001`–`Goo025`
+The strongest live formation observed on 2026-08-15 was one maxed account on
+the source-defined scoring tile plus seven maxed bodies stacked immediately
+outside, all with mostly cheap or absent visible gear. The eight briefly
+converged inside and `Goo001` joined before the 1+7 arrangement returned.
+Separately, all 25 `Goo001`–`Goo025`
 accounts were online; 20 have historical KOTH captures, while 15 were stacked
 away from the hill during the sample. Six `goo` accounts shared a standardized
 rune scimitar + rune chainbody + rune platelegs kit that exactly fills an
 unskulled player's three ordinary protected-item slots. See the dated
 [`KOTH snapshot`](koth-swarm-snapshot-2026-08-15.md) for names, loadouts,
-capture totals, and evidence limits.
+capture totals, and evidence limits; use the later
+[`live probe`](live-probes-2026-08-15.md) for the exact boundary and route.
 
 1. Start with a 2–5 account canary. A Discord participant's four-bot pilot used
    deterministic tick policies, shared reporting, low-frequency planning, and

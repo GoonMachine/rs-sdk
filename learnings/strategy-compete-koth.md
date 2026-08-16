@@ -33,8 +33,12 @@ Use this order in every decision. Do not flatten it.
 
 ## Counter thesis
 
-Observed 2026-08-15 (snapshot + a later live re-check): the same eight names
-held the ruins; all 25 goo accounts were online and **none** were on the hill.
+Observed 2026-08-15 (snapshot + later live re-checks): the same eight names
+formed a recurring 1+7 shape—`Tqckgxgj08` on the checked-in scoring tile and
+seven bodies immediately outside. They briefly converged inside with `Goo001`,
+then returned to 1+7. All 25 goo accounts were online and usually **none** were
+on the hill. Exact probe evidence is in
+[`live-probes-2026-08-15.md`](live-probes-2026-08-15.md).
 
 Their visible pattern is occupancy + replaceable maxed bodies. Our edge is
 this server's PvP death rules, which modern guides get wrong: a PvP death
@@ -44,7 +48,7 @@ minute sample, repeat.
 
 | What they do | Weakness | Our response |
 |---|---|---|
-| 8 maxed melee, junk/empty kits, stacked on `(3284,3884)` + one on `(3288,3886)` | Low visible DPS/tank; stacked = easy multiway pile; no tele off wild 46 | One slightly higher-cb **unskulled scorer**; 2–3 **skulled pile** accounts with food + Protect Item consumables only; the killer loots during private drop |
+| One scorer at `(3288,3886)` + seven maxed junk/empty bodies just outside at `(3284,3884)` | Only the inside highest-combat body scores in the recurring shape; the seven can converge quickly; no tele off wild 46 | Displace or outlevel the scorer at a sample; treat the seven as a response stack, not seven passive capture points |
 | goo 25 / 20 historical scorers, rune 3-piece kit, often elsewhere | Kit is death-safe only unskulled; 15 were not defending | Do not fight their bench. Contest the hill while they are away. If they return, pile the scorer, not the kit |
 | Daily board led by a shortbow iron-helm account | KOTH ignores gear | Do not buy rune to look like goo. Buy food, prayers, and replacement bodies |
 | Deterministic workers, no model on the tick | Coordination is the scarce skill | Same: lite hot loops; model only for plan/recover |
@@ -53,8 +57,9 @@ Do **not** start with 8 or 25 accounts. Start with 4 once combat exists. Extra
 low levels add **zero** KOTH score.
 
 ```
-Eight junk kits on hill
-        → focus-fire one body
+One scoring body + seven just outside
+        → response stack converges when threatened
+        → displace or focus-fire the scorer
         → PvP death: Lumbridge 1hp + death mark
         → long walk back at 1hp
         → our highest-cb account stands the minute sample
@@ -154,10 +159,17 @@ deterministic workers, staggered starts, exclusive leases.
 Prove: login, skip tutorial, mule trade, death → 1 HP → rejoin timer. No
 Demonic Ruins until that loop is boring.
 
+Route warning: the direct central approach crossed dense poison spiders near
+`(3284,3799)`. The empty eastern corridor was safe to `(3303,3878)`, but a
+greater-demon screen killed a 15-HP combat-10 scout during the final approach.
+Use the route evidence in [`live-probes-2026-08-15.md`](live-probes-2026-08-15.md)
+before sending another body.
+
 ### 4. First PK, then minutes
 
-- Scout watches the 8-stack and goo. Do not send the scorer in first.
-- Pile **one** of the stacked junk kits. Killer loots. Scorer steps onto
+- Scout watches the 1+7 formation and goo. Do not send the scorer in first.
+- Displace or pile the eligible scorer only after combat-band and route probes
+  are proven. Killer loots. Our scorer steps onto
   `(3288, 3886)` for the next minute sample.
 - Success: a kill, a 1 HP rejoin, and at least one capture minute.
 - Only then add a binder if Magic is source-checked.

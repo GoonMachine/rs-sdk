@@ -26,12 +26,18 @@ while local default is 400ms. Do not forecast from unchecked boxes.
       att/str in [`wiki/quests/waterfall-quest.md`](../wiki/quests/waterfall-quest.md)
       (`137500` tenths in `quest_waterfall.rs2`).
 - [ ] PvP death respawns Lumbridge at 1 HP — **agent B**, low wild, junk only
+      Codex observed `(3219,3219)` and 2/10 HP on the first post-death read;
+      the exact respawn frame was missed, so do not tick the 1-HP claim yet.
 - [ ] Death mark still blocks NPC-suicide full-heal — **agent B**
 - [ ] KOTH polygon matches [`Koth.ts`](../server/engine/src/engine/Koth.ts)
       vertices (stand just inside / just outside) — **agent A**, disposable junk,
       do not attack
-- [ ] `/playerpositions` and `/hiscores/koth` still match the dated snapshot —
-      **agent B**
+- [x] `/playerpositions` and `/hiscores/koth` rechecked — recurring 1+7 rather
+      than eight eligible scorers, plus a brief all-inside convergence with
+      `Goo001`; see [`live-probes-2026-08-15.md`](live-probes-2026-08-15.md).
+- [x] Production death-keep selector matches source for one disposable fixture:
+      worn shield + carried dagger + 25 arrows returned shield + dagger + one
+      arrow; 24 arrows dropped to the killer. Skulled/PI branches remain source-only.
 
 ## Diffs that change advice
 
