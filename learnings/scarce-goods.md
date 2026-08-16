@@ -16,20 +16,42 @@ Source: [`mine.dbrow`](../server/content/scripts/skill_mining/configs/mine.dbrow
 **2400-tick** base respawn. Wiki `mining.md` “70” is stale.
 
 Locs: [`rocks.loc`](../server/content/scripts/skill_mining/configs/rocks.loc)
-`runiterock1` (2106) / `runiterock2` (2107). All **five** jm2 placements are
-wilderness (world = mapsquare×64 + local):
+`runiterock1` (2106) / `runiterock2` (2107). Five jm2 placements. Wild from
+[`wilderness_zones.dbrow`](../server/content/scripts/areas/area_wilderness/configs/wilderness_zones.dbrow)
++ `wilderness_level` = `(z - zoneMinZ)/8 + 1`. PvP:
+`abs(cb diff) <= min(wild)` ([`pvp_combat.rs2`](../server/content/scripts/skill_combat/scripts/pvp/pvp_combat.rs2)).
 
-| World | Map | Zone |
-|---|---|---|
-| `(3059, 3885)` / `(3060, 3884)` | `m47_60` | Surface wild ~46 (near the hill) |
-| `(2937, 9882)` / `(2941, 9884)` | `m45_154` | Underground wild |
-| `(3046, 10265)` | `m47_160` | KBD-lair pocket |
+| World | Map | Wild | What it actually is |
+|---|---|---|---|
+| `(3059, 3885)` / `(3060, 3884)` | `m47_60` | **46** | Lava-maze surface. Next to the hill. **Not** the first rock. |
+| `(3046, 10265)` | `m47_160` | **44** | KBD pocket. Saturated (hundreds on `(2717,9817)`). **Never.** |
+| `(2937, 9882)` / `(2941, 9884)` | `m45_154` | **0** | Heroes’ Guild mine. Door needs `%heroquest >= complete` ([`heroes_entrance.rs2`](../server/content/scripts/areas/areas_heroes_guild/scripts/heroes_entrance.rs2)). **The farm** once A finishes Heroes’. |
 
-`~scale_by_playercount` can cut the 2400-tick base (at 2000 online → 1200).
-It does not remove spawn control. No safe-area runite in this checkout.
+`~scale_by_playercount` can cut the 2400-tick base (~12 min at 300.3 ms; ~6 min
+at 2000 online). Success 1/18. Spawn control is the game.
 
-We cannot mine this on `qstboot1` (mining 1) or a fresh gatherer. Later: one
-dedicated miner + hauler, not a hill body.
+### Runite doctrine (do not get farmed)
+
+`goonmine1` stays **combat-low**. Do not cow-train, do not quest this body.
+At wild 46 a cb-3 miner is only attackable by cb **1–49**. The 123 scorer
+(diff 120) **cannot** hit them. Training combat into the 80s puts them on
+Goo001’s menu.
+
+Never skull. Unskulled keep is **3 items by `oc_cost`**, and a stack is not
+one keep ([`death.rs2`](../server/content/scripts/player/scripts/death.rs2)).
+Runite ore is 3200 each — a 28-ore inv drops 25. **Bank or mule-trade at 3
+ores.** PvP death → Lumbridge 1 HP; the killer sees the loot first.
+
+Do not public-drop. `goonmule1` waits **south of the ditch** (`z < 3520`),
+takes the trade, banks Falador. Scout `/playerpositions` on the rock tile
+before the walk. Empty rock + no mid-cb names → click. Occupied → leave.
+
+Until Mining 85: iron → coal 30 → mith 55 → addy 70 in **safe** rocks. Do
+not walk wild “to look.” After 85, skip lava-maze / KBD until Heroes’ is
+open unless a scout shows the surface pair empty **and** no cb 1–49 on it.
+Then 3-ore trips only.
+
+Dedicated miner + hauler, not a hill body. Not `qstboot1`.
 
 ## Black dragon hides
 
