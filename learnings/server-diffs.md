@@ -17,14 +17,19 @@ production drifted.
 Checkout values below are from this tree. `Koth.ts` notes prod ticks at 300ms
 while local default is 400ms. Do not forecast from unchecked boxes.
 
-- [ ] Prod tick length (watch `sdk.getState().tick` vs wall clock)
-- [ ] Quest XP is multiplied by `xpRate` (Waterfall lists 13,750 att/str in
-      [`wiki/quests/waterfall-quest.md`](../wiki/quests/waterfall-quest.md))
-- [ ] PvP death respawns Lumbridge at 1 HP
-- [ ] Death mark still blocks NPC-suicide full-heal
+- [ ] Prod tick length (watch `sdk.getState().tick` vs wall clock) — **agent A**
+- [ ] Quest XP is multiplied by `xpRate` — **agent A**, measure Cook's Assistant
+      first (`stat_advance(cooking, 3000)` tenths in `quest_cook.rs2`; 300 XP ×
+      rate). Do not wait for Waterfall to tick this box. Waterfall lists 13,750
+      att/str in [`wiki/quests/waterfall-quest.md`](../wiki/quests/waterfall-quest.md)
+      (`137500` tenths in `quest_waterfall.rs2`).
+- [ ] PvP death respawns Lumbridge at 1 HP — **agent B**, low wild, junk only
+- [ ] Death mark still blocks NPC-suicide full-heal — **agent B**
 - [ ] KOTH polygon matches [`Koth.ts`](../server/engine/src/engine/Koth.ts)
-      vertices (stand just inside / just outside)
-- [ ] `/playerpositions` and `/hiscores/koth` still match the dated snapshot
+      vertices (stand just inside / just outside) — **agent A**, disposable junk,
+      do not attack
+- [ ] `/playerpositions` and `/hiscores/koth` still match the dated snapshot —
+      **agent B**
 
 ## Diffs that change advice
 

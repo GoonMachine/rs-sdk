@@ -102,18 +102,40 @@ account. It cannot attack a combat-123 at wild 46.
 ### 1. Fact-check before any hill walk
 
 10–30s scripts. Tick the boxes in [`server-diffs.md`](server-diffs.md).
+Split the boxes across two Cloud agents (table in Phase 2). Do not both run
+every probe.
 
-- Measure prod tickrate and whether quest XP is 25x.
-- Scout the live polygon vs `Koth.ts` vertices.
-- One junk-only PvP death (or safe probe) to confirm 1 HP + death-mark duration.
+- Measure prod tickrate and whether quest XP is 25x. **Agent A**
+- Scout the live polygon vs `Koth.ts` vertices. **Agent A**
+- One junk-only PvP death in low wild to confirm 1 HP + death-mark duration. **Agent B**
 - Re-read `https://rs-sdk-demo.fly.dev/playerpositions` and
-  `/hiscores/koth` at the start of every session. The 8-stack can vanish.
+  `/hiscores/koth` at the start of every session. The 8-stack can vanish. **Agent B**
 
-### 2. Combat bootstrap (not KOTH)
+### 2. Combat bootstrap (not KOTH) — two-agent A/B
 
-- Prefer this revision’s quest XP (Waterfall first; later quests only after
-  checking each quest script) with rats/food fallbacks.
-- Cheap food loops. Infinite run helps travel, not DPS.
+Two Cloud agents. Phase 1 is a **split of independent probes**, not an A/B.
+Phase 2 is the **only** A/B: how we get combat. Do not A/B the north star,
+rune vs junk kits, 4 vs 8 bodies, or two fleets on the same hill.
+
+Reserved bot prefixes (max 12 alphanumeric). Do not touch `agentmachine`.
+
+| Agent | Phase 1 (parallel) | Phase 2 (A/B) | Bots |
+|---|---|---|---|
+| **A** (quest) | Prod tick clock; quest XP via Cook's Assistant (`stat_advance(cooking, 3000)` in `quest_cook.rs2`); polygon stand-in / stand-out | Waterfall first (`stat_advance(attack/strength, 137500)` tenths in `quest_waterfall.rs2`). Later quests only after a source check of that quest script | `qstprobe1`, `qstboot1` |
+| **B** (food) | Junk-only PvP death in **low wild** (two fresh accounts; not the hill); death-mark duration; `/playerpositions` + `/hiscores/koth` | Lumbridge rats / goblins / cows + bury bones. Infinite run helps travel, not DPS | `foodprobe1`, `foodkill1`, `foodboot1` |
+
+Paste-ready launch text: [`cloud-agent-a.md`](cloud-agent-a.md),
+[`cloud-agent-b.md`](cloud-agent-b.md). Write results to
+[`ab-results-a.md`](ab-results-a.md) / [`ab-results-b.md`](ab-results-b.md).
+
+Winner of Phase 2 is **wall-clock minutes** to both:
+
+- Prayer 25 (Protect Item) — [`prayers.dbrow`](../server/content/scripts/skill_prayer/configs/prayers.dbrow)
+- Combat ≥ 77 (so `abs(cb − 123) ≤ 46` at the hill)
+
+Stop the slower path when one is clearly ahead. A third Cloud agent is spare
+concurrency, not more information.
+
 - Unlock Protect Item and protection prayers before any wild trip.
 - Stand up the mule with food and unskulled keep kits.
 
@@ -162,6 +184,9 @@ Do not go to 25. Do not start 100 Cloud Agents.
 Cursor Pro concurrent Cloud Agents ≈ 8. One VM can run several lite clients
 (~14 MB each). Automations spawn billed Cloud Agents; they are a supervisor,
 not a woodcutter.
+
+Use **two** Cloud agents for Phase 1+2 as the table above. Keep the hot loop
+on **one** VM later. Do not give both agents the same bot names.
 
 ## Non-goals
 

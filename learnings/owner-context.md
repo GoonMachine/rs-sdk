@@ -15,6 +15,8 @@ Compete-and-counter plan (prove PK kill-and-rejoin, then convert to KOTH minutes
 do not clone the eight-stack or goo):
 [`strategy-compete-koth.md`](strategy-compete-koth.md).
 Why OSRS/wiki advice is often wrong here: [`server-diffs.md`](server-diffs.md).
+Two Cloud agents: [`cloud-agent-a.md`](cloud-agent-a.md) (quest path),
+[`cloud-agent-b.md`](cloud-agent-b.md) (food path).
 
 ---
 

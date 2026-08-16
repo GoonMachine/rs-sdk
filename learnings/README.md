@@ -48,3 +48,5 @@ See [`../sdk/API.md`](../sdk/API.md) for exact signatures.
 Live-server meta from the project owner (economy, wilderness, what is already saturated) lives in [`owner-context.md`](owner-context.md), which links the dated Discord evidence and source-checked swarm/PK notes. Read that before picking a long-horizon goal.
 
 Compete-and-counter plan (PK kill-and-rejoin, then KOTH minutes — do not clone goo or the eight-stack): [`strategy-compete-koth.md`](strategy-compete-koth.md). Server diffs vs OSRS/wiki: [`server-diffs.md`](server-diffs.md).
+
+Two Cloud agents (Phase 1 split, Phase 2 A/B): paste [`cloud-agent-a.md`](cloud-agent-a.md) or [`cloud-agent-b.md`](cloud-agent-b.md). Results: [`ab-results-a.md`](ab-results-a.md), [`ab-results-b.md`](ab-results-b.md).
