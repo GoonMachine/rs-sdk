@@ -312,6 +312,15 @@ error captured, silent refusal). No altar was found on the monastery ground scan
 **Verdict: the monastery is not a usable prayer-restore for a low-prayer body — use the
 Lumbridge church altar `(3243,3205)`.** foodprobe1 returned to the Falador bank.
 
+### Step 2x — Falador food stock confirmed; monastery = INACCESSIBLE
+**Monastery = inaccessible** (1st-floor ladder gated at Prayer 31; foodprobe1 Prayer 1).
+Prayer-restore card final: **Lumbridge church `(3243,3205)`** only (no Falador/monastery
+altar for a low-prayer body). Falador food stock confirmed by opening the bank:
+**18 food banked** (Cheese x9, Banana x3, Cabbage x5, Chocolate bar x1) **+ 4 in foodprobe1's
+inventory = 22 food** staged at the safe Falador 1HP bank. foodprobe1 stays on the Falador
+bank tile `(2945,3366)`, HP 25, as the 1HP receive point; `kitprep1` unchanged at Draynor;
+`foodkill1` idle.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
