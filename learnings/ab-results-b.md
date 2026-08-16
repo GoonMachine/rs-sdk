@@ -321,6 +321,9 @@ inventory = 22 food** staged at the safe Falador 1HP bank. foodprobe1 stays on t
 bank tile `(2945,3366)`, HP 25, as the 1HP receive point; `kitprep1` unchanged at Draynor;
 `foodkill1` idle.
 
+### Step 2y — held the 1HP receive point
+foodprobe1 held the Falador bank `(2945,3366)` 1HP receive point for ~5 min with 4 food in inv — no leave, no death (`lifeId` unchanged).
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
