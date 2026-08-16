@@ -185,6 +185,16 @@ if sold). No coins cleared → no cheese bought. **Lesson: for non-pickpocket ki
 GP, kill MEN (drop 3–15 coins), not chickens** — chicken loot is feathers/bones, not gp.
 foodprobe1 at Draynor, 0 gp; bank now holds its food stack + 50 feathers + raw chicken.
 
+### Step 2k — feathers → gp → cheese (the chicken loot did convert)
+Withdrew the 50 feathers, opened **Gerrant's Fishy Business `(3014,3224)`**: live feather
+**sellPrice = 1 gp** (>0, despite the shop holding ~1000 — the floor here is 1, not 0).
+Sold **50 feathers → 29 gp** (price decays as stock rises, ~0.58 gp/feather avg), then bought
+**3 cheese at Wydin `(3014,3204)`** (~12 gp) and **banked them**, leaving **17 gp**. So the
+full chicken→feather→Gerrant→cheese chain does yield a little gp + food — but it's marginal
+(~a whole chicken-kill session for ~29 gp). Men-coin drops remain the better non-pickpocket
+GP if speed matters. foodprobe1 now **17 gp**, bank food stack expanded (+3 cheese);
+`kitprep1` unchanged (iron kit banked); `foodkill1` idle.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
