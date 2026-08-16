@@ -12,6 +12,21 @@ Phase 1 probes (PvP death mark, live positions) then Phase 2 path **B**
 polygon scout, and the Waterfall path. Do not do Agent A’s work and do not
 share bot names.
 
+## Efficiency (read this before researching)
+
+You are **not** leveling a fleet. Phase 1 is boards + one junk PvP death.
+Phase 2 is **one** trainer (`foodboot1`). Do not create extra accounts
+beyond `foodprobe1` / `foodkill1` / `foodboot1`.
+
+- After **each** probe: write the number into `learnings/ab-results-b.md`,
+  tick your box in `learnings/server-diffs.md`, commit on `cloud/ab-b`.
+- Prod tick is **300.3 ms/tick** (Agent A, on `main` in `ab-results-a.md`).
+  Death-mark 1000 ticks ≈ **300 seconds**. Do not re-measure tickrate.
+- Do not survey quest scripts. Do not walk the Demonic Ruins.
+- Do not re-read the full briefing if you already did this session. Open
+  the result file and execute the next empty cell.
+- Chat reports do not count. Only written cells survive a stop.
+
 ## Environment
 
 This VM talks to the **demo server** `rs-sdk-demo.fly.dev`, not RuneBench.

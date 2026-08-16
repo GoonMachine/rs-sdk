@@ -11,6 +11,25 @@ Phase 1 probes (tick, quest XP, polygon) then Phase 2 path **A** (quest XP
 bootstrap, Waterfall first). Agent B owns death-mark, hiscores, and the
 rats/food path. Do not do Agent B’s work and do not share bot names.
 
+## Efficiency (read this before researching)
+
+You are **not** leveling a fleet. Phase 1 is three short probes. Phase 2 is
+**one** trainer (`qstboot1`). Do not create extra accounts.
+
+- After **each** probe: write the number into `learnings/ab-results-a.md`,
+  tick your box in `learnings/server-diffs.md`, commit on `cloud/ab-a`. Do
+  not batch writes at the end of the session.
+- Prod tick is **already measured: 300.3 ms/tick**. Do not re-measure it.
+  `git pull` and skip to Cook's Assistant.
+- Cook's Assistant is the quest-XP test. Run it. Do **not** survey every
+  `stat_advance` in `server/content/scripts/quests/`.
+- Do not re-read the full strategy/owner briefing if you already did this
+  session. Open the two result files and execute the next empty cell.
+- Kill leftover lite sessions that are not `qstprobe1` / `qstboot1`
+  (`envtestbot` is not your job; it burns a login slot).
+- If you stop mid-probe, the last written number is the only thing that
+  survived. Chat reports do not count.
+
 ## Environment
 
 This VM talks to the **demo server** `rs-sdk-demo.fly.dev`, not RuneBench.

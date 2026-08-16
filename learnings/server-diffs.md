@@ -17,7 +17,9 @@ production drifted.
 Checkout values below are from this tree. `Koth.ts` notes prod ticks at 300ms
 while local default is 400ms. Do not forecast from unchecked boxes.
 
-- [ ] Prod tick length (watch `sdk.getState().tick` vs wall clock) — **agent A**
+- [x] Prod tick length (watch `sdk.getState().tick` vs wall clock) — **agent A**
+      **300.3 ms/tick** on `qstprobe1` (100 ticks / 30,025 ms), 2026-08-15.
+      Use 300ms for duration forecasts.
 - [ ] Quest XP is multiplied by `xpRate` — **agent A**, measure Cook's Assistant
       first (`stat_advance(cooking, 3000)` tenths in `quest_cook.rs2`; 300 XP ×
       rate). Do not wait for Waterfall to tick this box. Waterfall lists 13,750
