@@ -20,6 +20,7 @@
 
 ## Sources
 
+- Sold by: **Ned** in Draynor at `(3100, 3258)` for **15 coins** (`ned.rs2`). Prefer this over mugger kills.
 - Sold by: [Jiminua's Jungle Store](../shops/jiminuas-jungle-store.md) for 27 gp
 - Sold by: [Aemad's Adventuring Supplies](../shops/aemads-adventuring-supplies.md) for 23 gp
 - Sold by: [Khazard General Store](../shops/khazard-general-store.md) for 25 gp
