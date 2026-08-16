@@ -415,3 +415,49 @@ platelegs/sword are **not stocked** at Horvik/Wayne (chain + plate only). `kitpr
 only **25 coins**, so no steel/mith buy is possible without ~2150gp for a full steel set —
 GP, not stock, is the wedge. Cheese is 4gp at Wydin (stock 3); `foodprobe1` has 0 coins in
 hand so it read prices only.
+
+**Al Kharid legs/scimitars (Louie + Zeke) — toll-blocked for live capture, config-sourced.**
+`kitprep1` reached the Al Kharid toll gate `(3267,3227)` but the crossing is a wedge: the
+toll is **10gp**, `kitprep1` had 25→5 (my first toll handler double-paid because it walked
+back west through the gate after crossing — fixed to a single pay), and the ground-coin
+piles at the gate are **contested** (other bots grab them before pickup), so it could not
+reliably re-fund the 10gp. It also could not buy anything across (0–20 coins vs 600+). The
+Louie/Zeke stock/prices below are read from
+[`alkharid.inv`](../server/content/scripts/areas/area_alkharid/configs/alkharid.inv)
+(item, start stock, base cost); live buy price ≈ base at full stock:
+
+**Zeke's scimitars — Al Kharid `(3288,3190)`:** Bronze scim 100 (5), Iron scim 200 (3),
+**Steel scim 600 (2)**, Mithril scim 4000 (1).
+
+**Louie's Legs — Al Kharid `(3316,3175)`:** Bronze legs 100 (5), Iron legs 400 (3),
+**Steel legs 900 (2)**, Black legs 1200 (1), Mithril legs 2000 (1), Adamant legs 13000 (1).
+
+**Full steel set cost (source-checked):** chain 750 (Horvik/Wayne) + legs 900 (Louie) +
+scim 600 (Zeke) = **~2,250gp** (matches the ~2,150 estimate). To land a live Louie/Zeke
+capture + actually buy, `kitprep1` needs ~2,250gp in hand — GP is the wedge, not stock.
+
+### Step 5 — goonmine1 runite-miner pipeline (foundation) ✓
+Created `goonmine1` (new gatherer). `bot.skipTutorial()` drops it at Lumbridge with the
+**tutorial starter kit including a bronze pickaxe** — no Bob trip / coin pickup needed.
+Walked to the **SE Varrock mine `(3285,3365)`** and ran a mine loop:
+- Rocks are locs named `Rocks tin ore` / `Rocks copper ore` / `Rocks iron ore` with a
+  `Mine` option — so ore type is selectable by loc name. Loop mines copper/tin until
+  Mining 15, then **prefers iron rocks** (level 15 req), and banks ore at **Varrock east
+  bank `(3253,3420)`** when the inventory fills.
+- Per-loop safety: `if (player.hp < player.maxHp) bot.eatFood(...)` (implemented as
+  instructed; SE Varrock has no aggro so it does not trigger — this mine is safe, unlike
+  Al Kharid scorpions).
+- **Live result: Mining 1 → 50 in ~10 min** (33,687 xp), banking iron at Varrock east the
+  whole time (multiple full-inventory bank runs). Still climbing on the current grind.
+- **Runite is Mining 85 and all five rocks are wilderness** ([`scarce-goods.md`](scarce-goods.md)) —
+  so this body keeps mining iron at safe SE Varrock to build toward 85; **no wild runite,
+  no Al Kharid (scorpions) until cb 27, no cow grind.** Iron ore in `goonmine1`'s Varrock
+  east bank is itself a barter good / smith feedstock in the meantime.
+
+### Warehouse state after this pass
+- `goonmine1`: SE Varrock mine, Mining ~50+ and rising, banking iron at Varrock east.
+- `goonmule1`: Falador bank `(2945,3368)`, food reserve (Shrimps + Bread). No spare iron
+  (the one iron kit went to A).
+- `foodprobe1`: Falador `(2945,3368)`; its Falador bank holds the **22-food warehouse**
+  (Cheese 13, Banana 3, Cabbage 5, Chocolate 1) + 25 coins.
+- `kitprep1`: at the Al Kharid gate, 0 coins, toll-blocked (see above).
