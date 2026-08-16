@@ -128,7 +128,27 @@ real 1 HP clock — that body also self-banks food before the wild trip.
 
 Food: Wydin cheese `(3014,3204)` (also Witch’s House item) → Brimhaven lobster `(2793,3188)` ~195 gp / 12 HP when GP allows. No monkfish. Shark is fish 76 / cook 80, no cooked-shark shop.
 
-GP that is not cows: flax → string, essence after Rune Mysteries, fish to Gerrant, leather gloves to Thessalia. General stores pay ~0 when overstocked.
+### GP — do not pickpocket as a lane
+
+Pickpocketing men is **3 gp** (`pickpocket.dbrow`). It is also the printer
+Max named as why cash is worthless. Knights are 50 gp at thieving 55 — same
+printer, faster. Do not “solve GP” that way.
+
+We need coins only as a **shop lubricant** (gloves 6, iron ~600, Scavvo ~146k,
+Jakut 100k). Inflation helps **buyers**: `shop.rs2` `price_mod` = stock −
+base; overstock cuts the price we pay (floor 1 gp). It kills **sellers**
+(general stores already pay ~0 when dumped).
+
+| Need | Do this | Do not |
+|---|---|---|
+| 1–20 gp (pickaxe, gloves, cheese) | One man, or kill-and-pickup, then **stop**. Bob pickaxe 1 gp. | A pickpocket script. |
+| Iron / steel kit | **Open Horvik first.** If overstocked, buy cheap. If 0 coins: Bob pickaxe → mine iron → smith. | 200 men for 600 gp. |
+| Food | Wydin. Overstocked cheese is nearly free. | Farm GP to buy lobster. |
+| 100k+ (Scavvo / Jakut) | Quester QP + **barter** (runite / hides later). High alch is 60% of `oc_cost` (`alchemy.rs2`) — only if we already have natures and alchable loot. | Hero pickpocket. Selling into Lumbridge gen store. |
+
+Rule: `bot.openShop` and read `shopItems` price/count **before** any GP grind.
+Sell only to a **depleted** specialty shop (stock below base). Bank the item,
+not the coins, when the item is the kit.
 
 `kitprep1` is already created. Next new gatherer is `goonkit1` only after a POST.
 Never commit `bot.env`.

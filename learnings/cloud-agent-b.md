@@ -51,8 +51,9 @@ Phase 1 is on origin/cloud/ab-b. Do not re-PK. Do not cows / foodboot1 / hill.
 Read learnings/scarce-goods.md. No standing mule — banks are per-account
 and Lumbridge has no bank. A shops/banks for himself.
 
-Stay on kitprep1: GP → Horvik iron → Draynor bank (3092,3243). Trade
-qstboot1 only when both are at that bank. Do not follow A west. Do not
+Stay on kitprep1: open Horvik first (overstock = cheap). If 0 coins, Bob
+pickaxe 1gp → mine/smith iron, do not pickpocket a lane. Bank Draynor
+(3092,3243). Trade qstboot1 only when both are at that bank. Do not follow A west. Do not
 death-watch on foodprobe1. foodkill1 idle until a real 1 HP clock.
 Write ab-results-b.md, commit cloud/ab-b. Conflict → learnings/merge.md
 (kit first). Never commit bots/ or print bot.env.
