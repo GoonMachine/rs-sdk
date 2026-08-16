@@ -5,6 +5,9 @@ Agent briefing distilled from [@maxbittker](https://x.com/maxbittker) (rs-sdk ow
 Primary account: [x.com/maxbittker](https://x.com/maxbittker)  
 Join path he repeats: point a coding agent at [github.com/MaxBittker/rs-sdk](https://github.com/MaxBittker/rs-sdk) and tell it what to do. Discord and hiscores are linked from that README.
 
+Discord evidence, local source checks, and the current swarm/PK plan:
+[`discord-meta-2026-08-15.md`](discord-meta-2026-08-15.md).
+
 ---
 
 ## Read this first
@@ -18,6 +21,18 @@ Current live meta, in Max's words:
 3. Value sits in **limited-respawn, high-contention** resources. He names **runite ore** and **black dragon hides**.
 4. Saturated PvM: **KBD is being killed; KQ is not yet.**
 5. Open frontier: **wilderness king-of-the-hill / turf wars**, plus luxury goals like **clue-scroll completionism**.
+
+Local-source corrections that matter before acting:
+
+- KOTH is implemented in this checkout. It scores the highest-combat contender
+  inside the Demonic Ruins polygon once per wall-clock minute; it does not use
+  the earlier proposed combat-85 / sole-occupant rule.
+- Runite requires Mining 85 with a 2,400-tick base respawn in the authoritative
+  server table. The handwritten mining wiki's level-70 claim is stale.
+- PvP item protection follows static configured cost, not the live barter
+  market. A loadout can therefore keep the economically wrong item.
+- Treat these as checkout truth, not guaranteed production truth. Verify them
+  with a disposable live probe before risking scarce gear.
 
 Do **not** mix this up with **RuneBench**. Bench is a separate timed eval (8x tick, 25x XP, peak XP/min scoring). Strategies from bench (bank-then-burst cooking, many tiny tool calls) transfer. The multipliers do not.
 
@@ -61,9 +76,26 @@ Follow-ups in the same thread:
 
 [2026-08-02](https://x.com/maxbittker/status/2084064064829903343): community swarms were already active; he said people were saturating goals like **killing KBD (not yet KQ)**, and that the last frontier was wilderness KoH.
 
-He floated a dedicated hiscore: hours spent as the **only** player in a marked chunk (example: Demonic Ruins) above combat 85. That board may not exist yet; the idea tells you what he considers hard.
+The combat-85 / only-player design was an earlier proposal, not the current
+checked-in rule. In this checkout, KOTH is a precise Demonic Ruins polygon near
+`(3289, 3886)` and awards one capture per wall-clock minute. Every visible
+non-staff player in the polygon is eligible; the highest-combat contender wins.
+The incumbent wins equal-combat ties, otherwise a new equal-max tie is random.
+An empty hill clears incumbency. A `/hiscores/koth` implementation also exists.
+See [`Koth.ts`](../server/engine/src/engine/Koth.ts) and the detailed
+[`Discord/source note`](discord-meta-2026-08-15.md).
 
-**Agent implication:** the wilderness is multi-agent PvP, not an empty resource patch. Expect other bots. Bring food, expect death, coordinate if running more than one account. Deep wilderness agility (wiki: level 52+ wild) is high risk.
+The ruins are multiway, so coordinated focus fire is possible. Wilderness
+attackability still limits combat-level difference to the shallower of the two
+players' Wilderness levels; low-level bodies may be unable to touch a maxed
+holder. Standard teleports do not provide an escape from this roughly
+level-46-Wilderness hill.
+
+**Agent implication:** use one uniquely highest-combat scoring anchor, with
+level-compatible guards, a caller/scout, binder, mule/resupplier, and a
+death-recovery runner. Extra low levels do not add capture score. Designate
+skull initiators and avoid skulling the anchor without a reason. Verify the
+production deployment before committing valuable gear.
 
 ### Saturated vs still-open goals
 
@@ -77,6 +109,49 @@ He floated a dedicated hiscore: hours spent as the **only** player in a marked c
 KBD: combat 276, (2716, 9817), 150-tick respawn, always dragon bones.  
 Black dragons: combat 227, always dragonhide + bones, 60-tick respawn; samples (2829, 9826) and (3048, 10266).  
 KQ: still called unsolved by Max on Aug 2.
+
+Runite source check: Mining 85, base 2,400-tick respawn. Five rock placements
+appear in the local maps, including Wilderness candidates. Player-count scaling
+can reduce respawn time, but it does not remove the value of spawn control. The
+generated wiki is stale here; use
+[`mine.dbrow`](../server/content/scripts/skill_mining/configs/mine.dbrow).
+
+Black-hide source check: black dragons drop a color-specific black hide, and
+only four ordinary black-dragon spawns were found in the reviewed local map
+data. The generated generic `wiki/items/dragonhide.md` page collapses colors and
+is misleading for this decision.
+
+### Current swarm operating thesis
+
+The repo has multi-account connections, verified player trade/muling, a
+specialized pickpocket swarm, and a specialized KBD fast path. It does **not**
+yet have a reusable coordinator for roles, shared targets, synchronized pile or
+retreat commands, recovery, and fleet-wide metrics.
+
+1. Start with a 2–5 account canary. A Discord participant's four-bot pilot used
+   deterministic tick policies, shared reporting, low-frequency planning, and
+   no model calls in the hot loop.
+2. Put the model in the planning and recovery layer. Run proven gather, bank,
+   combat, and resupply loops deterministically.
+3. Give every worker an exclusive task/NPC/node lease with staggered starts and
+   backoff. Scale only while marginal productive ticks remain positive after
+   self-contention.
+4. Use safe two-screen trades and a dedicated mule for scarce goods. Do not use
+   the pickpocket swarm's public ground-drop handoff for runite or hides.
+5. For resource defense, use miners/gatherers, staggered haulers, and a
+   geofenced sentinel. A reported defensive script already watched a mapped
+   rune-mining area.
+6. For KOTH, use an anchor + level-compatible guards/binder + caller/scout +
+   mule/recovery formation. Keep the anchor uniquely highest combat.
+7. Cap non-aggressor loot exposure at three protected items and bank immediately
+   on noted or rare drops. Aggressors should assume a skull and carry only a
+   deliberate Protect Item candidate plus expendable supplies.
+8. Value targets in risk-adjusted worker-minutes, contention delay, and barter
+   fills—not GP. Keep GP only as operating liquidity.
+
+Full evidence, metrics, roles, and the staged path for the near-fresh
+`agentmachine` account are in
+[`discord-meta-2026-08-15.md`](discord-meta-2026-08-15.md).
 
 ### How Max wants people to join
 
@@ -144,6 +219,11 @@ Start from `sdk/cli.ts` state, skip tutorial if needed, then pick a goal that is
 6. **Act in small loops.** Walk, observe, correct. Do not write a 20-minute plan before the first `walkTo`.
 7. **Fail fast.** 10–30s scripts first. A failed 5-minute run wastes more than five short diagnostics.
 8. **Hiscores:** 1881 is the cap. If not racing time-to-max, play the open frontier instead of adding the 11th maxed account.
+9. **Swarm:** start with a four-account canary, deterministic hot loops, explicit
+   leases, and a recovery queue. Scale only after measuring self-contention.
+10. **PvP risk:** compare static death-protection cost with barter value, treat
+    return routes as attack surfaces, and do not assume a deep-Wilderness
+    teleport escape.
 
 Concrete pointers already in this repo:
 
@@ -199,3 +279,9 @@ bun run x-search.ts watchlist check
 ```
 
 Update the snapshot date at the top when the live meta changes (new scarce item, KQ kill, KoH hiscores, economy sinks).
+
+For Discord, re-check `general`, `share-progress`, `agent-techniques`, and
+`99str-contest`; search for `KOTH`, `Demonic Ruins`, `PK`, `runite`, `barter`,
+and current KOTH leader names. Add dated observations to a new evidence file,
+then update this decision layer. Re-check local server source whenever a
+handwritten wiki or old proposal disagrees.
