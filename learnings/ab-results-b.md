@@ -70,9 +70,14 @@ fall off fast). Walked to **Betty's Magic Emporium, Port Sarim `(3012,3259)`** a
   rope from **4 balls of wool** (shear + spin grind). Per "fail fast / no grind," rope
   deferred — Agent A can source it, or a later wool run. Runes are the deliverable part.
 
-### Step 2 — Trade to Qstboot1: (attempted after walk-back — see below)
-Live boards 02:32Z: `Qstboot1` at Lumbridge `(3241,3211)` doing **Restless Ghost**
-(Agent A busy — controller **not** touched); `Qstprobe1` at `(3236,3578)`.
+### Step 2 — Trade to Qstboot1: **HOLDING kit (partner not in range)**
+Walked back to Lumbridge and offered the runes, but `Qstboot1` was **not in range**
+(Agent A is mid–Restless Ghost — wizard's tower basement / graveyard, not the castle).
+Controller **not** touched. Per contract: **holding the kit**, parked at
+**`(3235,3214)`** (Lumbridge castle courtyard) ready to trade. Held: `Air rune x6,
+Water rune x6, Earth rune x6` (+ 30 gp, junk). Hand-off pending Qstboot1 returning to
+Lumbridge; `bot.trade(/qstboot1/i, {give:[air6,water6,earth6]})` is the call. Kit is safe
+in inventory (persists on the account; Lumbridge has no aggressive NPCs).
 
 ### Step 3 — Full-HP rejoin clock (junk only) ✓
 Route: Lumbridge `(3222,3219)` → `(3335,3528)` → `(3334,3650)` → `(3334,3769)` →
