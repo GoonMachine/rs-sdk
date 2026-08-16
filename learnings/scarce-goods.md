@@ -80,6 +80,7 @@ Unskulled 3, skulled 0 unless Protect Item.
 
 | Role | Wear / carry | Do not |
 |---|---|---|
+| **Quester (`qstboot1`)** | Shop **iron** at least: chain `(3229,3438)` Horvik 210gp, sword `(3203,3397)` 91gp, legs 280gp. Att 68 can wear steel/mith weapons; def 1 still wears iron plate. Equip after Vampire. Drop weapons+runes only for Glarial’s tomb. | Naked + bronze after att 68. Rune 3-piece on a skulled trip. |
 | **Scorer (unskulled)** | Three cheap replaceable slots. Food if it still keeps. | Dragon sq / chain / baxe. goo’s rune 3-piece *fits* keep — do not copy it onto a **skulled** attacker. |
 | **Pile (skulled)** | Protect Item on; one PI candidate (cheap weapon); food you will lose. | Any dragon piece. Any 139K 3-piece. |
 | **Banked scarce (off-hill)** | Dragon longsword (first real upgrade), then med helm, then hide body/vambraces, then glory. Shark / Wydin food stacks. Stein-style rune warehouse if we smith. | Walking this set to wild 46 before 1 HP rejoin is boring. Wearing the 500k sq shield as a scorer (it will eat keep slots). |

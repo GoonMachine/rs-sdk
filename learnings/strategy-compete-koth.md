@@ -97,6 +97,8 @@ minute scored.
 Calculate the full worn-plus-carried **configured-cost** keep order before
 every trip. See [`death.rs2`](../server/content/scripts/player/scripts/death.rs2).
 
+- **Quester:** shop iron (Horvik + Varrock sword) as soon as Vampire is done.
+  “Don’t copy goo” is not “wear bronze forever.”
 - **Scorer (unskulled):** three keep slots. Cheap, replaceable. Do not wear a
   high-config item that pushes food or PI off the keep list. goo’s rune
   scim + chain + legs (139,600 configured) *fits* unskulled 3-item keep in
