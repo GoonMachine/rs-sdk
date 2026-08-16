@@ -2,6 +2,10 @@
 
 Status: **not started**. Cloud Agent B fills this in. Do not invent numbers.
 
+Inherited from Agent A (do not re-measure): prod tick **300.3 ms/tick**, so
+expect death mark **~300s** and skull **~600s**. Agent A also saw an empty
+KOTH polygon once — fetch live boards anyway; live wins.
+
 ## Phase 1
 
 | Probe | Result | Evidence |
