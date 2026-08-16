@@ -554,6 +554,14 @@ grind PID after any restart (verify `ps` shows exactly 1). With a single control
 `lite-kitprep1`, kitprep1 is stable: Thieving now **60**, mule **780 → 840** and climbing,
 `goonmine1` **Mining 93**. Guard contention (cb-126 farmers) remains the throughput cap.
 
+**Self-heal added (fixes the recurring "no controller"):** the grind loop swallowed
+`BotDisconnectedError` and then *spun uselessly on a dead connection* until its 1200s timer —
+so kitprep1 looked alive (process running) but did nothing. Fix: each loop checks
+`sdk.getStateAge() > 15s` (or null player) and **exits**, so the tmux supervisor restarts with
+a fresh connection. In one 5-min window it auto-recovered **6 disconnects** while the mule
+climbed **840 → 990** and `goonmine1` held Mining 93 on safe rocks. The demo server drops
+kitprep1's control link often, but the loop now recovers on its own without manual reattach.
+
 ### Step 12 — pipeline unstuck: mule coins 300 → 420; Mining 90
 The mule was stuck at 300 for a long time due to three compounding bugs, now fixed:
 1. **Orphaned duplicate controllers** — restarting supervisors without killing the old `bun`
