@@ -10,9 +10,10 @@ prompt.
 | Dialog picked the wrong option | [`dialog.md`](dialog.md) |
 | Walk / death / HP / who killed you | [`observe-fidelity.md`](observe-fidelity.md) |
 | `git` conflict / sitting on `ab-results` | [`merge.md`](merge.md) |
-| Quest order at 25× | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md) |
+| Quest order at 25× / att vs str / style | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md) |
 | Gear elite / who is online | [`top-players.md`](top-players.md) |
-| Runite, hides, target keep-kit | [`scarce-goods.md`](scarce-goods.md) |
+| Runite, hides, shop ladder, B priority | [`scarce-goods.md`](scarce-goods.md) |
+| Who does what right now | [`strategy-compete-koth.md`](strategy-compete-koth.md) “Current swarm” |
 | New bot name / fleet prefix | [`names.md`](names.md) |
 
 Three audiences. Do not mix them.

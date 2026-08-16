@@ -18,7 +18,7 @@ Progress lives on the existing characters. Same name + new password does
 | `qstprobe1` | leftover | Phase 1 scout. Not a job. |
 | `foodprobe1` | Goonmachine B | Mule + death-watch |
 | `foodkill1` | Goonmachine B | Idle until a real 1 HP clock |
-| `kitprep1` | Goonmachine B | First Wydin-food gatherer (already created) |
+| `kitprep1` | Goonmachine B | Warehouse (iron → Wydin). After `foodprobe1` death-watch. |
 
 ## New characters: `goon` + role + index
 

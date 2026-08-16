@@ -48,12 +48,13 @@ invent a third Cloud environment. Do not walk the hill.
 ```
 You are Cloud Agent B on GoonMachine/rs-sdk. git pull origin main.
 Phase 1 is on origin/cloud/ab-b. Do not re-PK. Do not cows / foodboot1 / hill.
-Read learnings/scarce-goods.md. Create kitprep1 on THIS VM only if the
-operator POST says so. Otherwise stay on foodprobe1.
+Read learnings/scarce-goods.md (priority queue + shop ladder).
 
-Reuse foodprobe1. Buy Waterfall kit (Betty 3012,3259 + rope + food).
-Trade qstboot1 if in range. Death-watch if A is west. Then time 1 HP walk
-to (3303,3878) eastern corridor; stop before demons.
+Priority: if qstboot1 is in Lumbridge/Draynor/Falador/Varrock, foodprobe1
+trades Betty 6/6/6 + rope + Wydin cheese + food. kitprep1: Thessalia
+leather gloves (3204,3417) if A still needs Witch’s House items, then
+Horvik iron warehouse. Do not follow A to Taverley/Golrie.
+foodkill1 stays idle until a real 1 HP clock.
 Write ab-results-b.md, commit cloud/ab-b. Conflict → learnings/merge.md
 (kit first). Never commit bots/ or print bot.env.
 ```

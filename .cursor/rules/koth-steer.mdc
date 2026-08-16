@@ -22,8 +22,10 @@ kit/level/scarce goods). Agents execute and usually unstick themselves.
 - **Secrets stay off git:** API key in `~/.cursor/cursor_api_key` or Cursor Secrets; never `bot.env`.
 
 North star: kill-and-rejoin, KOTH minutes when contestable, and a scarce-goods
-kit that can beat a real PKer. Goonmachine A = quest stack on `qstboot1`.
-Goonmachine B = mule + 1 HP rejoin on `foodprobe1`, not cows. Extra lites on
-B’s VM use `goon*` names after `scarce-goods.md` + a POST. No Cloud C.
+kit that can beat a real PKer. Goonmachine A = quest stack on `qstboot1`
+(Witch’s House cut-in if 10 HP is dying; never Accurate; Waterfall is the
+str dump). Goonmachine B = mule + warehouse; death-watch/trade beats
+pickpocket. Extra lites on B’s VM use `goon*` names after `scarce-goods.md`
++ a POST. No Cloud C.
 
 **B never idle.** Force-send only when a lane is idle or strategically wrong — not every quiet tick. After a failure class, write a short lesson and **push** if Cloud must `git pull`. Agent pastes stay one line + a link.

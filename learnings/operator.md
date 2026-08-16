@@ -52,7 +52,9 @@ physical step — pull on the next job).
 - Tick **300.3 ms**. Quest XP **25×**. Polygon `(3288,3879)` IN / `(3288,3878)` OUT.
 - PvP death → Lumbridge ~`(3222,3218)` at **1 HP**. Mark ~300s. Regen is not blocked.
 - Wild: `abs(cb diff) <= min(wild)`; `wild = (z-3520)/8+1`.
-- Need **cb ≥ 77** vs 123 at wild 46. Restless Ghost first. Do not stop after Waterfall.
+- Need **cb ≥ 77** vs 123 / **≥ 80** vs 126 at wild 46. Restless Ghost first.
+  Witch’s House before more Golrie if HP is 10. Waterfall is the strength dump.
+  Never Accurate after Vampire. Do not grind def.
 - Phase 1 is on `origin/cloud/ab-a` and `origin/cloud/ab-b`.
 
 ## Secrets (never git, never chat, never A/B paste)

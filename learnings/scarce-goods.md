@@ -88,18 +88,35 @@ Unskulled 3, skulled 0 unless Protect Item.
 First **fight** upgrade after cb ≥ 77: one dragon longsword + rune plate, glory
 if Heroes’ is done. That is the 340K band, not brotha’s museum.
 
-## First gather (B’s VM, one extra lite)
+## Background kit pipeline (B’s VM)
 
-Not runite (mining 85). Not black dragons (combat 227). Not cows (A/B loser).
-Not the hill.
+Not runite (mining 85). Not black dragons (combat 227). Not cows. Not the hill.
+`qstboot1` does **not** farm this mid-quest. Warehouse first; wear later.
 
-**`kitprep1` on Cloud B’s existing VM:** buy and bank **Wydin food**
-(Port Sarim `(3014,3204)` — cheese / banana / cabbage) plus Betty runes if
-`foodprobe1` is on death-watch. Park Draynor. Trade `foodprobe1` or `qstboot1`
-when asked. This is the first gather because elite banks are food-backed and
-our Waterfall / 1 HP corridor already stalls on empty inv.
+**B’s brain has one priority queue.** Do not pickpocket while A is dead in
+Lumbridge or missing a quest item B can buy in five minutes.
 
-`foodprobe1` stays mule + death-watch. `foodkill1` stays idle until a real
-1 HP clock. `kitprep1` is the first gatherer (already created). The next
-new body is `goonkit1` ([`names.md`](names.md)), only when the operator
-POST says so. Same VM. Never commit `bot.env`.
+| Priority | Body | Job |
+|---|---|---|
+| 1 | `foodprobe1` | Reactive mule. If `qstboot1` is in Lumbridge/Draynor/Falador: Betty `(3012,3259)` 6/6/6, Ned rope, food, trade. Death-watch. |
+| 2 | `kitprep1` | Proactive warehouse. GP → shop kit → bank Draynor. |
+| 3 | `foodkill1` | Idle until a real `sdk.getState()` 1 HP clock. |
+
+### Shop ladder (source-checked)
+
+| Stage | Kit | GP (weapon+chain+legs) | Shop tiles |
+|---|---|---|---|
+| **0 now** | Iron chain + legs + sword/scim | ~600 | Horvik `(3229,3438)` chain 210 / legs 280; Varrock sword `(3203,3397)` 91; Zeke scim `(3288,3190)` 112 |
+| **1** | Steel same | ~2,150 | Horvik / Wayne chain `(2973,3312)`; Louie legs `(3316,3175)`; Zeke |
+| **2** | Mith same | ~5,590 | Same shops |
+| **3** | Rune chain + legs + **longsword** | ~146k | **Scavvo** Champions Guild `(3191,3351)` L1 — **32 QP** (`champions_guild.rs2`). Stock 1, slow restock. **No rune scim in any shop** (smith 90 / trade). |
+| **4** | Dragon longsword | +100k | **Jakut** Zanaris `(3252,9572)` — Lost City complete + att 60. Stock 2. **Quester** opens this, not `kitprep1`. |
+| **5** | Glory | craft | No shop. Heroes’ = 55 QP + Lost City + Dragon Slayer + Merlin + Arrav. Not a gatherer quest. |
+| **6** | Rune platebody | +84.5k | Oziach after Dragon Slayer, or smith 99. |
+
+Food: Wydin cheese `(3014,3204)` (also Witch’s House item) → Brimhaven lobster `(2793,3188)` ~195 gp / 12 HP when GP allows. No monkfish. Shark is fish 76 / cook 80, no cooked-shark shop.
+
+GP that is not cows: flax → string, essence after Rune Mysteries, fish to Gerrant, leather gloves to Thessalia. General stores pay ~0 when overstocked.
+
+`kitprep1` is already created. Next new gatherer is `goonkit1` only after a POST.
+Never commit `bot.env`.
