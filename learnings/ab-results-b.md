@@ -323,6 +323,7 @@ bank tile `(2945,3366)`, HP 25, as the 1HP receive point; `kitprep1` unchanged a
 
 ### Step 2y — held the 1HP receive point
 foodprobe1 held the Falador bank `(2945,3366)` 1HP receive point for ~5 min with 4 food in inv — no leave, no death (`lifeId` unchanged).
+Held again ~5 min at `(2945,3368)` with 4 food in inv while A was in the Witch's House basement — no leave, no death (`lifeId=1` steady, HP 25 throughout).
 
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
