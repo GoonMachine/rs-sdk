@@ -52,3 +52,35 @@ no cow loop). Deferred to a later run.
   "empty polygon" lead** — live wins.
 - Death test used **two of our own junk accounts in low wild (Edgeville north)**, never
   the hill, never the Demonic Ruins, never the live 8-stack/goo.
+
+## Mule + rejoin lane (2026-08-16, Cloud Agent B)
+
+foodprobe1 reused as mule/rejoin runner (cb 13, HP 18, junk only: Shortbow, Bronze
+sword, Wooden shield). foodkill1 offline. Agent A owns quest combat.
+
+### Step 1 — Waterfall kit: **WEDGED (0 coins)**
+foodprobe1 has **0 gp** (all coins lost across the death tests; unskulled keep is only
+the 3 junk items). Cannot buy the 6 air / 6 water / 6 earth (Betty's, Port Sarim
+`(3012,3259)`), rope (general store / Ned Draynor, Draynor), or bread/cakes. Per
+contract: **no GP grind** — step skipped, kit plan recorded for a funded run.
+
+### Step 2 — Trade to Qstboot1: **SKIPPED (no kit)**
+Nothing to hand off (step 1 wedged). Live boards 02:32Z: `Qstboot1` online at Lumbridge
+`(3241,3211)` (Restless Ghost at the chapel — Agent A's job, controller **not** touched);
+`Qstprobe1` at `(3236,3578)`. Mule handoff deferred until a funded kit exists.
+
+### Step 3 — Full-HP rejoin clock (junk only) ✓
+Route: Lumbridge `(3222,3219)` → `(3335,3528)` → `(3334,3650)` → `(3334,3769)` →
+`(3335,3870)` → **STOP `(3303,3878)`** (ruins approach, wild ~45).
+
+- **Total wall-clock: 2.60 min (156.1s). Deaths: 0. HP at stop: 18/18 (full — labelled
+  full-HP, not 1 HP).**
+- Legs: WP0 80.5s (Lumbridge→corridor entrance incl. the one-time wilderness-warning
+  crossing), WP1 +26.1s, WP2 +24.1s, WP3 +18.6s, WP4 +6.8s.
+- Did **not** enter greater demons (last ~19 tiles), `(3284,3799)` spiders, or the hill.
+- Run energy is infinite here, so walk time is **HP-independent**: the real 1-HP post-PK
+  rejoin takes the same **~2.6 min** — only survivability differs. **This is the rejoin
+  baseline to beat after a PK.** The maxed 8-stack (cb ~123) cannot attack a cb-13 runner
+  in this corridor (cb-diff 110 > wild 45), so the walk itself is low-risk; mid-cb PKers
+  are the threat.
+- foodprobe1 left parked at `(3303,3878)`.
