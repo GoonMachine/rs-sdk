@@ -27,7 +27,9 @@ while local default is 400ms. Do not forecast from unchecked boxes.
       (`137500` tenths in `quest_waterfall.rs2`).
 - [x] PvP death respawns Lumbridge at 1 HP — **agent B**, 2026-08-16: two junk
       accounts, Edgeville wild 4. Victim respawned (3222,3218) at 1 HP (`death.rs2`
-      `stat_sub(hitpoints,…,1)`); kept 3 highest-cost items, dropped 15.
+      `stat_sub(hitpoints,…,1)`); kept 3 highest-cost items, dropped 15. Clean 1-HP
+      frame captured via the marked NPC-death respawn 1/18 (Codex's earlier read saw
+      `(3219,3219)` 2/10 mid-regen and missed frame 1). See `ab-results-b.md`.
 - [x] Death mark still blocks NPC-suicide full-heal — **agent B**, 2026-08-16:
       marked victim died to a Dark wizard at PvP+174s → respawn **1/18 HP**; the
       same NPC death at PvP+510s (mark expired) → **18/18 HP**. Duration
@@ -36,10 +38,14 @@ while local default is 400ms. Do not forecast from unchecked boxes.
       vertices (stand just inside / just outside) — **agent A**, disposable junk,
       do not attack
 - [x] `/playerpositions` and `/hiscores/koth` still match the dated snapshot —
-      **agent B**, 2026-08-16: 8-stack names all present and **back on the hill**
-      (~(3287,3885), `Tqckgxgj08` on crown, `Goo001` adjacent, both capturing now);
-      15 `goo` parked underground. Names match snapshot; occupancy is live-current
-      (supersedes Agent A's empty-polygon read). See `ab-results-b.md`.
+      **agent B**, 2026-08-16: 8-stack names all present and back on the hill
+      (~(3287,3885), `Tqckgxgj08` on crown, `Goo001` adjacent, both capturing);
+      15 `goo` parked underground. Consistent with Codex's recurring 1+7 / brief
+      all-inside convergence ([`live-probes-2026-08-15.md`](live-probes-2026-08-15.md)).
+      See `ab-results-b.md`.
+- [x] Production death-keep selector matches source for one disposable fixture:
+      worn shield + carried dagger + 25 arrows returned shield + dagger + one
+      arrow; 24 arrows dropped to the killer. Skulled/PI branches remain source-only.
 
 ## Diffs that change advice
 

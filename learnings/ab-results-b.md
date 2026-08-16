@@ -58,26 +58,35 @@ no cow loop). Deferred to a later run.
 foodprobe1 reused as mule/rejoin runner (cb 13, HP 18, junk only: Shortbow, Bronze
 sword, Wooden shield). foodkill1 offline. Agent A owns quest combat.
 
-### Step 1 — Waterfall kit: **RUNES BOUGHT; rope wedged**
+### Step 1 — Waterfall kit: **COMPLETE (6 air + 6 water + 6 earth + rope)**
 Started at 0 gp. Funded by **pickpocketing Lumbridge men** (`Man` cb2 at the castle):
 thieving **1 → 29**, ~**100 gp in ~2.5 min** (~3 gp/success; stuns frequent at low level,
 fall off fast). Walked to **Betty's Magic Emporium, Port Sarim `(3012,3259)`** and bought
 **6 air + 6 water + 6 earth** runes @ 4 gp = **72 gp** (30 gp left). Kit inv now:
 `Air rune x6, Water rune x6, Earth rune x6` (+ junk Shortbow/Bronze sword/Wooden shield).
-- **Rope = WEDGE (no fast source):** wiki lists rope only at distant general stores
-  (West Ardougne 21 gp, Khazard 25 gp, Lighthouse, etc.) — none near Lumbridge/Port
-  Sarim/Draynor. `Ned` (Draynor `(3100,3258)` / Rimmington `(2854,3235)`) only *makes*
-  rope from **4 balls of wool** (shear + spin grind). Per "fail fast / no grind," rope
-  deferred — Agent A can source it, or a later wool run. Runes are the deliverable part.
+- **Rope = ACQUIRED.** Looted from a **Barbarian Village Mugger** (cb6, rope 40/128).
+  Muggers *flee* hard: `bot.attack` returns on engagement, not kill, so a naive loop got
+  0 ropes in 55 "engagements". The working loop kill-confirms (npc index disappears) and
+  sweeps ground drops — 1 rope after ~140 attacks / 2 confirmed kills.
+- **Cleaner rope source for next time:** `Ned` at Draynor `(3100,3258)` **sells rope for
+  15 gp** ([`ned.rs2`](../server/content/scripts/areas/area_draynor/scripts/ned.rs2)) — buy
+  it, don't grind muggers. (The distant general stores in `wiki/items/rope.md` are all
+  Kandarin/Karamja; the `(3018,3185)` mugger spawn is unpathable from Draynor.)
 
-### Step 2 — Trade to Qstboot1: **HOLDING kit (partner not in range)**
-Walked back to Lumbridge and offered the runes, but `Qstboot1` was **not in range**
-(Agent A is mid–Restless Ghost — wizard's tower basement / graveyard, not the castle).
-Controller **not** touched. Per contract: **holding the kit**, parked at
-**`(3235,3214)`** (Lumbridge castle courtyard) ready to trade. Held: `Air rune x6,
-Water rune x6, Earth rune x6` (+ 30 gp, junk). Hand-off pending Qstboot1 returning to
-Lumbridge; `bot.trade(/qstboot1/i, {give:[air6,water6,earth6]})` is the call. Kit is safe
-in inventory (persists on the account; Lumbridge has no aggressive NPCs).
+### Step 2 — Trade to Qstboot1: **HOLDING full kit (partner not in range)**
+`Qstboot1` was repeatedly **not in range** (Agent A mid–Restless Ghost: wizard's tower /
+graveyard, not the castle). Controller **not** touched. **Holding the full kit**, parked
+at **`(3235,3213)`** (Lumbridge castle courtyard): `Air rune x6, Water rune x6, Earth
+rune x6, Rope x1` (+ 30 gp, junk). Hand-off pending Qstboot1 returning to Lumbridge;
+the call is `bot.trade(/qstboot1/i, {give:[air6,water6,earth6,rope1]})`. Kit is safe in
+inventory (persists on the account; Lumbridge has no aggressive NPCs).
+
+**Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
+spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
+dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
+falsely reported success over a level-difference refusal (SDK report `msv4vnr5-71583b41`),
+raw `sendInteractPlayer` + combat-state worked; victim had Prayer 1 so skulled/Protect-Item
+death branches remain source-only. See [`live-probes-2026-08-15.md`](live-probes-2026-08-15.md).
 
 ### Step 3 — Full-HP rejoin clock (junk only) ✓
 Route: Lumbridge `(3222,3219)` → `(3335,3528)` → `(3334,3650)` → `(3334,3769)` →
