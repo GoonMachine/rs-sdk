@@ -84,8 +84,20 @@ rune x6** (pure gift, received nothing). `bot.trade` result: `success=true`.
   Ghost / crypt). Controller **never** touched — foodprobe1 initiated from its own side.
 - Mule pipeline proven end-to-end: 0 gp → pickpocket men → Betty runes → mugger rope →
   serve trade to the quest bot. Ned (`(3100,3258)`, 15 gp) is the faster rope source next.
-- **Post-handoff:** foodprobe1 stays mule (30 gp, junk), parked near Lumbridge, ready to
-  ferry food / replacement kits on request.
+- **Post-handoff:** foodprobe1 stays mule, ready to ferry food / replacement kits.
+
+### Step 2b — RESUPPLY after Agent A's White Wolf death (2026-08-16 ~04:26 UTC)
+Agent A (`Qstboot1`) died on **White Wolf Mountain** and **lost the Waterfall runes** (kept
+the rope). Re-supplied: re-funded via Lumbridge men pickpocket (thieving 29, +102 gp/90s →
+132 gp), re-bought **6 air + 6 water + 6 earth** at Betty's (72 gp), then **traded runes to
+Qstboot1 at Port Sarim `(3013,3260)`** (it walked to meet foodprobe1; `bot.trade`
+success=true, gave 6/6/6, Qstboot1 kept its rope). Full kit restored. Mule pipeline
+survives a loss: pickpocket → Betty → trade, ~few min turnaround. Controller not touched.
+- Note: **Al Kharid kebab run wedged** at the toll gate — the border-gate toll needs a
+  3-step dialog ending in `p_choice3` "Yes, ok." (`border_gate.rs2`); `interactLoc(gate)` +
+  `navigateDialog` did not advance it, foodprobe1 stuck at `(3267,3227)`. No cheap-food
+  shop exists in Lumbridge/Draynor (source-checked); kebabs (1 gp, `kebab_seller.rs2`
+  Al Kharid 3272,3182) need working gate-toll dialog handling. Food remains unstocked.
 
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
