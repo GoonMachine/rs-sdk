@@ -294,6 +294,15 @@ a ladder, so its altar is likely upstairs, unverified). **Nearest confirmed F2P 
 recommend A restore prayer there (or Varrock church), not Falador. foodprobe1 returned to the
 Falador bank `(2945,3366)` and stays as the 1HP receive point.
 
+### Step 2v — Lumbridge church altar LIVE-CONFIRMED at (3243,3205)
+Walked to the Lumbridge church and found the **`Altar` at exactly `(3243,3205)`** (option
+**"Pray-at"**). Demonstrated a real restore: drained prayer to 0 (message *"You have run out
+of prayer points, you must recharge at an altar."*), then **Pray-at the altar → *"You recharge
+your prayer points."*** — points back to max. So **A's prayer-restore point after Witch's House
+= Lumbridge church altar `(3243,3205)`**, F2P, no requirement, right by the Lumbridge respawn/
+1HP corridor. foodprobe1 returned to the Falador bank `(2945,3366)` and stays as the 1HP
+receive point.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
