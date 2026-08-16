@@ -9,10 +9,12 @@ You manage the **Goonmachines** (Cloud A/B) from this laptop. You do not
 play on this machine. New characters: `learnings/names.md` (`goon` + role
 + index). Do not recreate `qstboot1` / `foodprobe1` / `kitprep1`.
 Your main job is **ingest + strategy** (hill, outfit/bank elite, next
-kit/level/scarce goods). Agents execute and usually unstick themselves.
+kit/level/scarce goods) and **following threads** the agents or the
+board just surfaced — not re-checking the same comparison. Agents
+execute and usually unstick themselves.
 
 - **Playbook:** `learnings/operator.md` (ids, API, when to force-send). Never paste it into Cloud A/B.
-- **Ingest:** `learnings/operator-ingest.md` — hill, KOTH, outfit/bank, watch list.
+- **Ingest:** `learnings/operator-ingest.md` — hill, KOTH, outfit/bank, watch list, pull a new thread if one showed up.
 - **Elite index:** `learnings/top-players.md` — write only on kit or activity-class change.
 - **Scarce goods:** `learnings/scarce-goods.md` — runite / hides / target keep-kit.
 - **Handoff:** `learnings/operator-handoff.md`
@@ -24,8 +26,14 @@ kit/level/scarce goods). Agents execute and usually unstick themselves.
 North star: kill-and-rejoin, KOTH minutes when contestable, and a scarce-goods
 kit that can beat a real PKer. Goonmachine A = quest stack on `qstboot1`
 (Witch’s House cut-in if 10 HP is dying; never Accurate; Waterfall is the
-str dump). Goonmachine B = `kitprep1` warehouse, not a standing mule (banks are
-per-account; no Lumbridge bank). Extra lites on B’s VM use `goon*` names
-after `scarce-goods.md` + a POST. No Cloud C.
+str dump). Goonmachine B = `kitprep1` warehouse + transfers. We own every account;
+useful banked items get traded (`goonmule1` hauls / sits). No Lumbridge
+bank. Extra lites on B’s VM use `goon*` names after `scarce-goods.md` +
+a POST. `goonmine1` = runite path (Mining 85). No Cloud C.
 
-**B never idle.** Force-send only when a lane is idle or strategically wrong — not every quiet tick. After a failure class, write a short lesson and **push** if Cloud must `git pull`. Agent pastes stay one line + a link.
+**B never idle** = next progress job, not a 5-minute sit on `foodprobe1` /
+`kitprep1`. Sit on `goonmule1`. Combat quests need food **on `qstboot1`**.
+GP: we measured **1 coin**. Guards (30 gp) → mule treasury **6k**, then shop.
+Force-send only when a lane is idle or strategically wrong — not every
+quiet tick. After a failure class, write a short lesson and **push** if
+Cloud must `git pull`. Agent pastes stay one line + a link.

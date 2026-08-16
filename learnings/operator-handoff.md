@@ -22,6 +22,8 @@ Operator branch: `main`. Cloud writes: `cloud/ab-a`, `cloud/ab-b`.
    / `foodkill1` credentials.
 5. Stop any old operator 60s loop so two chats do not double-steer.
 6. `/loop 60s` with the prompt in `operator.md`. **B never idle.**
+   Follow threads that bubble up from A/B — do not rotate a fixed
+   research list. See [`operator-ingest.md`](operator-ingest.md).
 
 If the old VMs are dead and you have secrets: new Cloud agents, paste
 [`cloud-agent-a.md`](cloud-agent-a.md) +
@@ -37,16 +39,17 @@ new names, do not share names across lanes.
 | Playbooks, wiki coords, A/B pastes, skills, this snapshot | API key, `bot.env`, running Cloud VMs, old chat transcripts |
 | Agent **ids** and watch URLs | The key that authorizes them |
 
-## Snapshot (2026-08-16 ~05:45 UTC)
+## Snapshot (2026-08-16 ~10:30 ET)
 
 Live tiles move. Re-fetch `/playerpositions` before you steer.
 
 | Who | Character | Last tile | Job |
 |---|---|---|---|
-| **A** | `qstboot1` | Falador-south `(2939,3314)`, no controller | Ghost + Vampire done. Waterfall mid (`opened_book_on_baxtorian`) but **10 HP death spiral** in Golrie. **Witch’s House cut-in** (gloves + cheese). att 68 / str ~1. Never Accurate. |
-| **B** | `foodprobe1` | Draynor `(3092,3243)` | Spare on the bank tile. Not a watcher. |
-| **B** | `kitprep1` | Lumbridge `(3218,3218)` | **B’s real job:** iron warehouse in his bank. Trade A only at Draynor. |
-| **B** | `foodkill1` | Lumbridge `(3219,3218)` | Idle until a real 1 HP clock. |
+| **A** | `qstboot1` | Witch basement shock gates `(2902,9874)` | Witch’s House. att 68 / str ~1 / hp 10 / pray 47. Need **food on this body** before the shed. Never Accurate. |
+| **B** | `kitprep1` | Draynor `(3092,3245)` | Warehouse. Iron banked. Shrimp → steel. Do not sit. |
+| **B** | `foodprobe1` | Falador `(2945,3368)` | Food runner → trade A. Not a sit. |
+| **B** | `goonmule1` | spawn | Falador sit / 1 HP receive. |
+| **B** | `foodkill1` | logged off | Idle until a real 1 HP clock. |
 
 Known jams (already in files — do not re-learn):
 

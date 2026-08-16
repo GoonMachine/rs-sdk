@@ -109,12 +109,8 @@ of Buy-1 packets.
 
 ## Money-Making Alternatives
 
-Since general stores are unreliable for selling, consider:
-
-| Method | GP/Hour (approx) | Requirements |
-|--------|------------------|--------------|
-| Pickpocketing men | ~50-100 GP | Thieving 1+ |
-| Mining copper/tin | Variable | Mining 1+, pickaxe |
-| Fishing shrimp | Variable | Fishing 1+, net |
-
-Combat drops (bones, hides) are only valuable if you can find a specialized buyer or player to trade with.
+Do **not** sell into general stores. Coins live on `goonmule1` (target 6k).
+If the mule is empty, **guard-pickpocket** (30 gp, thieve 40) — not men at
+3 gp. If a specialty shop is still **stock 0**, sell there only (Drogo ore
+is the one on the miner path). See [`scarce-goods.md`](scarce-goods.md) GP
+section. Shrimp is food, not GP.

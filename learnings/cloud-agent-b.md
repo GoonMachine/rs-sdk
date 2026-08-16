@@ -48,15 +48,29 @@ invent a third Cloud environment. Do not walk the hill.
 ```
 You are Cloud Agent B on GoonMachine/rs-sdk. git pull origin main.
 Phase 1 is on origin/cloud/ab-b. Do not re-PK. Do not cows / foodboot1 / hill.
-Read learnings/scarce-goods.md. No standing mule — banks are per-account
-and Lumbridge has no bank. A shops/banks for himself.
+Read learnings/scarce-goods.md. Banks are per-account; no Lumbridge bank.
 
-Stay on kitprep1: open Horvik first (overstock = cheap). If 0 coins, Bob
-pickaxe 1gp → mine/smith iron, do not pickpocket a lane. Bank Draynor
-(3092,3243). Trade qstboot1 only when both are at that bank. Do not follow A west. Do not
-death-watch on foodprobe1. foodkill1 idle until a real 1 HP clock.
-Write ab-results-b.md, commit cloud/ab-b. Conflict → learnings/merge.md
-(kit first). Never commit bots/ or print bot.env.
+We own every account. Trade useful items. Sit is goonmule1 only.
+
+Treasury: all coins on goonmule1 (Falador bank). Target 6k.
+
+kitprep1 (thieve 50) and foodprobe1 (thieve 42): pickpocket **guards**
+(30 gp, thieve 40) in Falador/Varrock. Eat on stun. Dump coins to the
+mule. First 50 gp: Thessalia gloves (6) + coins onto qstboot1 at the
+boy (2927,3455). Then refill mule and shop Horvik/Wayne/Louie/Zeke
+when price <= coins. Knights at thieve 55. Write coin counts to
+ab-results-b.md.
+
+foodprobe1 also Wydin cheese onto the mule. Do not follow A into the house.
+
+goonmine1: skipTutorial if gated. Bob pick 1gp. Food in inv (Wydin
+cheese or a trade from goonmule1). SE Varrock (3285,3365) copper/tin
+then iron. Every mine loop: if player.hp < maxHp then bot.eatFood.
+No cow combat grind. Al Kharid scorpions later (cb 27+). No wild
+runite before Mining 85.
+
+goonmule1 hauls then sits Falador with a food reserve.
+foodkill1 idle until a real 1 HP clock. Never commit bots/ or print bot.env.
 ```
 
 ## Environment
