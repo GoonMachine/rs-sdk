@@ -2,9 +2,9 @@
 
 Successful patterns for thieving training.
 
-**Current lane (2026-08-16):** fleet measured **1 coin**. `kitprep1` (50) and
-`foodprobe1` (42) pickpocket **guards** (30 gp, thieve 40), eat on stun, dump
-to `goonmule1`. Men are emergency 6 gp only. Knights at 55.
+**Current lane (2026-08-16):** fleet measured **1 coin**. **`kitprep1` only**
+pickpockets **guards** (30 gp, thieve 40), eat on stun, dump to `goonmule1`.
+`foodprobe1` fishes. Men are emergency 6 gp only. Knights at 55.
 
 ## Falador / Varrock guards (level 40+)
 

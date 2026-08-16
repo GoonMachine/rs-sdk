@@ -33,7 +33,8 @@ a POST. `goonmine1` = runite path (Mining 85). No Cloud C.
 
 **B never idle** = next progress job, not a 5-minute sit on `foodprobe1` /
 `kitprep1`. Sit on `goonmule1`. Combat quests need food **on `qstboot1`**.
-GP: we measured **1 coin**. Guards (30 gp) → mule treasury **6k**, then shop.
+GP: we measured **1 coin**. `kitprep1` guards (30 gp) → mule treasury **6k**, then shop.
+`foodprobe1` fishes (shrimp → trout → lobster → sword → shark). `goonmine1` stays on Mining 85.
 Force-send only when a lane is idle or strategically wrong — not every
 quiet tick. After a failure class, write a short lesson and **push** if
 Cloud must `git pull`. Agent pastes stay one line + a link.

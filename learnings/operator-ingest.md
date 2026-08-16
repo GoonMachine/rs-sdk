@@ -15,7 +15,7 @@ KOTH minute, **and** a scarce-goods kit that survives a real PKer.
 |---|---|---|
 | **Leveling** | Witch’s House **now** (10 HP death spiral), then Waterfall (str dump), then TGV/Arena/Grail. Never Accurate. Do not grind def. Scorer has no stay-under cap. Pile is 80–(scorer−1). See stack file. | A finishes a quest; hill is empty of 123s |
 | **Equips** | Hill trip: cheap replaceable. Configured-cost keep in `death.rs2`. Unskulled 3, skulled 0 unless PI. Do not copy goo’s rune 3-piece onto an attacker. Bank the elite kit off-hill ([`scarce-goods.md`](scarce-goods.md)). | `/hiscores/outfit` top kit or KOTH median loadout changes |
-| **Consumables** | Cheap food for the 1 HP corridor. Waterfall: rope + 6 air/water/earth. Bones unnecessary after Restless Ghost (pray 47). | Next `.rs2` item list; mule inventory |
+| **Consumables** | `foodprobe1` fishes the warehouse (trout 7 → lobster 12 → sword 14 → shark 20). Shops are stock 2–3. Wydin cheese is the 2 hp quest stack. Waterfall: rope + 6 air/water/earth. | `foodprobe1` fishing level; mule cooked stack |
 | **Scarce goods** | Runite + black d'hide are the trade goods ([`owner-context.md`](owner-context.md)). Bank-hiscore gold is a trap; a **6k mule treasury** is shop lubricant ([`scarce-goods.md`](scarce-goods.md)). Follow a new thread if A/B or the board surfaces one. | Outfit elite moves; a watched name farms a contested spawn; an agent reports a new skill, shop, or “can’t” |
 | **Fleet** | Two VMs. **No standing mule.** A self-banks (Draynor/Falador). B = `kitprep1` warehouse + scheduled Draynor trade. Extra low-cb bodies add zero KOTH score. | kitprep finishes iron; 8-stack leaves |
 

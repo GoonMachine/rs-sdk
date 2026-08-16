@@ -54,20 +54,22 @@ We own every account. Trade useful items. Sit is goonmule1 only.
 
 Treasury: all coins on goonmule1 (Falador bank). Target 6k.
 
-kitprep1 (thieve 50) and foodprobe1 (thieve 42): pickpocket **guards**
-(30 gp, thieve 40) in Falador/Varrock. Eat on stun. Dump coins to the
-mule. First 50 gp: Thessalia gloves (6) + coins onto qstboot1 at the
-boy (2927,3455). Then refill mule and shop Horvik/Wayne/Louie/Zeke
-when price <= coins. Knights at thieve 55. Write coin counts to
-ab-results-b.md.
+kitprep1 (thieve 50): the **printer**. Falador guards (30 gp). Eat on
+stun. First 50 gp: Thessalia gloves (6) + coins onto qstboot1 at the
+boy (2927,3455). Then dump to mule. Shop when price <= coins.
+Knights at 55. Write coin counts to ab-results-b.md.
 
-foodprobe1 also Wydin cheese onto the mule. Do not follow A into the house.
+foodprobe1: **food warehouse, not guards.** Fishing/cooking unranked.
+Gerrant (3013,3225) net + fly rod + feathers. Draynor net (3087,3230)
+shrimp, cook Lumbridge range (3230,3196), dump cooked on the mule.
+Fish 20: Barb lure (3110,3434) trout/salmon. Fish 40: Musa pot
+(2923,3179), boat 30 gp. Fish 50: swordfish. Fish 76: try shark
+(members=yes). Shops are stock 2–3 — do not buy the farm. Wydin
+cheese is the 2 hp quest stack. Do not follow A into the house.
 
-goonmine1: skipTutorial if gated. Bob pick 1gp. Food in inv (Wydin
-cheese or a trade from goonmule1). SE Varrock (3285,3365) copper/tin
-then iron. Every mine loop: if player.hp < maxHp then bot.eatFood.
-No cow combat grind. Al Kharid scorpions later (cb 27+). No wild
-runite before Mining 85.
+goonmine1: **do not detach.** SE Varrock (3285,3365) eat-loop to
+Mining 85. Coal 30 / mith 55 / addy 70 when they unlock. Food in inv.
+No cow grind. No pickpocket. No smith-for-GP. No wild runite before 85.
 
 goonmule1 hauls then sits Falador with a food reserve.
 foodkill1 idle until a real 1 HP clock. Never commit bots/ or print bot.env.
