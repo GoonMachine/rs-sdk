@@ -97,7 +97,15 @@ survives a loss: pickpocket → Betty → trade, ~few min turnaround. Controller
   3-step dialog ending in `p_choice3` "Yes, ok." (`border_gate.rs2`); `interactLoc(gate)` +
   `navigateDialog` did not advance it, foodprobe1 stuck at `(3267,3227)`. No cheap-food
   shop exists in Lumbridge/Draynor (source-checked); kebabs (1 gp, `kebab_seller.rs2`
-  Al Kharid 3272,3182) need working gate-toll dialog handling. Food remains unstocked.
+  Al Kharid 3272,3182) need working gate-toll dialog handling.
+
+### Step 2c — Mule food stocked + parked for re-kit (2026-08-16 ~04:29 UTC)
+Cheap-food source that works (no Al Kharid): **Wydin's Food Store, Port Sarim `(3014,3204)`**
+(`wydin.rs2` → `[foodshop]` inv). Bought **3 cheese, 3 banana, 3 cabbage, 1 chocolate bar**
+(10 items; per-item stock is only 1–3 so a single visit is small, restocks over time),
+~31 gp. foodprobe1 now **parked at Draynor `(3092,3245)`** with 29 gp + 10 food — central
+for re-kit (Betty runes at Port Sarim, Ned rope at Draynor `(3100,3258)`, short hop to the
+quest corridor). Ready to re-supply Qstboot1 again if A dies. HP full → no 1-HP clock.
 
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
