@@ -535,6 +535,21 @@ pickpockets**; `foodprobe1` (thieve 42) got 30gp in **1**. Bootstrapped eat-on-s
 - **Closed loop:** guard GP → `goonmule1` (→ steel/gloves for A); shrimp food → `goonmule1`
   (→ re-supply the guard-thief and A). No shop GP needed for food; guard GP funds the kit.
 
+### Step 12 — pipeline unstuck: mule coins 300 → 420; Mining 90
+The mule was stuck at 300 for a long time due to three compounding bugs, now fixed:
+1. **Orphaned duplicate controllers** — restarting supervisors without killing the old `bun`
+   child left 2–3 grind processes fighting over `kitprep1`, causing `BotDisconnectedError`
+   thrash and zero progress. Fix: one controller per lane, verified with `ps`.
+2. **Dead pool** — `goonmule1 pool.ts` timed out (~26 min) and wasn't supervised, so dumps
+   had no receiver. Fix: `pool-goonmule1` tmux supervisor (auto-restart).
+3. **Dump out of range** — `kitprep1` tried to trade `goonmule1` from the guard tile
+   (~11 tiles); trades need adjacency. Fix: dump now walks to `goonmule1`'s actual tile
+   before trading, and dumps at a low threshold (≥100 / ≥60 on flee) so progress lands.
+Result: **first real dump landed (`ok=true`), goonmule1 now holds 420 coins** (+7 shrimp),
+climbing toward 6k. `goonmine1` reached **Mining 90** (537k xp) on safe SE Varrock rocks —
+no wilderness, no lava maze, no KBD. All four lanes + pool run under single-controller tmux
+supervisors. Throughput is still gated by cb-126 players farming the same Falador guards.
+
 ### Step 11 — Mining 85 reached; guard printer fixed (flee-on-catch)
 - **`goonmine1` hit Mining 85** (378,875 xp) on the SE Varrock iron eat-loop — runite is now
   unlocked (all 5 runite rocks are wilderness per `scarce-goods.md`; needs a dedicated wild
