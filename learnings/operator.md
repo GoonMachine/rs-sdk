@@ -1,0 +1,84 @@
+# Operator only — do not paste into Cloud A/B
+
+Audience: **you (the laptop)**. Cloud agents get a short lane paste plus
+shared files they open when stuck. They must not read this file.
+
+North star: PK kill-and-rejoin, then KOTH minutes. Do not clone goo or the
+8-stack. **Keep steering.** Write-back is extra, not a substitute.
+
+## Need to know
+
+Always-on context stays small. Details live in files you open when the
+class shows up — same idea as a skill description vs its body.
+
+| When | Open |
+|---|---|
+| Who reads what | [`README.md`](README.md) |
+| NPC / loc / “coords are wrong” | [`lookup.md`](lookup.md), then `wiki/npcs/`, then `.jm2` |
+| Quest / shop dialog ate the wrong option | [`dialog.md`](dialog.md) |
+| Walk, death, HP, killer | [`observe-fidelity.md`](observe-fidelity.md) |
+| Quest order / XP | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md) |
+| A’s current job | [`cloud-agent-a-phase2.md`](cloud-agent-a-phase2.md) |
+| B’s current job | [`cloud-agent-b.md`](cloud-agent-b.md) (launch block) |
+
+Do not paste operator notes into A/B. Do not put A’s jobs in B’s file.
+Agent pastes stay **one line + a link**. New lesson → a short shared file,
+not another paragraph on the paste.
+
+A lesson that is **not pushed** does not exist on the VM. Same turn as the
+write: commit + push `learnings/`, `wiki/`, `.cursor/rules/`,
+`.cursor/skills/` to `GoonMachine/rs-sdk` `main`, then POST
+`git pull origin main` (do not cancel a run that is already on the right
+physical step — pull on the next job).
+
+## Roles
+
+| | Operator | Cloud A | Cloud B |
+|---|---|---|---|
+| Job | Tiles, streams, force-send, playbook write-back | 25× quest stack on `qstboot1` | Mule + 1 HP rejoin on `foodprobe1` |
+| Do not | Lite / `cdx*` here. Third VM for the same lane. | Cows, hill, B’s bots | Cows, `foodboot1`, new names, hill, A’s quests |
+
+## Live facts (do not re-measure)
+
+- Tick **300.3 ms**. Quest XP **25×**. Polygon `(3288,3879)` IN / `(3288,3878)` OUT.
+- PvP death → Lumbridge ~`(3222,3218)` at **1 HP**. Mark ~300s. Regen is not blocked.
+- Wild: `abs(cb diff) <= min(wild)`; `wild = (z-3520)/8+1`.
+- Need **cb ≥ 77** vs 123 at wild 46. Restless Ghost first. Do not stop after Waterfall.
+- Phase 1 is on `origin/cloud/ab-a` and `origin/cloud/ab-b`.
+
+## Steer loop
+
+- **60s**. Tiles + controllers + latest run. Peek the stream if the tile has
+  not moved. Public `/status/:name` is name + tile + controller — not HP.
+- Force-send if jammed. `CREATING` often will not cancel — POST anyway.
+  Cancel a `RUNNING` wander; wait ~2s on `409 agent_busy`.
+- **B never idle.** The tick a B run `FINISHED`, POST the next job.
+- One controller per bot. Never commit `bots/*/` or print `bot.env`.
+- A: `bc-9ef936bf-19d3-4e78-bc92-189fe6d15015`
+- B: `bc-426ffd7b-4368-4f0c-9d16-8e1a6e158d1b`
+
+## Diagnose before you shove
+
+If an agent says you are wrong, **look it up** (`lookup.md`) before sending
+another nearby tile. Peek the stream for the class (wrong building, dialog
+ate option 1, writing `check.ts`, unattributed death). Do not cancel a run
+that is already walking the right direction.
+
+## Write-back (class → file)
+
+| Class | Write to |
+|---|---|
+| **lookup** | [`lookup.md`](lookup.md), `wiki/npcs/` |
+| **dialog** | [`dialog.md`](dialog.md) |
+| **observe** | [`observe-fidelity.md`](observe-fidelity.md) |
+| **sdk** | one line on the agent paste, or a snippet |
+| **steer / comms** | this file (principle, not the tile) |
+
+First time: force-send with live tile + source path. Second time, same
+class: write the file before the next POST, then push.
+
+## Force-send
+
+Every POST: live `/playerpositions` tile, one source path, next physical
+step, what not to research. Lite `sdk.getState()` is the HP/combat
+endpoint. `/status` is not.

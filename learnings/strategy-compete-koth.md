@@ -124,13 +124,14 @@ rune vs junk kits, 4 vs 8 bodies, or two fleets on the same hill.
 
 Reserved bot prefixes (max 12 alphanumeric). Do not touch `agentmachine`.
 
-| Agent | Phase 1 (parallel) | Phase 2 (A/B) | Bots |
+| Agent | Phase 1 (parallel) | After Phase 1 (A won the A/B) | Bots |
 |---|---|---|---|
-| **A** (quest) | Prod tick clock; quest XP via Cook's Assistant (`stat_advance(cooking, 3000)` in `quest_cook.rs2`); polygon stand-in / stand-out | Waterfall first (`stat_advance(attack/strength, 137500)` tenths in `quest_waterfall.rs2`). Later quests only after a source check of that quest script | `qstprobe1`, `qstboot1` |
-| **B** (food) | Junk-only PvP death in **low wild** (two fresh accounts; not the hill); death-mark duration; `/playerpositions` + `/hiscores/koth` | Lumbridge rats / goblins / cows + bury bones. Infinite run helps travel, not DPS | `foodprobe1`, `foodkill1`, `foodboot1` |
+| **A** (quest) | Tick, Cook's 25×, polygon — **done** on `cloud/ab-a` | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md): Restless Ghost → Vampire → Waterfall (prot melee) → TGV / Arena → Witch's House / Holy Grail. Do not stop after Waterfall. | `qstprobe1`, `qstboot1` |
+| **B** (mule / rejoin) | Junk PvP 1 HP + mark + boards — **done** on `cloud/ab-b` | **Not cows.** Reuse `foodprobe1`: mule Waterfall kit, trade `qstboot1`, time 1 HP walk to `(3303,3878)` eastern corridor. | `foodprobe1`, `foodkill1` |
 
-Paste-ready launch text: [`cloud-agent-a.md`](cloud-agent-a.md),
-[`cloud-agent-b.md`](cloud-agent-b.md). Write results to
+Paste-ready **agent** text: [`cloud-agent-a.md`](cloud-agent-a.md),
+[`cloud-agent-b.md`](cloud-agent-b.md). Operator steer:
+[`operator.md`](operator.md) (do not paste into A/B). Write results to
 [`ab-results-a.md`](ab-results-a.md) / [`ab-results-b.md`](ab-results-b.md).
 
 Winner of Phase 2 is **wall-clock minutes** to both:

@@ -23,7 +23,7 @@ None.
 ## Walkthrough
 
 1. Speak to **Father Aerick** at the **Lumbridge Chapel** south of the castle. He asks for help with a ghost haunting the graveyard.
-2. Travel south into the Lumbridge Swamp and speak to **Father Urhney** in his house. He gives you a **Ghostspeak amulet**.
+2. Travel to **Father Urhney** at **(3235, 3153)** (SE Lumbridge Swamp, `m50_49.jm2` npc 458). Not the OSRS west-swamp hut at (3147, 3174). He gives you a **Ghostspeak amulet**.
 3. Equip the Ghostspeak amulet and enter the graveyard behind the chapel. Open the coffin and speak to the **Restless Ghost**. He tells you his skull was stolen and taken to the Wizard Tower.
 4. Travel to the **Wizard Tower** south of Draynor Village. Go down the ladder to the basement.
 5. Search the altar in the basement to find the **Ghost's skull**. A level 13 **Skeleton** will appear; evade or ignore it.
@@ -34,7 +34,7 @@ None.
 | NPC / Location         | Where                                        |
 |------------------------|----------------------------------------------|
 | Father Aerick          | Lumbridge Chapel, south of Lumbridge Castle   |
-| Father Urhney          | House in Lumbridge Swamp                      |
+| Father Urhney          | `(3235, 3153)` SE swamp (`m50_49` npc 458)    |
 | Restless Ghost         | Coffin in Lumbridge Chapel graveyard          |
 | Ghost's skull          | Wizard Tower basement altar                   |
 | Skeleton (level 13)    | Wizard Tower basement (spawns on skull pickup)|
