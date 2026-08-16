@@ -25,3 +25,8 @@ Waterfall Golrie: surface climb-down is `loc_1754` at **`(2533, 3155)`**
 Golrie himself is `(2515, 9581)` (`m39_149` `0 19 45: 306`). Elkoy
 (`elkoy.rs2`) only leads the maze after Tree Gnome Village has **started** —
 the intro is flavor, not an escort.
+
+Witch’s House: boy is `ballboy` (`boy.rs2`), long garden north of Taverley.
+Nora T. Hagg patrols `0_45_54_*_7` → house ~`(2930, 3463)`. Iron gate needs
+**worn** `leather_gloves` or it shocks. Cheese on the mouse hole. Do not
+tile-ring Taverley — `findNearbyNpc(/^boy$/i)` from the garden.

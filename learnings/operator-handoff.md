@@ -37,30 +37,25 @@ new names, do not share names across lanes.
 | Playbooks, wiki coords, A/B pastes, skills, this snapshot | API key, `bot.env`, running Cloud VMs, old chat transcripts |
 | Agent **ids** and watch URLs | The key that authorizes them |
 
-## Snapshot (2026-08-16 ~03:14 UTC)
+## Snapshot (2026-08-16 ~05:45 UTC)
 
 Live tiles move. Re-fetch `/playerpositions` before you steer.
 
 | Who | Character | Last tile | Job |
 |---|---|---|---|
-| **A** | `qstboot1` | Wizard Tower basement `(3104,9576)` | Restless Ghost: get skull, then graveyard coffin. Do not cancel if still on that step. Then Vampire → Waterfall (B’s kit if traded). |
-| **B** | `foodprobe1` | walking Draynor `(3175,3252)` (had a controller) | Rope from Draynor muggers (~31%), park Lumbridge, trade `Qstboot1` when A is in range. Has runes. Do not invent a clean 1 HP clock. |
-| **B** | `foodkill1` | Lumbridge `(3219,3218)` | Idle helper. Do not start a new PK. |
-| leftover | `qstprobe1` | `(3236,3578)` | Phase 1 scout. Not a job. |
+| **A** | `qstboot1` | Falador-south `(2939,3314)`, no controller | Ghost + Vampire done. Waterfall mid (`opened_book_on_baxtorian`) but **10 HP death spiral** in Golrie. **Witch’s House cut-in** (gloves + cheese). att 68 / str ~1. Never Accurate. |
+| **B** | `foodprobe1` | Draynor `(3092,3243)` | Spare on the bank tile. Not a watcher. |
+| **B** | `kitprep1` | Lumbridge `(3218,3218)` | **B’s real job:** iron warehouse in his bank. Trade A only at Draynor. |
+| **B** | `foodkill1` | Lumbridge `(3219,3218)` | Idle until a real 1 HP clock. |
 
-| Agent | Latest run at snapshot | Branch on origin |
-|---|---|---|
-| A `bc-9ef936bf-…` | `run-86475753-…` was RUNNING the skull step | `cloud/ab-a` `de0a265ba` |
-| B `bc-426ffd7b-…` | `run-0e4c118a-…` force-sent: stop merging markdown, get rope | `cloud/ab-b` `4c86ddde1` |
-| B2 `bc-52c85732-…` | leave idle | — |
+Known jams (already in files — do not re-learn):
 
-Known jams this session (already in shared files — do not re-learn):
-
-- Urhney is `(3235, 3153)`, not OSRS west-swamp. [`lookup.md`](lookup.md)
-- Aereck start line is **"I'm looking for a quest!"** [`dialog.md`](dialog.md)
-- `/status` is not HP. Unnamed death = invalid clock. [`observe-fidelity.md`](observe-fidelity.md)
-- B sat in Lumbridge merging `ab-results-b.md` instead of walking. [`merge.md`](merge.md).
-- A walked to Taverley at cb 3 once. Restless Ghost first. Do not send Waterfall until pray 47.
+- Urhney `(3235, 3153)`. Aereck **"I'm looking for a quest!"**
+- `/status` is not HP. [`observe-fidelity.md`](observe-fidelity.md)
+- Golrie ladder `(2533, 3155)`. Elkoy is not an escort until TGV started.
+- 10 HP + Golrie = Lumbridge loop. HP via Witch’s House, not a def grind.
+- Vampire overtrains **attack** only. Strength = Waterfall. Never Accurate.
+- B pickpocket must not starve a death-watch / quest-item trade.
 
 ## Do not
 

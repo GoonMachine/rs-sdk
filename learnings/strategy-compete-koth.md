@@ -11,6 +11,38 @@ The hill 8-stack is occupancy, not the gear elite. Index
 KOTH ignores worn gear for **scoring**. Gear still decides a fight against
 `brotha` / `hoplite`, not against `Tqckgxgj08`.
 
+## Scorer vs King of the Hill (same hill, three games)
+
+**King of the Hill** is the minigame in [`Koth.ts`](../server/engine/src/engine/Koth.ts).
+Every wall-clock minute, among players **inside the ruins polygon** (plane 0,
+not staff, visible): **highest combat wins one minute**. Gear is snapshotted
+for the hiscore sprite and does **not** pick the winner. Empty hill → no king,
+incumbent lost. Equal max combat → incumbent keeps it; else random among the
+tie. Crown chat is local (24 tiles of `(3289,3886)`), not a score proof.
+
+**Scorer** is *our role* for that minigame: the one body we park inside who is
+uniquely highest combat among *us* (and, to win, among everyone inside). Never
+skulls. Cheap keep kit. The **king** is whoever the server named
+`currentHolder` this sample — an outcome, not a loadout.
+
+**Pile** is a different role on the same hill: same wilderness *band* as the
+target (`cb ≥ 80` to touch a 126 at wild 46), expected to skull, **must stay
+under the scorer** or they steal our minute if they step inside.
+
+| Game | Wins by | Converges to | Beat goo by |
+|---|---|---|---|
+| **Score** | Highest cb in the polygon at the sample | 123–126 + occupancy. Goo’s 139k rune 3-piece is a keep kit, not a DPS kit. | Outlevel (126 vs 123), **or** kill their inside body (Lumbridge 1 HP ~5 min) and stand the sample, **or** take minutes while they are elsewhere (often). |
+| **Fight** | Max hit + stay alive | 340k band first: **d-long + rune plate + glory**. Then d-med / d-chain / black hide / runite. Brotha’s full dragon is the ceiling, not the first target. | Goo’s 3-piece loses this fight. Do not copy it onto a skulled pile. |
+| **Rejoin** | Banked food + a body that can walk wild 46 at 1 HP | Self-bank at Draynor (no Lumbridge bank). Scheduled trade only. | Their walk-back is the window we score in. |
+
+These three **diverge**. A dragon sq on the scorer eats keep slots and dies
+for a minute gear does not award. A 50-cb pile cannot attack a 123 here.
+Eight extra combat-3s add **zero** minutes.
+
+`qstboot1` is the scorer *path* (levels). He is not the king until he is
+inside at sample time with uniquely highest combat. Do not walk him onto a
+full 123 hill.
+
 If a dated snapshot and live `/playerpositions` disagree, **live wins**.
 If Discord and this checkout disagree, **source wins** until a live probe
 says production drifted.
@@ -72,7 +104,23 @@ One scoring body + seven just outside
         → our highest-cb account stands the minute sample
 ```
 
-## Role contracts (four-account canary)
+## Current swarm (now — two Cloud VMs)
+
+Do not add a Cloud C. Four lites already exist. The failure class this session
+was **one brain on pickpocket while the quester death-spiraled at 10 HP**.
+
+| Body | VM | Priority | Job now |
+|---|---|---|---|
+| `qstboot1` | A | **1** | Quest + **his own bank**. Shop gloves/cheese/runes himself. Bank extras at Falador/Draynor before caves. Witch’s House → Waterfall → stack. Never Accurate. |
+| `kitprep1` | B | **1** | Warehouse in *his* bank. Iron → steel → Wydin. Scheduled Draynor trade only. |
+| `foodprobe1` | B | spare | Parked at Draynor bank. Not a death-watch. |
+| `foodkill1` | B | idle | Real 1 HP clock. Self-banks food before the trip. |
+
+B’s one model stays on **`kitprep1`**. Do not follow A. A mule exists only
+to **trade between banks** — not to carry A’s Waterfall kit. Next bodies
+(`goonpile1`, `goonscor1`) only after cb ≥ 80 and the 1 HP rejoin is boring.
+
+## Role contracts (later four-account canary)
 
 Fleet: **Goonmachines**. Names: [`names.md`](names.md). Max 12
 alphanumeric. `bun bots/create-bot.ts <name>`. Never commit `bots/*/`.
@@ -83,7 +131,7 @@ Keep `qstboot1` / `foodprobe1` / `foodkill1` / `kitprep1`. New bodies are
 | Role | Job | Skull | Combat |
 |---|---|---|---|
 | **Scorer** (trainer first) | Uniquely highest combat among *our* bodies. Stands inside the polygon for the minute sample. Never initiates. | Never | Highest |
-| **Pile A / Pile B** | Same combat band as the target. Focus one challenger in multiway. Expected to skull. | Yes | Compatible with wild 46 |
+| **Pile A / Pile B** | Same combat band as the target. Focus one challenger in multiway. Expected to skull. | Yes | **cb 80–(scorer−1)** at wild 46. Floor 80 hits 126s; stay under the scorer so a pile inside the polygon cannot steal the minute. Not a 1-def / sub-70 pure — that bracket is low-wild, and a 50 cannot touch a 123 here. |
 | **Mule / recovery** | Food, cheap kits, Lumbridge 1 HP pickup, rejoin path. Trades, does not ground-drop scarce goods. | No | Irrelevant |
 
 Later, only after source-checked Magic 20/50/79: a **binder** (10-tile range,
@@ -142,7 +190,7 @@ Reserved bot prefixes (max 12 alphanumeric). Do not touch `agentmachine`.
 
 | Agent | Phase 1 (parallel) | After Phase 1 (A won the A/B) | Bots |
 |---|---|---|---|
-| **A** (quest) | Tick, Cook's 25×, polygon — **done** on `cloud/ab-a` | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md): Restless Ghost → Vampire → Waterfall (prot melee) → TGV / Arena → Witch's House / Holy Grail. Do not stop after Waterfall. | `qstprobe1`, `qstboot1` |
+| **A** (quest) | Tick, Cook's 25×, polygon — **done** on `cloud/ab-a` | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md): Ghost → Vampire → **Witch’s House if 10 HP is killing Waterfall caves** → Waterfall (str dump) → TGV / Arena → Holy Grail. Never Accurate. Do not grind def. | `qstprobe1`, `qstboot1` |
 | **B** (mule / rejoin) | Junk PvP 1 HP + mark + boards — **done** on `cloud/ab-b` | **Not cows.** Reuse `foodprobe1`: mule Waterfall kit, trade `qstboot1`, time 1 HP walk to `(3303,3878)` eastern corridor. Extra lites on **this same VM** only after [`scarce-goods.md`](scarce-goods.md) names a first gather. | `foodprobe1`, `foodkill1`, later +1 gatherer |
 
 Paste-ready **agent** text: [`cloud-agent-a.md`](cloud-agent-a.md),
@@ -155,6 +203,8 @@ Winner of Phase 2 is **wall-clock minutes** to both:
 
 - Prayer 25 (Protect Item) — [`prayers.dbrow`](../server/content/scripts/skill_prayer/configs/prayers.dbrow)
 - Combat ≥ 77 (so `abs(cb − 123) ≤ 46` at the hill)
+
+That 77 is **eligibility**, not the finish. Contested minutes need uniquely highest combat (live 123–126). Fight quality is Strength + Defence/HP after Attack overflows from the quests. Attack-style policy is in the stack file — quest dumps ignore style; fire giants and the post-stack grind do not.
 
 Stop the slower path when one is clearly ahead. A third Cloud agent is spare
 concurrency, not more information.

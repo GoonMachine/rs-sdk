@@ -25,12 +25,16 @@ Then, one quest at a time, source `.rs2` first, wiki last, fail fast 10–30s,
 write `ab-results-a.md` + commit `cloud/ab-a` after each complete
 (conflict → [`merge.md`](merge.md); quest step first):
 
-1. Vampire Slayer (`quest_vampire.rs2`)
-2. Waterfall (`quest_waterfall.rs2`). Prot melee on. White Wolf = Taverley →
-   Catherby **trail**, not south of z=3400. Rope, 6 air, 6 water, 6 earth.
-   Agent B may mule these — accept a trade from `foodprobe1` if offered.
-3. Tree Gnome Village → Fight Arena
-4. Witch's House (`quest_ball.rs2`) / Merlin's Crystal → Holy Grail
+1. Vampire Slayer (`quest_vampire.rs2`) — **done** (att 68, str still ~1)
+2. **Witch’s House now** if Waterfall caves are killing 10 HP
+   (`quest_ball.rs2`). Taverley. Worn leather gloves + cheese. Prot melee.
+   Combat style **Aggressive / Strength** — do not train Attack. Then
+   Waterfall (`quest_waterfall.rs2`) — that is the strength dump. Prot melee.
+   White Wolf = Taverley → Catherby **trail**. Rope, 6 air, 6 water, 6 earth.
+   Shop and bank **yourself** (Falador `(2945,3366)`, Draynor `(3092,3243)`).
+   No Lumbridge bank. Do not wait for a mule.
+3. Tree Gnome Village → Fight Arena (more attack, free; never Accurate)
+4. Merlin’s Crystal → Holy Grail (defence dump, cb 77+)
 
-Do **not** stop after Waterfall (cb ~65, not 77). No hill, no extra bots, no
-quest-script survey, no foodprobe1 control.
+Do **not** grind defence/strength on cows. Do **not** stop after Waterfall.
+No hill, no extra bots, no quest-script survey, no foodprobe1 control.
