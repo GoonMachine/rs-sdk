@@ -26,7 +26,19 @@ Golrie himself is `(2515, 9581)` (`m39_149` `0 19 45: 306`). Elkoy
 (`elkoy.rs2`) only leads the maze after Tree Gnome Village has **started** —
 the intro is flavor, not an escort.
 
-Witch’s House: boy is `ballboy` (`boy.rs2`), long garden north of Taverley.
-Nora T. Hagg patrols `0_45_54_*_7` → house ~`(2930, 3463)`. Iron gate needs
-**worn** `leather_gloves` or it shocks. Cheese on the mouse hole. Do not
-tile-ring Taverley — `findNearbyNpc(/^boy$/i)` from the garden.
+Witch’s House (`m45_54.jm2` / `m45_154.jm2`, loc.sym). Boy `(2927,3455)`.
+Do **not** name-match random pots. Interact the loc on the tile:
+
+| Loc | Id | World |
+|---|---|---|
+| `witchpot` Look-under | 2867 | **`(2900, 3474)`** |
+| `witchhousedoor` | 2861 | **`(2901, 3473)`** — the locked door *is* this |
+| `witchbackdoor` | 2862 | `(2901, 3465)` |
+| `witchmousehole` | 2870 | `(2903, 3466)` — use cheese |
+| `witchfountain` Check | 2864 | `(2909, 3470)` |
+| `witchsheddoor` | 2863 | `(2934, 3463)` |
+| Ladder down `1754` | 1754 | `(2907, 3476)` → z+6400 |
+| `magnetcbshut` basement | 2868 | `(2898, 9873)` |
+| Shock gates | 2865/2866 | `(2902, 9873)` / `(2902, 9874)` — **worn** leather gloves |
+
+Cheese: Wydin `(3014,3204)`. Gloves: Thessalia `(3204,3417)`. No mule.
