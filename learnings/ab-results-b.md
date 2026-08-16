@@ -219,6 +219,15 @@ foodprobe1 had 0 gp so it declined and returned to the Draynor bank tile. **Wate
 re-supply reference is now complete: runes 72 gp @ Betty (stock 1000), rope 15 gp @ Ned
 (unlimited).**
 
+### Step 2o — Lumbridge→Draynor corridor rehearsal (safe, food): ~1 min, 0 deaths
+Timed the **safe** resupply/regroup route with 8 food carried: **Lumbridge respawn
+`(3222,3218)` → Draynor bank `(3092,3243)` = 58.6 s (0.98 min)**, `reached=true`,
+**died=false** (verified by unchanged `lifeId=1 / respawnCount=0`, per observe-fidelity — not
+walkTo success). This is the friendly-side rejoin: a body that respawns at Lumbridge reaches
+the Draynor warehouse/bank in ~1 min with no hazard. (Contrast: the deep-wild ruins-approach
+corridor to `(3303,3878)` was ~2.6 min movement but lethal to a lone cb-low body.) foodprobe1
+banked its leftover food and stays on the Draynor bank tile.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
