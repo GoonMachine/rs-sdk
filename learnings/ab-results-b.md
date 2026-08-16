@@ -84,3 +84,20 @@ Route: Lumbridge `(3222,3219)` → `(3335,3528)` → `(3334,3650)` → `(3334,37
   in this corridor (cb-diff 110 > wild 45), so the walk itself is low-risk; mid-cb PKers
   are the threat.
 - foodprobe1 left parked at `(3303,3878)`.
+
+### Step 3b — 1-HP clock attempt: **NOT cleanly captured (unattributed deaths)**
+Retries to get a MARKED (1-HP) respawn failed, verified via the death-tracking state
+(`respawnCount`/`lifeId`/`lastDeathTick`), not walkTo "success":
+- foodkill1 reached the staging tile to find `victim=NONE` — foodprobe1 had already died
+  to a wild NPC/PKer while idle and respawned **unmarked at full HP** (no mark → full HP,
+  not 1). The corridor therefore re-ran at **full HP (START 19/19)**, i.e. redundant with
+  the 2.60-min baseline (clocked 2.62 min).
+- Death-tracking dump (foodprobe1 now back at Lumbridge (3221,3219), tick 4850):
+  `respawnCount=3, lifeId=4, lastDeathTick=4481, isDead=false, inCombat=false`; two
+  `Oh dear you are dead!` game lines at ticks **3747** and **4481**. The runner **died
+  again at/after the (3303,3878) stop** (deep wild ~45) and respawned Lumbridge.
+- **Conclusion:** a lone cb-14 junk runner does **not** survive parked at the ruins
+  approach — it is killed in deep wilderness. So the realistic 1-HP rejoin is NOT a clean
+  2.6-min walk-and-stand; a rejoiner needs escort/timing or a shallower hold tile. Treat
+  **~2.6 min as the movement lower bound only**, not a survivable 1-HP rejoin. Correct
+  death signal for future clocks = `respawnCount`/`lifeId` deltas (walkTo success is not).
