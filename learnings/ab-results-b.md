@@ -535,6 +535,18 @@ pickpockets**; `foodprobe1` (thieve 42) got 30gp in **1**. Bootstrapped eat-on-s
 - **Closed loop:** guard GP → `goonmule1` (→ steel/gloves for A); shrimp food → `goonmule1`
   (→ re-supply the guard-thief and A). No shop GP needed for food; guard GP funds the kit.
 
+### Step 13 — mule climbing (780) despite guard contention; Mining 92
+Falador guards are **heavily contested** by cb-126 players (Settled, Skillspecs) who kill the
+guards faster than kitprep1 can pickpocket — so throughput is a slow trickle, not zero. The
+pickpocketable "knights" (50gp) are **Knights of Ardougne** (Ardougne market, far west); the
+Falador White Knights are stationary/combat NPCs, **not** pickpocketable. Sending kitprep1 to
+Ardougne would strand its GP ~400 tiles from the Falador mule (breaking the co-located dump)
+on an already-flaky connection, so kept it on Falador guards. Fix for the trickle: **lowered
+the dump threshold to 60** so contended earnings still land on the mule. Result: **mule
+300 → 420 → 780** (multiple `ok=true` dumps), climbing toward 6k. `goonmine1` **Mining 92**
+(639k xp) on safe SE Varrock rocks — no wilderness. Note: demo-server `BotDisconnectedError`
+still flaps control connections; the tmux supervisors auto-recover.
+
 ### Step 12 — pipeline unstuck: mule coins 300 → 420; Mining 90
 The mule was stuck at 300 for a long time due to three compounding bugs, now fixed:
 1. **Orphaned duplicate controllers** — restarting supervisors without killing the old `bun`
