@@ -44,3 +44,5 @@ Do not paste context-prefixed runner expressions into `execute_code`.
   slot.
 
 See [`../sdk/API.md`](../sdk/API.md) for exact signatures.
+
+Live-server meta from the project owner (economy, wilderness, what is already saturated) lives in [`owner-context.md`](owner-context.md). Read that before picking a long-horizon goal.

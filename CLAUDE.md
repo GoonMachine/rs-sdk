@@ -334,3 +334,18 @@ wiki/
 - **The server discarded the op.** A refused op (mid-action, stunned, target gone or out of view, bad option) gets `UNSET_MAP_FLAG` and nothing else - no message, no error. A blocking modal is worse: the op is accepted and the trigger never runs. Check `state.opFeedback.opRejectedCount` around a send, and gate loops on an observed effect rather than on a timer.
 
 Start small and build up!
+
+## Cursor Cloud specific instructions
+
+Cloud agents run on Ubuntu VMs. This checkout talks to the **demo server** (`rs-sdk-demo.fly.dev`), not RuneBench. Tick/XP multipliers from bench do not apply here.
+
+1. `bun` and `server/webclient` deps are installed by `.cursor/environment.json`. Put `export PATH="$HOME/.bun/bin:$PATH"` at the top of any new shell.
+2. Do **not** launch Chromium. Use the headless lite client:
+   `cd server/webclient && bun src/lite/runner.ts <botname>`
+3. Create bots with `bun bots/create-bot.ts <name>` (max 12 alphanumeric). `bots/*/` is gitignored — never commit `bot.env`.
+4. Standalone `script.ts` does not auto-open a client. Start lite first, then `bun bots/<name>/script.ts`.
+5. One VM can run several lite processes. Demo-server cap is **200 logins per IP**; world cap is 2048. Start with 2–5 bots, not 200.
+6. Read `learnings/owner-context.md` before a long-horizon goal. Hiscores are total level / playtime (cap 1881).
+7. Hold accounts lightly. Demo persistence is not guaranteed.
+8. Do not put bot passwords in prompts, PRs, or this file. Use Cursor Secrets if a credential must survive a VM.
+
