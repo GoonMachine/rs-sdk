@@ -13,11 +13,11 @@ KOTH minute, **and** a scarce-goods kit that survives a real PKer.
 
 | Lever | Default (until live data says otherwise) | Recheck when |
 |---|---|---|
-| **Leveling** | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md) on `qstboot1`. Restless Ghost first. Do not stop after Waterfall. | A finishes a quest; hill is empty of 123s (highest-cb-in-polygon could score earlier) |
+| **Leveling** | Witch’s House **now** (10 HP death spiral), then Waterfall (str dump), then TGV/Arena/Grail. Never Accurate. Do not grind def. Scorer has no stay-under cap. Pile is 80–(scorer−1). See stack file. | A finishes a quest; hill is empty of 123s |
 | **Equips** | Hill trip: cheap replaceable. Configured-cost keep in `death.rs2`. Unskulled 3, skulled 0 unless PI. Do not copy goo’s rune 3-piece onto an attacker. Bank the elite kit off-hill ([`scarce-goods.md`](scarce-goods.md)). | `/hiscores/outfit` top kit or KOTH median loadout changes |
 | **Consumables** | Cheap food for the 1 HP corridor. Waterfall: rope + 6 air/water/earth. Bones unnecessary after Restless Ghost (pray 47). | Next `.rs2` item list; mule inventory |
 | **Scarce goods** | Runite + black d'hide are the trade goods ([`owner-context.md`](owner-context.md)). GP / bank-hiscore gold is a trap. | Outfit elite moves; a watched name farms a contested spawn |
-| **Fleet** | Two Cloud VMs. Extra lites on **B’s VM** after a first gather is written. Extra low-cb bodies add zero KOTH score. | 8-stack or goo leaves the hill; our scorer exists; kit file names a gather |
+| **Fleet** | Two VMs. B priority: trade/death-watch **beats** kitprep warehouse. Extra low-cb bodies add zero KOTH score. | A lumbs; kitprep finishes iron; 8-stack leaves |
 
 Live boards beat a dated snapshot. This checkout beats OSRS memory.
 
@@ -51,9 +51,9 @@ are a prior, not a hunt list.
 
 1. Positions: who is inside a ruins box (~3270–3310, 3860–3900), who is on
    the two 1+7 tiles, how many `goo*` are on the hill, where **our** three
-   names are, and where the [`top-players.md`](top-players.md) watch list
-   is standing (`brotha`, `hoplite`, `goo001`, plus outfit-top-20 who are
-   online).
+   names plus any `goon*` ([`names.md`](names.md)) are, and where the
+   [`top-players.md`](top-players.md) watch list is standing (`brotha`,
+   `hoplite`, `goo001`, plus outfit-top-20 who are online).
 2. KOTH day + all: top 5, last-held, all-time delta vs last tick if you
    cached it. One sample per wall-clock minute — that is why the loop is 60s.
 3. Outfit + bank top 10 (HTML `data-item-id` / `title` — WebFetch strips

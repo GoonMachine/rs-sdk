@@ -28,6 +28,7 @@ class shows up — same idea as a skill description vs its body.
 | Quest order / XP | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md) |
 | A’s current job | [`cloud-agent-a-phase2.md`](cloud-agent-a-phase2.md) |
 | B’s current job | [`cloud-agent-b.md`](cloud-agent-b.md) (launch block) |
+| New character name | [`names.md`](names.md) — `goon` + role + index. Do not recreate live chars. |
 
 Do not paste operator notes into A/B. Do not put A’s jobs in B’s file.
 Agent pastes stay **one line + a link**. New lesson → a short shared file,
@@ -43,7 +44,7 @@ physical step — pull on the next job).
 
 | | Operator | Cloud A | Cloud B |
 |---|---|---|---|
-| Job | Ingest hill **and** outfit/bank/watch-list. Steer quest + mule + scarce-goods ladder. Unstick only when a lane is idle or strategically wrong. | 25× quest stack on `qstboot1` | Mule + 1 HP rejoin on `foodprobe1`. Extra lite on **this VM** only after [`scarce-goods.md`](scarce-goods.md) names a first gather. |
+| Job | Ingest hill **and** outfit/bank/watch-list. Steer the **Goonmachines** fleet. Unstick only when a lane is idle or strategically wrong. | Goonmachine A: 25× quest stack on `qstboot1` | Goonmachine B: mule + 1 HP rejoin on `foodprobe1`. Extra lite on **this VM** only after [`scarce-goods.md`](scarce-goods.md) + [`names.md`](names.md). |
 | Do not | Lite / `cdx*` here. Third Cloud VM. Micromanage every quiet tick. | Cows, hill, B’s bots, runite mid-quest | Cows, `foodboot1`, hill at low cb, A’s quests, a new Cloud environment |
 
 ## Live facts (do not re-measure)
@@ -51,7 +52,9 @@ physical step — pull on the next job).
 - Tick **300.3 ms**. Quest XP **25×**. Polygon `(3288,3879)` IN / `(3288,3878)` OUT.
 - PvP death → Lumbridge ~`(3222,3218)` at **1 HP**. Mark ~300s. Regen is not blocked.
 - Wild: `abs(cb diff) <= min(wild)`; `wild = (z-3520)/8+1`.
-- Need **cb ≥ 77** vs 123 at wild 46. Restless Ghost first. Do not stop after Waterfall.
+- Need **cb ≥ 77** vs 123 / **≥ 80** vs 126 at wild 46. Restless Ghost first.
+  Witch’s House before more Golrie if HP is 10. Waterfall is the strength dump.
+  Never Accurate after Vampire. Do not grind def.
 - Phase 1 is on `origin/cloud/ab-a` and `origin/cloud/ab-b`.
 
 ## Secrets (never git, never chat, never A/B paste)

@@ -80,6 +80,7 @@ Unskulled 3, skulled 0 unless Protect Item.
 
 | Role | Wear / carry | Do not |
 |---|---|---|
+| **Quester (`qstboot1`)** | Shop **iron** at least: chain `(3229,3438)` Horvik 210gp, sword `(3203,3397)` 91gp, legs 280gp. Att 68 can wear steel/mith weapons; def 1 still wears iron plate. Equip after Vampire. Drop weapons+runes only for Glarial’s tomb. | Naked + bronze after att 68. Rune 3-piece on a skulled trip. |
 | **Scorer (unskulled)** | Three cheap replaceable slots. Food if it still keeps. | Dragon sq / chain / baxe. goo’s rune 3-piece *fits* keep — do not copy it onto a **skulled** attacker. |
 | **Pile (skulled)** | Protect Item on; one PI candidate (cheap weapon); food you will lose. | Any dragon piece. Any 139K 3-piece. |
 | **Banked scarce (off-hill)** | Dragon longsword (first real upgrade), then med helm, then hide body/vambraces, then glory. Shark / Wydin food stacks. Stein-style rune warehouse if we smith. | Walking this set to wild 46 before 1 HP rejoin is boring. Wearing the 500k sq shield as a scorer (it will eat keep slots). |
@@ -87,17 +88,35 @@ Unskulled 3, skulled 0 unless Protect Item.
 First **fight** upgrade after cb ≥ 77: one dragon longsword + rune plate, glory
 if Heroes’ is done. That is the 340K band, not brotha’s museum.
 
-## First gather (B’s VM, one extra lite)
+## Background kit pipeline (B’s VM)
 
-Not runite (mining 85). Not black dragons (combat 227). Not cows (A/B loser).
-Not the hill.
+Not runite (mining 85). Not black dragons (combat 227). Not cows. Not the hill.
+`qstboot1` does **not** farm this mid-quest. Warehouse first; wear later.
 
-**`kitprep1` on Cloud B’s existing VM:** buy and bank **Wydin food**
-(Port Sarim `(3014,3204)` — cheese / banana / cabbage) plus Betty runes if
-`foodprobe1` is on death-watch. Park Draynor. Trade `foodprobe1` or `qstboot1`
-when asked. This is the first gather because elite banks are food-backed and
-our Waterfall / 1 HP corridor already stalls on empty inv.
+**B’s brain has one priority queue.** Do not pickpocket while A is dead in
+Lumbridge or missing a quest item B can buy in five minutes.
 
-`foodprobe1` stays mule + death-watch. `foodkill1` stays idle until a real
-1 HP clock. Create `kitprep1` only when the operator POST says so. One name,
-same VM, `bun bots/create-bot.ts kitprep1` then lite. Never commit `bot.env`.
+| Priority | Body | Job |
+|---|---|---|
+| 1 | `foodprobe1` | Reactive mule. If `qstboot1` is in Lumbridge/Draynor/Falador: Betty `(3012,3259)` 6/6/6, Ned rope, food, trade. Death-watch. |
+| 2 | `kitprep1` | Proactive warehouse. GP → shop kit → bank Draynor. |
+| 3 | `foodkill1` | Idle until a real `sdk.getState()` 1 HP clock. |
+
+### Shop ladder (source-checked)
+
+| Stage | Kit | GP (weapon+chain+legs) | Shop tiles |
+|---|---|---|---|
+| **0 now** | Iron chain + legs + sword/scim | ~600 | Horvik `(3229,3438)` chain 210 / legs 280; Varrock sword `(3203,3397)` 91; Zeke scim `(3288,3190)` 112 |
+| **1** | Steel same | ~2,150 | Horvik / Wayne chain `(2973,3312)`; Louie legs `(3316,3175)`; Zeke |
+| **2** | Mith same | ~5,590 | Same shops |
+| **3** | Rune chain + legs + **longsword** | ~146k | **Scavvo** Champions Guild `(3191,3351)` L1 — **32 QP** (`champions_guild.rs2`). Stock 1, slow restock. **No rune scim in any shop** (smith 90 / trade). |
+| **4** | Dragon longsword | +100k | **Jakut** Zanaris `(3252,9572)` — Lost City complete + att 60. Stock 2. **Quester** opens this, not `kitprep1`. |
+| **5** | Glory | craft | No shop. Heroes’ = 55 QP + Lost City + Dragon Slayer + Merlin + Arrav. Not a gatherer quest. |
+| **6** | Rune platebody | +84.5k | Oziach after Dragon Slayer, or smith 99. |
+
+Food: Wydin cheese `(3014,3204)` (also Witch’s House item) → Brimhaven lobster `(2793,3188)` ~195 gp / 12 HP when GP allows. No monkfish. Shark is fish 76 / cook 80, no cooked-shark shop.
+
+GP that is not cows: flax → string, essence after Rune Mysteries, fish to Gerrant, leather gloves to Thessalia. General stores pay ~0 when overstocked.
+
+`kitprep1` is already created. Next new gatherer is `goonkit1` only after a POST.
+Never commit `bot.env`.

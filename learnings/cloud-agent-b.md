@@ -48,12 +48,13 @@ invent a third Cloud environment. Do not walk the hill.
 ```
 You are Cloud Agent B on GoonMachine/rs-sdk. git pull origin main.
 Phase 1 is on origin/cloud/ab-b. Do not re-PK. Do not cows / foodboot1 / hill.
-Read learnings/scarce-goods.md. Create kitprep1 on THIS VM only if the
-operator POST says so. Otherwise stay on foodprobe1.
+Read learnings/scarce-goods.md (priority queue + shop ladder).
 
-Reuse foodprobe1. Buy Waterfall kit (Betty 3012,3259 + rope + food).
-Trade qstboot1 if in range. Death-watch if A is west. Then time 1 HP walk
-to (3303,3878) eastern corridor; stop before demons.
+Priority: if qstboot1 is in Lumbridge/Draynor/Falador/Varrock, foodprobe1
+trades Betty 6/6/6 + rope + Wydin cheese + food. kitprep1: Thessalia
+leather gloves (3204,3417) if A still needs Witch’s House items, then
+Horvik iron warehouse. Do not follow A to Taverley/Golrie.
+foodkill1 stays idle until a real 1 HP clock.
 Write ab-results-b.md, commit cloud/ab-b. Conflict → learnings/merge.md
 (kit first). Never commit bots/ or print bot.env.
 ```
@@ -71,10 +72,10 @@ This VM talks to the **demo server** `rs-sdk-demo.fly.dev`, not RuneBench.
 3. Do **not** launch Chromium. Lite client only:
    `cd server/webclient && bun src/lite/runner.ts <botname>`
 4. Create bots with `bun bots/create-bot.ts <name>` (max 12 alphanumeric).
-   Reserved names: **`foodprobe1`** (victim), **`foodkill1`** (killer for the
-   death test), **`foodboot1`** (Phase 2 trainer; may reuse `foodprobe1` after
-   the mark expires if that is simpler).
-   Do not use `agentmachine`, `qstprobe1`, or `qstboot1`.
+   You are a **Goonmachine**. Keep `foodprobe1` / `foodkill1` / `kitprep1`.
+   New names: [`names.md`](names.md) — `goon` + role + index (`goonkit1`,
+   `goonmule1`, …). Do not use `foodboot1`, `goo*`, `agentmachine`, or
+   A’s `qstboot1`.
 5. `bots/*/` is gitignored. Never commit `bot.env` or print a password.
 6. Start lite first, then `bun bots/<name>/script.ts`.
 7. One controller per bot. Fail fast: 10–30s scripts until a loop is proven.
