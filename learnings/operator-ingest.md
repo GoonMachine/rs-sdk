@@ -6,17 +6,18 @@
 
 You evaluate the world. Agents execute lanes. They unstick themselves most
 of the time. Your main job is to ingest live data and decide whether the
-current plan is still the fastest path to a kill-and-rejoin, then KOTH
-minutes.
+current plan is still the fastest path to a kill-and-rejoin, a contestable
+KOTH minute, **and** a scarce-goods kit that survives a real PKer.
 
 ## What you optimize
 
 | Lever | Default (until live data says otherwise) | Recheck when |
 |---|---|---|
 | **Leveling** | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md) on `qstboot1`. Restless Ghost first. Do not stop after Waterfall. | A finishes a quest; hill is empty of 123s (highest-cb-in-polygon could score earlier) |
-| **Equips** | Cheap replaceable. Configured-cost keep in `death.rs2`. Unskulled 3, skulled 0 unless PI. Do not copy goo’s rune 3-piece onto an attacker. | `/hiscores/outfit` or KOTH median loadout changes |
+| **Equips** | Hill trip: cheap replaceable. Configured-cost keep in `death.rs2`. Unskulled 3, skulled 0 unless PI. Do not copy goo’s rune 3-piece onto an attacker. Bank the elite kit off-hill ([`scarce-goods.md`](scarce-goods.md)). | `/hiscores/outfit` top kit or KOTH median loadout changes |
 | **Consumables** | Cheap food for the 1 HP corridor. Waterfall: rope + 6 air/water/earth. Bones unnecessary after Restless Ghost (pray 47). | Next `.rs2` item list; mule inventory |
-| **Fleet** | Two lanes, then a 4-account canary. Extra low-cb bodies add zero score. | 8-stack or goo leaves the hill; our scorer exists |
+| **Scarce goods** | Runite + black d'hide are the trade goods ([`owner-context.md`](owner-context.md)). GP / bank-hiscore gold is a trap. | Outfit elite moves; a watched name farms a contested spawn |
+| **Fleet** | Two Cloud VMs. Extra lites on **B’s VM** after a first gather is written. Extra low-cb bodies add zero KOTH score. | 8-stack or goo leaves the hill; our scorer exists; kit file names a gather |
 
 Live boards beat a dated snapshot. This checkout beats OSRS memory.
 
@@ -37,7 +38,7 @@ prayer, food, or who started the fight.
 | `https://rs-sdk-demo.fly.dev/hiscores/koth?window=day\|week\|all&profile=main` | HTML. Minutes + last held. Day/week roll; use **all** for short deltas |
 | `https://rs-sdk-demo.fly.dev/hiscores/outfit?profile=main` | HTML. Configured-cost kits |
 | `https://rs-sdk-demo.fly.dev/hiscores/bank?profile=main` | HTML. Wealth prior |
-| `https://rs-sdk-demo.fly.dev/hiscores/player/<name>?profile=main` | Combat / skills for a name on the hill |
+| `https://rs-sdk-demo.fly.dev/hiscores/player/<name>?profile=main` | Skills + playtime + **rank outliers** (what they rushed). Not current activity. |
 | `https://rs-sdk-demo.fly.dev/mapview/` | Eyes only |
 | `https://rs-sdk-demo.fly.dev/status/<name>` | Our controller + tile |
 
@@ -50,15 +51,21 @@ are a prior, not a hunt list.
 
 1. Positions: who is inside a ruins box (~3270–3310, 3860–3900), who is on
    the two 1+7 tiles, how many `goo*` are on the hill, where **our** three
-   names are.
+   names are, and where the [`top-players.md`](top-players.md) watch list
+   is standing (`brotha`, `hoplite`, `goo001`, plus outfit-top-20 who are
+   online).
 2. KOTH day + all: top 5, last-held, all-time delta vs last tick if you
    cached it. One sample per wall-clock minute — that is why the loop is 60s.
-3. A/B run status. **B never idle** (FINISHED → next physical job).
-4. One sentence: **hold** the current lanes, or **change** (empty hill,
-   swarm returned, quest done, kit gap).
+3. Outfit + bank top 10 (HTML `data-item-id` / `title` — WebFetch strips
+   canvases; curl the raw page). Flag gold-only banks.
+4. A/B run status. **B never idle** (FINISHED → next physical job).
+5. One sentence: **hold** the current lanes, or **change** (empty hill,
+   swarm returned, quest done, kit gap, gear elite moved).
 
-Do not write a new snapshot file every tick. Write only when the formation
-or the leader changed in a way that should change our phase.
+Do not write a new snapshot file every tick. Write
+[`top-players.md`](top-players.md) only when the top outfit kit or a
+watched name’s **activity class** changed (hill / bank / mine / offline).
+Formation notes stay short; live wins over the dated 8-stack snapshot.
 
 ## Research (operator, not the VM)
 
@@ -92,6 +99,7 @@ shove a nearby tile because a script has been quiet for one tick.
 | What changed | Write |
 |---|---|
 | Formation / who scores | short note; live wins over the dated snapshot |
-| New keep-kit or food meta | [`strategy-compete-koth.md`](strategy-compete-koth.md) loadout box, or a one-liner on the agent paste |
+| Gear elite / watched tile class | [`top-players.md`](top-players.md) |
+| New keep-kit or food meta | [`strategy-compete-koth.md`](strategy-compete-koth.md) loadout box, or [`scarce-goods.md`](scarce-goods.md) |
 | Next quest items | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md) only if the order/XP was wrong |
 | Steer principle | [`operator.md`](operator.md) |

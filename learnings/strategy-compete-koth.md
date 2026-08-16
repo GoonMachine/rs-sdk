@@ -1,8 +1,15 @@
 # Strategy: compete, counter, then hold
 
-**North star:** prove we can kill and rejoin, then convert that into KOTH
-capture minutes. Do not clone the 8-body junk stack or the 25-account goo
-bench.
+**North star:** a fleet that can (1) kill and rejoin, (2) hold a KOTH minute
+when the hill is contestable, and (3) **win a fight against a real kit** by
+stacking scarce goods and the methods that produce them. Do not clone the
+8-body junk stack or the 25-account goo bench. GP and “look like goo” are
+non-goals.
+
+The hill 8-stack is occupancy, not the gear elite. Index
+[`top-players.md`](top-players.md) and [`scarce-goods.md`](scarce-goods.md).
+KOTH ignores worn gear for **scoring**. Gear still decides a fight against
+`brotha` / `hoplite`, not against `Tqckgxgj08`.
 
 If a dated snapshot and live `/playerpositions` disagree, **live wins**.
 If Discord and this checkout disagree, **source wins** until a live probe
@@ -50,7 +57,7 @@ minute sample, repeat.
 |---|---|---|
 | One scorer at `(3288,3886)` + seven maxed junk/empty bodies just outside at `(3284,3884)` | Only the inside highest-combat body scores in the recurring shape; the seven can converge quickly; no tele off wild 46 | Displace or outlevel the scorer at a sample; treat the seven as a response stack, not seven passive capture points |
 | goo 25 / 20 historical scorers, rune 3-piece kit, often elsewhere | Kit is death-safe only unskulled; 15 were not defending | Do not fight their bench. Contest the hill while they are away. If they return, pile the scorer, not the kit |
-| Daily board led by a shortbow iron-helm account | KOTH ignores gear | Do not buy rune to look like goo. Buy food, prayers, and replacement bodies |
+| Daily board led by a shortbow iron-helm account | KOTH ignores gear for **score** | Do not buy rune to look like goo on the hill. Bank a scarce kit off-hill ([`scarce-goods.md`](scarce-goods.md)). Food, prayers, and replacement bodies still win the first trip |
 | Deterministic workers, no model on the tick | Coordination is the scarce skill | Same: lite hot loops; model only for plan/recover |
 
 Do **not** start with 8 or 25 accounts. Start with 4 once combat exists. Extra
@@ -95,9 +102,12 @@ every trip. See [`death.rs2`](../server/content/scripts/player/scripts/death.rs2
   one deliberate PI candidate plus food you will lose. Never a rune 3-piece.
 - **Mule:** holds replacements off the hill. Use `bot.trade` /
   `bot.serveTrades`, not the pickpocket swarm’s public drop handoff.
+- **Banked scarce kit:** runite / black d'hide / the elite logout pieces in
+  [`top-players.md`](top-players.md). Do **not** walk this onto the hill
+  until the 1 HP rejoin loop is boring. Configured-cost keep still applies.
 
-Failure is a lost rune kit or a wedged script. Success is a kill, a 1 HP
-rejoin, and later a capture minute.
+Failure is a lost scarce kit or a wedged script. Success is a kill, a 1 HP
+rejoin, a capture minute, and a bank that can re-kit after a real PKer.
 
 ## Phases
 
@@ -113,8 +123,9 @@ every probe.
 - Measure prod tickrate and whether quest XP is 25x. **Agent A**
 - Scout the live polygon vs `Koth.ts` vertices. **Agent A**
 - One junk-only PvP death in low wild to confirm 1 HP + death-mark duration. **Agent B**
-- Re-read `https://rs-sdk-demo.fly.dev/playerpositions` and
-  `/hiscores/koth` at the start of every session. The 8-stack can vanish. **Agent B**
+- Re-read `https://rs-sdk-demo.fly.dev/playerpositions`,
+  `/hiscores/koth`, `/hiscores/outfit`, and `/hiscores/bank` at the start
+  of every session. Gear elite ≠ hill elite. The 8-stack can vanish. **Operator + B**
 
 ### 2. Combat bootstrap (not KOTH) — two-agent A/B
 
@@ -127,7 +138,7 @@ Reserved bot prefixes (max 12 alphanumeric). Do not touch `agentmachine`.
 | Agent | Phase 1 (parallel) | After Phase 1 (A won the A/B) | Bots |
 |---|---|---|---|
 | **A** (quest) | Tick, Cook's 25×, polygon — **done** on `cloud/ab-a` | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md): Restless Ghost → Vampire → Waterfall (prot melee) → TGV / Arena → Witch's House / Holy Grail. Do not stop after Waterfall. | `qstprobe1`, `qstboot1` |
-| **B** (mule / rejoin) | Junk PvP 1 HP + mark + boards — **done** on `cloud/ab-b` | **Not cows.** Reuse `foodprobe1`: mule Waterfall kit, trade `qstboot1`, time 1 HP walk to `(3303,3878)` eastern corridor. | `foodprobe1`, `foodkill1` |
+| **B** (mule / rejoin) | Junk PvP 1 HP + mark + boards — **done** on `cloud/ab-b` | **Not cows.** Reuse `foodprobe1`: mule Waterfall kit, trade `qstboot1`, time 1 HP walk to `(3303,3878)` eastern corridor. Extra lites on **this same VM** only after [`scarce-goods.md`](scarce-goods.md) names a first gather. | `foodprobe1`, `foodkill1`, later +1 gatherer |
 
 Paste-ready **agent** text: [`cloud-agent-a.md`](cloud-agent-a.md),
 [`cloud-agent-b.md`](cloud-agent-b.md). Operator ingest + steer:
@@ -205,7 +216,10 @@ on **one** VM later. Do not give both agents the same bot names.
 ## Non-goals
 
 - Cloning goo’s 25 or the 8-stack’s junk kits as a first fleet.
+- Treating bank-hiscore gold (nickwins 2B) as wealth. Max: nobody wants cash.
 - GP / pickpocket / KBD pile farms as a primary goal.
+- A third Cloud VM / Cloud C. Extra accounts run on B’s existing VM.
+- Sending `qstboot1` to runite or black dragons mid-quest.
 - Chromium tabs on Cloud.
 - Putting a model on every game tick.
 - Vendoring the X-research skill or a Discord scraper into the hot loop.
@@ -218,5 +232,6 @@ on **one** VM later. Do not give both agents the same bot names.
 1. `git pull origin main`
 2. Read this file, [`server-diffs.md`](server-diffs.md), then
    [`owner-context.md`](owner-context.md)
-3. Fetch `/playerpositions` and `/hiscores/koth`
+3. Fetch `/playerpositions`, `/hiscores/koth`, `/hiscores/outfit`, `/hiscores/bank`.
+   Open [`top-players.md`](top-players.md) if the gear elite moved.
 4. Run the current phase only. Fail fast (10–30s) before a 5-minute grind
