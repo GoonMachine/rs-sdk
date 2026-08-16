@@ -283,6 +283,17 @@ Final standing layout:
 This splits the two warehouses across the map's two nearest banks so a 1HP rejoin has safe
 food at Falador while the combat kit stays banked at Draynor.
 
+### Step 2u — no Falador prayer altar (scouted); use Lumbridge church (3243,3210)
+For A's prayer restore after Witch's House: scouted **10 Falador-area spots** for an `Altar`
+loc — both banks `(2945,3366)`/`(3018,3356)`, the church/statue area `(2995-3010,3383-3387,
+Statue of Saradomin)`, the **White Knights' Castle** `(2976,3346)/(2993,3340)`, and the
+**Edgeville Monastery ground floor** `(3059,3484)/(3053,3495)`. **No altar found** anywhere at
+ground level — Falador has **no accessible prayer altar** in this checkout (the monastery has
+a ladder, so its altar is likely upstairs, unverified). **Nearest confirmed F2P prayer altar
+= Lumbridge church `~(3243,3210)`**, which is right on the 1HP Lumbridge-respawn corridor —
+recommend A restore prayer there (or Varrock church), not Falador. foodprobe1 returned to the
+Falador bank `(2945,3366)` and stays as the 1HP receive point.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
