@@ -489,3 +489,15 @@ Walked to the **SE Varrock mine `(3285,3365)`** and ran a mine loop:
 - `kitprep1`: **crossed the toll and captured LIVE Louie/Zeke prices** (above), now in Al
   Kharid with 2 coins. Funding the toll: Lumbridge-man pickpockets (Thieving 50) → talk
   Border Guard → single 10gp pay. To actually buy a steel set it still needs ~2,150gp.
+
+### Step 7 — second A resupply + ongoing mule food shuttle
+- **A fed again at the Falador sit:** `goonmule1` traded its whole food reserve to
+  `qstboot1` in place (*gave Shrimps x1, Bread x1, Cheese x6 = 8 food, received nothing*).
+  A left afterward — not followed.
+- **Food shuttle economics (the recurring wedge):** `foodprobe1` rebuilds the mule reserve
+  by (a) a sanctioned coin pickup from a ground pile near the Falador sit (~7–12gp, often
+  contested) and (b) buying Wydin cheese — but **Wydin only stocks 3 cheese per restock**,
+  so each round trip only nets 2–3 cheese onto `goonmule1`. After this pass `goonmule1`
+  holds 2 cheese again, `foodprobe1` at 0 coins. Sustained resupply needs a real GP source
+  or a bigger food shop; cheese-by-cheese from Wydin is the slow lane.
+- `goonmine1`: **Mining ~68** and climbing (SE Varrock eat-loop, banking iron), toward 85.
