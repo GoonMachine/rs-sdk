@@ -42,3 +42,10 @@ Do **not** name-match random pots. Interact the loc on the tile:
 | Shock gates | 2865/2866 | `(2902, 9873)` / `(2902, 9874)` — **worn** leather gloves |
 
 Cheese: Wydin `(3014,3204)`. Gloves: Thessalia `(3204,3417)`. No mule.
+
+Garden: unlock does **not** persist across a script death. Fresh entry tile
+is `(2901,3463)`. Pocket `(2901,3466)` is a disconnected cell — `walkTo`
+from there re-routes to the back door and never the fountain. Fountain
+**is** reachable: `qstboot1` stood on `(2907,3472)` this session. After
+cheese+magnet unlock, immediately `walkTo(2909,3469,2)` then Check. Do not
+sit on the pocket. Not an SDK collision bug.

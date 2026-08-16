@@ -93,26 +93,23 @@ if Heroes’ is done. That is the 340K band, not brotha’s museum.
 Not runite (mining 85). Not black dragons (combat 227). Not cows. Not the hill.
 `qstboot1` does **not** farm this mid-quest. Warehouse first; wear later.
 
-**No standing mule.** Banks are **per-account** — `foodprobe1` cannot
-withdraw for `qstboot1`. There is **no Lumbridge bank**
-([`banking.md`](banking.md)). Closest after a death: **Draynor `(3092,3243)`**.
-A is at Falador-south now; Falador bank is ~`(2945,3366)` (`m46_52`).
+We **own every account.** A bank is per-character (you cannot withdraw
+another name’s tab), but anything useful **gets traded**. Do not leave
+iron or food stranded because “A shops for himself.” There is **no
+Lumbridge bank** ([`banking.md`](banking.md)). Meet at Falador
+`(2945,3366)` or Draynor `(3092,3243)`, or walk the mule to wherever A is.
 
-`qstboot1` **shops and banks for himself** (Betty, Ned, Wydin, Horvik, Thessalia).
-Park extras in *his* bank before Golrie / fire giants. After Lumbridge, walk
-Draynor and withdraw. Do not wait for a courier.
-
-B spends the model on **`kitprep1` warehouse** (iron → steel → food stacks in
-*kitprep1’s* bank). Move items across accounts only with a **scheduled
-Draynor trade**, then each side banks. `foodprobe1` stays parked at that
-bank as a spare inventory, not a watcher. `foodkill1` stays idle until a
-real 1 HP clock — that body also self-banks food before the wild trip.
+`goonmule1` is the sit / haul body so `kitprep1` and `foodprobe1` keep
+progressing. Park extras in *qstboot1’s* bank after the trade. After a
+Lumbridge death, A walks Falador (126 s) or meets the mule — not a
+naked re-quest.
 
 | Priority | Body | Job |
 |---|---|---|
-| 1 | `kitprep1` | Warehouse. GP → shop kit → **his** Draynor bank. Trade A only when both are at Draynor. |
-| 2 | `foodprobe1` | Spare. Do not death-watch. Trade only if kitprep1 is busy and A is at Draynor. |
-| 3 | `foodkill1` | Idle until a real `sdk.getState()` 1 HP clock. |
+| 1 | `kitprep1` | Warehouse. Once **one iron set is on `goonmule1`**, shop the next tier — do not sit. Horvik → Wayne → Louie → Zeke. Read live prices. Steel, then mith. |
+| 2 | `foodprobe1` | Food runner. Withdraw / catch / Wydin, then **trade `qstboot1`** so the quester carries food into combat. Not a 5-min sit. |
+| 3 | `goonmule1` | The sit. Falador bank `(2945,3368)`. 1 HP receive. Spawned so progress bodies can move. |
+| 4 | `foodkill1` | Idle until a real `sdk.getState()` 1 HP clock. |
 
 ### Shop ladder (source-checked)
 
@@ -128,21 +125,37 @@ real 1 HP clock — that body also self-banks food before the wild trip.
 
 Food: Wydin cheese `(3014,3204)` (also Witch’s House item) → Brimhaven lobster `(2793,3188)` ~195 gp / 12 HP when GP allows. No monkfish. Shark is fish 76 / cook 80, no cooked-shark shop.
 
-### GP — do not pickpocket as a lane
+### GP — the world is rich, we measured **1 coin**
 
-Pickpocketing men is **3 gp** (`pickpocket.dbrow`). It is also the printer
-Max named as why cash is worthless. Knights are 50 gp at thieving 55 — same
-printer, faster. Do not “solve GP” that way.
+2026-08-16 B count: `kitprep1` 1 / mule 0 / `foodprobe1` 0 / `goonmine1` 0.
+Thessalia gloves (6) and steel (~2.1k) were unbuyable. “GP is worthless so
+do not pickpocket” left the fleet broke while the rest of the world ran
+the printer. Cash is a bad *hiscore*; it is still the shop key.
 
-We need coins only as a **shop lubricant** (gloves 6, iron ~600, Scavvo ~146k,
-Jakut 100k). Inflation helps **buyers**: `shop.rs2` `price_mod` = stock −
-base; overstock cuts the price we pay (floor 1 gp). It kills **sellers**
-(general stores already pay ~0 when dumped).
+**Treasury:** all coins live on `goonmule1` (Falador bank). After every A
+death, trade a coin stack + gloves + food onto `qstboot1`. Do not leave
+coins on a body that walks the shed.
+
+**Printer** (`pickpocket.dbrow`) — this is the scalable lubricant:
+
+| Target | Thieve | Coins | Stun dmg | Who |
+|---|---|---|---|---|
+| Man | 1 | 3 | 1 | Emergency 6 gp only |
+| Warrior | 25 | 18 | 2 | — |
+| **Guard** | **40** | **30** | 2 | `kitprep1` (50) and `foodprobe1` (42) **now**. Falador / Varrock. |
+| Knight (Ardougne) | 55 | 50 | 3 | `kitprep1` next |
+| Hero | 80 | 200–300 | 4 | Later |
+
+Eat on stun. Bank into the mule. Target purse on mule: **6k** (mith set +
+Waterfall 87 + glove restock). Then shop. Do not gen-store the coins.
+
+Inflation still helps **buyers**: `shop.rs2` `price_mod` = stock − base;
+overstock cuts the price we pay (floor 1 gp). It kills **sellers**.
 
 | Need | Do this | Do not |
 |---|---|---|
-| 1–20 gp (pickaxe, gloves, cheese) | One man, or kill-and-pickup, then **stop**. Bob pickaxe 1 gp. | A pickpocket script. |
-| Iron / steel kit | **Open Horvik first.** If overstocked, buy cheap. If 0 coins: Bob pickaxe → mine iron → smith. | 200 men for 600 gp. |
+| 1–20 gp (pickaxe, gloves, cheese) | Pull from the mule treasury. If the mule is at 0, **guard-pickpocket** until 50, then buy. Bob pickaxe 1 gp. | A walking Varrock broke. Leaving 1 coin on `kitprep1`. |
+| Iron / steel / mith kit | Guard printer → mule → **open Horvik and read live price.** Buy if coins cover. Do **not** mine-to-smith iron legs. | Hoping overstock is 1 gp when we have 1 coin. |
 | Food | Wydin. Overstocked cheese is nearly free. | Farm GP to buy lobster. |
 | 100k+ (Scavvo / Jakut) | Quester QP + **barter** (runite / hides later). High alch is 60% of `oc_cost` (`alchemy.rs2`) — only if we already have natures and alchable loot. | Hero pickpocket. Selling into Lumbridge gen store. |
 
@@ -150,5 +163,63 @@ Rule: `bot.openShop` and read `shopItems` price/count **before** any GP grind.
 Sell only to a **depleted** specialty shop (stock below base). Bank the item,
 not the coins, when the item is the kit.
 
-`kitprep1` is already created. Next new gatherer is `goonkit1` only after a POST.
-Never commit `bot.env`.
+## Gather methods (prior — update when a thread warrants it)
+
+Last source-check, not a loop ritual. Do not re-score this table every
+tick. Pull a new thread if an agent hits a gate, opens a shop, or
+invents a method we have not priced. Sources:
+`levelup_unlocks_{mining,fishing,woodcutting,smithing,cooking}.rs2`,
+`mine.dbrow`, `trees.dbrow`, `smelting.struct`, `fishing.obj` /
+`firemaking.obj` costs. General stores already pay ~0 when dumped —
+configured `cost` is **not** cash.
+
+| Method | Gate | Configured cost | Same output as… | Verdict |
+|---|---|---|---|---|
+| Horvik iron chain / legs | coins | 210 / 280 (less if overstock) | smith iron chain 26 / legs **31** | **Buy.** Done on `kitprep1` (chain + legs + sword banked). |
+| Betty air / water / earth | coins | **4 gp** each, stock 1000 (`foodprobe1` 2026-08-16) | Waterfall 6/6/6 | **72 gp** for a full re-supply. Not overstocked. Buy after Witch’s House, not now. |
+| Ned rope | coins | **15 gp**, dialog sale, unlimited (`foodprobe1` 2026-08-16) | mugger drop | **Buy.** Not a stocked shop — no decay. Waterfall kit = 72 + 15 = **87 gp**. |
+| Copper / tin | mine 1 | ore 3 | “any GP” | Weak. Only if we are training a later runite miner. |
+| **Drogo** (Dwarven mine `(3036,9846)`) | walk + ore | wiki sell copper/tin **2**, iron **11**, coal **31** when stock **0** | miner already gathering | **Only lubricant sell** if live `shopItems` count is still 0. One inv of iron ≈ 11×28 if it stays depleted. Read the shop first — same formula dumps the price when we overfill it. Do not gen-store the ore. |
+| Iron ore | mine **15** | 17 | Horvik iron | Unlock, do not grind for legs. |
+| Iron bar / legs | smith 15 / **31** | 3 bars / legs | Horvik 280 | Shop wins until we are already 31 for another reason. |
+| Steel | mine coal 30 + smith 30 | — | Horvik / Wayne / Louie ~2.1k | Shop first. |
+| Shrimp (Draynor) | fish 1, cook 1 | cooked 5 | Wydin cheese / 1 HP food | **Best adjacent at level 1** if Horvik is still short. Dual-use: food in the bank, not a GP printer. |
+| Trout / salmon | fish 20 / 30 | — | better food | After a net + feathers, still food, not GP. |
+| Lobster | fish 40 + cook 40 | 150 | Brimhaven shop ~195 / 12 HP | Switch food here when the levels exist. No monkfish. |
+| Shark | fish 76 + cook 80 | 500 | late food | Not a first gather. |
+| Logs / oak / willow | wc 1 / 15 / 30 | 4 / 20 / 40 | “any GP” | Skip. Dark wizards sit on Draynor willows. Gen stores pay ~0. |
+| Flax → bowstring | members flax + spin | flax cost 5 | Lowe / Hickton | **No lane.** Flax is `members=yes`. Lowe already holds 2000 bronze arrows (sell **0**). Hickton mith/addy/rune arrows wiki-stock 0 — only useful if we already fletch those, which we do not. Elites rushed fletching for **kit** (hoplite’s 1k magic shorts), not GP. |
+| Fletch short/longbow → Lowe | wc + fletch + string | Lowe sell 27–88 | “flax money” | Skip. Four-stock bows, then overstock → 0. Same dump as hides into Lumbridge gen. |
+| Yew / magic | wc 60 / 75 | 160 / 320 | high alch 60% of `oc_cost` | Only with natures already in bank. |
+| Runite | mine **85** + smith 85 + 8 coal | ore 3200 | the scarce good | The mining endgame. Do not start this on `qstboot1`. |
+| Pickpocket **guards** | thieve 40 | 30 gp | shop lubricant | **The lane.** `kitprep1` + `foodprobe1` → mule. Knights at 55. |
+| Pickpocket men | thieve 1 | 3 gp | emergency 6 gp | Only if no 40+ thief is up. |
+| 1 HP bank after death | food in inv | — | Draynor `(3092,3243)` | **Falador `(2945,3366)`.** Lumbridge→Falador **126 s**, 0 dmg, ~30 food staged (`foodprobe1` 2026-08-16). Draynor last tiles two-shot: jail guard cb26 `(3101,3238)` + dark wizard `(3084,3237)`. Pray first at Lumbridge church altar **`(3243,3205)`** (Pray-at; live restore). No Falador ground altar. Monastery upstairs gated (Pray 31; ladder at 3057,3483 will not climb). |
+| Falador chests / drawers | none | 1–10 coins on a hit | “free gp” | **Skip.** `findsomethingnice.rs2` is ~1/10 then 1/4 coins. Live: 44 searches, 0 gp (`foodprobe1`). |
+| Chickens | none | feathers / raw chicken | “few gp” | **No coins** on this server. Wydin pays 0 for raw chicken. Feathers → Gerrant if the shop is not dumped. |
+
+**Now (warehouse — do not sit):**
+
+GP is **shop lubricant**, not a hiscore. We still need a **6k mule
+treasury** (measured 1 coin). Guard-pickpocket into `goonmule1`, then
+open Horvik and read live `price`/`count`. Overstock can make steel 1 gp.
+Gen stores pay ~0 — do not dump shrimp for cash.
+
+| Body | Loop |
+|---|---|
+| `kitprep1` | **Guards first** (Falador north of bank ~`(2950,3379)`). First 50 gp: Thessalia gloves `(3204,3417)` + coins onto `qstboot1` at the boy `(2927,3455)` — not the Falador sit. Then dump to mule and keep printing until the mule holds ~6k. Shop Horvik/Wayne/Louie/Zeke only when `price <=` coins. Knights at thieve 55. Write coin counts into `ab-results-b.md`. |
+| `foodprobe1` | Guards (Varrock palace or Falador) → mule. Wydin cheese onto the mule. Do not follow A into the house. |
+| `goonmule1` | Treasury. Sit Falador `(2945,3368)` with coins + a food reserve. After every A death, trade coins + gloves + food onto `qstboot1`. |
+
+**Now (`qstboot1`):** Witch’s House (HP dump) still beats any gather. Wear
+the traded iron. Food in inv before the shed. After HP, Waterfall.
+
+`goonmine1` is the runite body (Mining **85**, all rocks wilderness). Path:
+Bob pickaxe 1 gp `(3232,3203)` → SE Varrock `(3285,3365)` copper/tin until 15 →
+iron there. **Food in inv + eat if `hp < maxHp`** on every mine loop. Skip
+Lumbridge swamp (silent fail). Skip Al Kharid until they can tank scorpions
+(cb 27+, later). Do **not** walk the wild runite rocks before 85. Do not
+cow-train combat for this body. Coal 30 / mith 55 / addy 70 when those
+unlock. Bank ore; do not smith for GP.
+
+`kitprep1` still shops the armour ladder. Never commit `bot.env`.

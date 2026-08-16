@@ -13,6 +13,8 @@ prompt.
 | Quest order at 25× / att vs str / style | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md) |
 | Gear elite / who is online | [`top-players.md`](top-players.md) |
 | Runite, hides, shop ladder, B priority | [`scarce-goods.md`](scarce-goods.md) |
+| Broke / need shop coins | [`scarce-goods.md`](scarce-goods.md) GP — guards → mule treasury 6k |
+| A gather / shop / skill thread from A or B | [`scarce-goods.md`](scarce-goods.md) “Gather methods” (prior, not a checklist) |
 | Who does what right now | [`strategy-compete-koth.md`](strategy-compete-koth.md) “Current swarm” |
 | New bot name / fleet prefix | [`names.md`](names.md) |
 
