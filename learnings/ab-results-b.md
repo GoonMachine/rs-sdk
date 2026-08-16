@@ -333,6 +333,7 @@ Held an eighth ~5 min at `(2945,3368)` with 4 food in inv — no leave, no death
 The three lite clients (foodprobe1/foodkill1/kitprep1) had died (state went ~9 min stale, all tmux `lite-*` sessions gone); restarted `lite-foodprobe1` — it logged back in on the same tile `(2945,3368)` with 4 food, unchanged. Held a ninth ~5 min on a live connection at `(2945,3368)` with 4 food in inv — no leave, no death (`lifeId=1` steady, HP 25/25 every 30s sample).
 Held a tenth ~5 min (live) at `(2945,3368)` with 4 food in inv — no leave, no death (`lifeId=1` steady, HP 25/25 at all 10 samples).
 Held an eleventh ~5 min (live) at `(2945,3368)` with 4 food in inv — no leave, no death (`lifeId=1` steady, HP 25/25 at all 10 samples).
+`lite-foodprobe1` had logged off again (state ~3.6h stale, tmux session gone); relaunched it (same character, no new account) — logged back in already on `(2945,3368)` with 4 food. Held a twelfth ~5 min (live) at `(2945,3368)` — no leave, no death (`lifeId=1` steady, HP 25/25 at all 10 samples).
 
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
