@@ -44,8 +44,8 @@ Live tiles move. Re-fetch `/playerpositions` before you steer.
 | Who | Character | Last tile | Job |
 |---|---|---|---|
 | **A** | `qstboot1` | Falador-south `(2939,3314)`, no controller | Ghost + Vampire done. Waterfall mid (`opened_book_on_baxtorian`) but **10 HP death spiral** in Golrie. **Witch’s House cut-in** (gloves + cheese). att 68 / str ~1. Never Accurate. |
-| **B** | `foodprobe1` | Draynor `(3092,3243)` | Reactive mule. Betty + cheese + trade if A lumbs. Do not follow west. |
-| **B** | `kitprep1` | Lumbridge `(3218,3218)` | Warehouse: gloves if A needs them, then Horvik iron. |
+| **B** | `foodprobe1` | Draynor `(3092,3243)` | Spare on the bank tile. Not a watcher. |
+| **B** | `kitprep1` | Lumbridge `(3218,3218)` | **B’s real job:** iron warehouse in his bank. Trade A only at Draynor. |
 | **B** | `foodkill1` | Lumbridge `(3219,3218)` | Idle until a real 1 HP clock. |
 
 Known jams (already in files — do not re-learn):

@@ -11,6 +11,38 @@ The hill 8-stack is occupancy, not the gear elite. Index
 KOTH ignores worn gear for **scoring**. Gear still decides a fight against
 `brotha` / `hoplite`, not against `Tqckgxgj08`.
 
+## Scorer vs King of the Hill (same hill, three games)
+
+**King of the Hill** is the minigame in [`Koth.ts`](../server/engine/src/engine/Koth.ts).
+Every wall-clock minute, among players **inside the ruins polygon** (plane 0,
+not staff, visible): **highest combat wins one minute**. Gear is snapshotted
+for the hiscore sprite and does **not** pick the winner. Empty hill → no king,
+incumbent lost. Equal max combat → incumbent keeps it; else random among the
+tie. Crown chat is local (24 tiles of `(3289,3886)`), not a score proof.
+
+**Scorer** is *our role* for that minigame: the one body we park inside who is
+uniquely highest combat among *us* (and, to win, among everyone inside). Never
+skulls. Cheap keep kit. The **king** is whoever the server named
+`currentHolder` this sample — an outcome, not a loadout.
+
+**Pile** is a different role on the same hill: same wilderness *band* as the
+target (`cb ≥ 80` to touch a 126 at wild 46), expected to skull, **must stay
+under the scorer** or they steal our minute if they step inside.
+
+| Game | Wins by | Converges to | Beat goo by |
+|---|---|---|---|
+| **Score** | Highest cb in the polygon at the sample | 123–126 + occupancy. Goo’s 139k rune 3-piece is a keep kit, not a DPS kit. | Outlevel (126 vs 123), **or** kill their inside body (Lumbridge 1 HP ~5 min) and stand the sample, **or** take minutes while they are elsewhere (often). |
+| **Fight** | Max hit + stay alive | 340k band first: **d-long + rune plate + glory**. Then d-med / d-chain / black hide / runite. Brotha’s full dragon is the ceiling, not the first target. | Goo’s 3-piece loses this fight. Do not copy it onto a skulled pile. |
+| **Rejoin** | Banked food + a body that can walk wild 46 at 1 HP | Self-bank at Draynor (no Lumbridge bank). Scheduled trade only. | Their walk-back is the window we score in. |
+
+These three **diverge**. A dragon sq on the scorer eats keep slots and dies
+for a minute gear does not award. A 50-cb pile cannot attack a 123 here.
+Eight extra combat-3s add **zero** minutes.
+
+`qstboot1` is the scorer *path* (levels). He is not the king until he is
+inside at sample time with uniquely highest combat. Do not walk him onto a
+full 123 hill.
+
 If a dated snapshot and live `/playerpositions` disagree, **live wins**.
 If Discord and this checkout disagree, **source wins** until a live probe
 says production drifted.
@@ -79,14 +111,14 @@ was **one brain on pickpocket while the quester death-spiraled at 10 HP**.
 
 | Body | VM | Priority | Job now |
 |---|---|---|---|
-| `qstboot1` | A | **1** | Quest only. **Witch’s House cut-in** (HP), then Waterfall (str), then TGV/Arena/Grail. Never Accurate. Accept trades. Do not grind def/str. |
-| `foodprobe1` | B | **1 if A lumbs / needs a shop item** | Reactive mule: Betty 6/6/6, rope, Wydin cheese, trade. Park Draynor. Do not follow A to Taverley/Golrie. |
-| `kitprep1` | B | 2 | Warehouse: GP → iron → bank → Wydin stacks → steel. Thessalia gloves `(3204,3417)` if A still needs them. |
-| `foodkill1` | B | idle | Real 1 HP clock only (`sdk.getState()`). |
+| `qstboot1` | A | **1** | Quest + **his own bank**. Shop gloves/cheese/runes himself. Bank extras at Falador/Draynor before caves. Witch’s House → Waterfall → stack. Never Accurate. |
+| `kitprep1` | B | **1** | Warehouse in *his* bank. Iron → steel → Wydin. Scheduled Draynor trade only. |
+| `foodprobe1` | B | spare | Parked at Draynor bank. Not a death-watch. |
+| `foodkill1` | B | idle | Real 1 HP clock. Self-banks food before the trip. |
 
-B’s one model: **death-watch / quest-item trade beats warehouse.** Two lites,
-one priority queue. Next bodies (`goonpile1`, `goonscor1`) only after cb ≥ 80
-and the 1 HP rejoin is boring.
+B’s one model stays on **`kitprep1`**. Do not follow A. A mule exists only
+to **trade between banks** — not to carry A’s Waterfall kit. Next bodies
+(`goonpile1`, `goonscor1`) only after cb ≥ 80 and the 1 HP rejoin is boring.
 
 ## Role contracts (later four-account canary)
 

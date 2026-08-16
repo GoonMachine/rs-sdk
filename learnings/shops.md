@@ -23,6 +23,11 @@ Cow hides are worth ~100 GP each normally, but the Lumbridge general store pays 
 2. Sell items the store actually needs (depleted stock)
 3. Use different money-making methods (mining, fishing sell for more)
 
+**Buy side of the same formula** (`shop.rs2`): overstock **lowers** what we
+pay. Open the shop and read the price before farming GP. Pickpocketing men
+(3 gp) is the printer that inflated coins — not a lane. See
+[`scarce-goods.md`](scarce-goods.md) GP section.
+
 ## Shop Locations
 
 | Shop | Location | Coordinates | What They Sell |

@@ -31,7 +31,8 @@ write `ab-results-a.md` + commit `cloud/ab-a` after each complete
    Combat style **Aggressive / Strength** — do not train Attack. Then
    Waterfall (`quest_waterfall.rs2`) — that is the strength dump. Prot melee.
    White Wolf = Taverley → Catherby **trail**. Rope, 6 air, 6 water, 6 earth.
-   Accept a trade from `foodprobe1` if offered.
+   Shop and bank **yourself** (Falador `(2945,3366)`, Draynor `(3092,3243)`).
+   No Lumbridge bank. Do not wait for a mule.
 3. Tree Gnome Village → Fight Arena (more attack, free; never Accurate)
 4. Merlin’s Crystal → Holy Grail (defence dump, cb 77+)
 
