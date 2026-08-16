@@ -107,6 +107,19 @@ Cheap-food source that works (no Al Kharid): **Wydin's Food Store, Port Sarim `(
 for re-kit (Betty runes at Port Sarim, Ned rope at Draynor `(3100,3258)`, short hop to the
 quest corridor). Ready to re-supply Qstboot1 again if A dies. HP full → no 1-HP clock.
 
+### Step 2d — kitprep1 warehouse: iron chainbody banked (2026-08-16 ~05:5x UTC)
+Second mule `kitprep1` (one extra name, this VM). Funded by men pickpocket **with eating/
+resting** (fresh account dies from stun damage otherwise — a death drops the low-`oc_cost`
+coin stack; kitprep1 lost its starter food/net that way once). No-food rest-to-regen loop
+is self-sufficient but slow (~90 gp/260s early, accelerates as thieving climbs; hit ~41→48).
+Live **Horvik `(3229,3438)`** prices (read before buying, per scarce-goods): Iron chainbody
+**210 gp** (stock 3), Iron platelegs **280 gp** (stock 1), Iron platebody 560, Steel chain 750.
+Bought **1 iron chainbody (210 gp)** → **banked at Draynor `(3092,3245)`**. Iron platelegs
+**deferred** — had 201 gp after the chain (< 280), and "do not pickpocket a lane" so no more
+grinding. kitprep1 parked Draynor with **201 gp + iron chainbody banked**; trade A only when
+both at Draynor. Sword shop `(3203,3397)` iron sword (91) / Zeke scim `(3288,3190)` (112)
+also pending funds. `foodkill1` idle; `foodprobe1` still death-watch mule (104 gp + food).
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
