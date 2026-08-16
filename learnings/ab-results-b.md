@@ -327,6 +327,7 @@ Held again ~5 min at `(2945,3368)` with 4 food in inv while A was in the Witch's
 Held a third ~5 min at `(2945,3368)` with 4 food in inv while A was at the Witch's House boy — no leave, no death (`lifeId=1` steady, HP 25/25).
 Held a fourth ~5 min at `(2945,3368)` with 4 food in inv while A was on the Witch's House door — no leave, no death (`lifeId=1` steady, HP 25/25).
 Held a fifth ~5 min at `(2945,3368)` with 4 food in inv while A tried the boy-side garden entry — no leave, no death (`lifeId=1` steady, HP 25/25).
+Held a sixth ~5 min at `(2945,3368)` with 4 food in inv while A was in the Witch's House garden — no leave, no death (`lifeId=1` steady, HP 25/25).
 
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
