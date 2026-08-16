@@ -99,5 +99,6 @@ when asked. This is the first gather because elite banks are food-backed and
 our Waterfall / 1 HP corridor already stalls on empty inv.
 
 `foodprobe1` stays mule + death-watch. `foodkill1` stays idle until a real
-1 HP clock. Create `kitprep1` only when the operator POST says so. One name,
-same VM, `bun bots/create-bot.ts kitprep1` then lite. Never commit `bot.env`.
+1 HP clock. `kitprep1` is the first gatherer (already created). The next
+new body is `goonkit1` ([`names.md`](names.md)), only when the operator
+POST says so. Same VM. Never commit `bot.env`.

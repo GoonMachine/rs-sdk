@@ -74,8 +74,11 @@ One scoring body + seven just outside
 
 ## Role contracts (four-account canary)
 
-Names: max 12 alphanumeric. Create with `bun bots/create-bot.ts <name>`.
-Never commit `bots/*/`.
+Fleet: **Goonmachines**. Names: [`names.md`](names.md). Max 12
+alphanumeric. `bun bots/create-bot.ts <name>`. Never commit `bots/*/`.
+Keep `qstboot1` / `foodprobe1` / `foodkill1` / `kitprep1`. New bodies are
+`goonqstN` / `goonmuleN` / `goonkitN` / `goonpileN` / `goonscorN` /
+`goonrecN`.
 
 | Role | Job | Skull | Combat |
 |---|---|---|---|

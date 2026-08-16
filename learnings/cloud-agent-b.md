@@ -71,10 +71,10 @@ This VM talks to the **demo server** `rs-sdk-demo.fly.dev`, not RuneBench.
 3. Do **not** launch Chromium. Lite client only:
    `cd server/webclient && bun src/lite/runner.ts <botname>`
 4. Create bots with `bun bots/create-bot.ts <name>` (max 12 alphanumeric).
-   Reserved names: **`foodprobe1`** (victim), **`foodkill1`** (killer for the
-   death test), **`foodboot1`** (Phase 2 trainer; may reuse `foodprobe1` after
-   the mark expires if that is simpler).
-   Do not use `agentmachine`, `qstprobe1`, or `qstboot1`.
+   You are a **Goonmachine**. Keep `foodprobe1` / `foodkill1` / `kitprep1`.
+   New names: [`names.md`](names.md) — `goon` + role + index (`goonkit1`,
+   `goonmule1`, …). Do not use `foodboot1`, `goo*`, `agentmachine`, or
+   A’s `qstboot1`.
 5. `bots/*/` is gitignored. Never commit `bot.env` or print a password.
 6. Start lite first, then `bun bots/<name>/script.ts`.
 7. One controller per bot. Fail fast: 10–30s scripts until a loop is proven.
