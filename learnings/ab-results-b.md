@@ -175,6 +175,16 @@ terrible gp rate, and the drawers-search interaction may not register cleanly vi
 than any shop-overstock buy or a single kill-and-pickup. foodprobe1 back at Draynor, 0 gp,
 food stack still banked.
 
+### Step 2j — chicken kill-and-pickup: 0 gp (chickens are not a coin source)
+foodprobe1 withdrew 2 food, killed chickens at `(3237,3295)` (Farmer/Cow/Chicken pen) and
+picked up **8 raw chicken + 50 feathers**. But **0 coins**: chickens drop **no coins**
+(only bones/raw chicken/feathers), and **Wydin buys raw chicken for 0 gp** ("Sold Raw
+chicken x8 … coins=0"). Feathers are the only sellable loot and need the **Gerrant fishing
+shop `(3013,3225)`** — banked the 50 feathers as a tradeable good instead (marginal ~few gp
+if sold). No coins cleared → no cheese bought. **Lesson: for non-pickpocket kill-and-pickup
+GP, kill MEN (drop 3–15 coins), not chickens** — chicken loot is feathers/bones, not gp.
+foodprobe1 at Draynor, 0 gp; bank now holds its food stack + 50 feathers + raw chicken.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
