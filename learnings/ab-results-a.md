@@ -92,7 +92,33 @@ the hammer, re-grabbed garlic (cupboard respawns). Lesson: **do not leave the
 trainer parked next to an aggressive high-level NPC between scripts.** Dropping
 the spare Ghostspeak amulet kept stake+hammer inside the 3-item death-keep.
 
-### 3. Waterfall — pending (att/str; White Wolf = Taverley→Catherby trail)
+### 3. Waterfall — IN PROGRESS (state: `opened_book_on_baxtorian`)
+- Almera (start) → Hudon (raft-landing forced dialogue → `spoken_to_hudon`) →
+  rope crossing (Rock#1996 low-level `sendUseItemOnLoc` + walk; dead tree #2020
+  → ledge; Ledge#2010 flood-door → washed to `(2527,3413)`) → **read Book on
+  Baxtorian** (Hadley's upstairs bookcase #380). No att/str yet (reward is on
+  completion).
+- **White Wolf solved**: hold **Protect from Melee** across the wolf segment
+  (Taverley→Catherby trail, z>3400). Runes re-muled from `foodprobe1` at Betty
+  `(3012,3259)`.
+- **Blocker — 10-HP fragility.** `qstboot1` HP is level 10. It died in the
+  **Golrie cave** (goblins) and to **White Wolf** wolves; each death respawns at
+  Lumbridge and dropped the muled runes (lost twice). The **Fire Giant dungeon**
+  ahead is worse. Golrie cave-down = loc_1754 `(2533,3155)` → underground Golrie
+  `(2515,9581)`.
+
+### 3b. Witch's House (`quest_ball.rs2`) — cut in for the HP dump
+- Rationale: `stat_advance(hitpoints, 63250)` = **+158,125 HP** (→ ~HP 65) makes
+  the caves / Fire Giants survivable, breaking the death cycle before finishing
+  Waterfall. Nora T. Hagg's house ~`(2930,3463)`, boy at `(2927,3455)`.
+- Needs: door key (under flower pot, free), magnet (cupboard, free), **cheese**
+  (Wydin, Port Sarim `3014,3204`), **worn leather gloves** (Thessalia, Varrock
+  `3204,3417`) for the iron gate, then mouse+magnet → shed key (fountain) → shed
+  door → kill shapeshifter (Aggressive/Strength style, Prot Melee) → grab ball.
+- Blocked pinning the exact witch-house interior loc tiles (pot/door/cupboard);
+  generic name-matching grabbed wrong far-away locs.
+
+### 4. Tree Gnome Village quest — after Waterfall
 - (Wall White Wolf note: Lumbridge→Baxtorian walk wedged at the mountain; needs
   the Taverley→Catherby trail, not a south pathfind past z=3400.)
 
