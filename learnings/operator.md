@@ -4,7 +4,8 @@ Audience: **you (the laptop)**. Cloud agents get a short lane paste plus
 shared files they open when stuck. They must not read this file.
 
 North star: PK kill-and-rejoin, then KOTH minutes. Do not clone goo or the
-8-stack. **Keep steering.** Write-back is extra, not a substitute.
+8-stack. **Your job is ingest + strategy.** Agents execute and usually
+unstick themselves. Write-back is extra, not a substitute.
 
 ## Need to know
 
@@ -15,6 +16,7 @@ class shows up — same idea as a skill description vs its body.
 |---|---|
 | Who reads what | [`README.md`](README.md) |
 | New Cursor account / where we left off | [`operator-handoff.md`](operator-handoff.md) |
+| Boards, swarms, next kit / level | [`operator-ingest.md`](operator-ingest.md) |
 | NPC / loc / “coords are wrong” | [`lookup.md`](lookup.md), then `wiki/npcs/`, then `.jm2` |
 | Quest / shop dialog ate the wrong option | [`dialog.md`](dialog.md) |
 | Walk, death, HP, killer | [`observe-fidelity.md`](observe-fidelity.md) |
@@ -37,8 +39,8 @@ physical step — pull on the next job).
 
 | | Operator | Cloud A | Cloud B |
 |---|---|---|---|
-| Job | Tiles, streams, force-send, playbook write-back | 25× quest stack on `qstboot1` | Mule + 1 HP rejoin on `foodprobe1` |
-| Do not | Lite / `cdx*` here. Third VM for the same lane. | Cows, hill, B’s bots | Cows, `foodboot1`, new names, hill, A’s quests |
+| Job | Ingest boards, evaluate leveling/equips/consumables, steer the phase. Unstick only when a lane is idle or strategically wrong. | 25× quest stack on `qstboot1` | Mule + 1 HP rejoin on `foodprobe1` |
+| Do not | Lite / `cdx*` here. Third VM for the same lane. Micromanage every quiet tick. | Cows, hill, B’s bots | Cows, `foodboot1`, new names, hill, A’s quests |
 
 ## Live facts (do not re-measure)
 
@@ -91,11 +93,13 @@ Public demo (no auth): `https://rs-sdk-demo.fly.dev/playerpositions`,
 
 ## Steer loop
 
-- **60s**. Tiles + controllers + latest run. Peek the stream if the tile has
-  not moved. Public `/status/:name` is name + tile + controller — not HP.
-- Force-send if jammed. `CREATING` often will not cancel — POST anyway.
-  Cancel a `RUNNING` wander; wait ~2s on `409 agent_busy`.
+- **60s** because KOTH samples once per wall-clock minute. Each tick:
+  ingest hill + KOTH day/all + our tiles ([`operator-ingest.md`](operator-ingest.md)),
+  then A/B run status. One strategy sentence if the board moved.
 - **B never idle.** The tick a B run `FINISHED`, POST the next job.
+- Force-send only for idle-lane or wrong-strategy (see ingest file). Agents
+  recover from dialog, doors, and short script writes. `CREATING` often will
+  not cancel — POST anyway. Wait ~2s on `409 agent_busy`.
 - One controller per bot. Never commit `bots/*/` or print `bot.env`.
 - One operator loop. Stop the previous chat’s 60s tick before starting another.
 
@@ -115,6 +119,7 @@ Do not cancel a run that is already walking the right direction.
 | **observe** | [`observe-fidelity.md`](observe-fidelity.md) |
 | **merge** | [`merge.md`](merge.md) |
 | **sdk** | one line on the agent paste, or a snippet |
+| **live meta** | [`operator-ingest.md`](operator-ingest.md) only if the formation or kit meta changed |
 | **steer / comms** | this file (principle, not the tile) |
 
 First time: force-send with live tile + source path. Second time, same
@@ -131,10 +136,13 @@ endpoint. `/status` is not.
 `/loop 60s` then:
 
 ```
-Steer Cloud A/B. Read learnings/operator.md and learnings/operator-handoff.md.
-Fetch /playerpositions + /status/qstboot1 + /status/foodprobe1 + latest A/B runs.
-Peek a stream only if a tile has not moved. Force-send if jammed or B FINISHED idle.
-Diagnose from lookup.md before shoving a tile. Do not cancel a run walking the right way.
-If you wrote a playbook lesson, commit and push the same turn.
-Do not run lite or cdx* on this machine. Do not print secrets.
+You are the operator. Read learnings/operator-ingest.md then operator.md.
+Ingest: /playerpositions (hill box + 1+7 tiles + goo* + our names),
+/hiscores/koth?window=day and window=all (top 5), our A/B run status.
+One strategy sentence if the board or our phase should change
+(leveling / equips / consumables / who is on the hill).
+B FINISHED → POST the next physical job. Force-send only if a lane is idle
+or strategically wrong (cows, hill at low cb while 123s are on it, Taverley
+at pray 1, same jam class twice). Do not cancel a run on the right step.
+Do not run lite or cdx*. Do not print secrets.
 ```

@@ -130,8 +130,9 @@ Reserved bot prefixes (max 12 alphanumeric). Do not touch `agentmachine`.
 | **B** (mule / rejoin) | Junk PvP 1 HP + mark + boards — **done** on `cloud/ab-b` | **Not cows.** Reuse `foodprobe1`: mule Waterfall kit, trade `qstboot1`, time 1 HP walk to `(3303,3878)` eastern corridor. | `foodprobe1`, `foodkill1` |
 
 Paste-ready **agent** text: [`cloud-agent-a.md`](cloud-agent-a.md),
-[`cloud-agent-b.md`](cloud-agent-b.md). Operator steer:
-[`operator.md`](operator.md) (do not paste into A/B). Write results to
+[`cloud-agent-b.md`](cloud-agent-b.md). Operator ingest + steer:
+[`operator.md`](operator.md), [`operator-ingest.md`](operator-ingest.md)
+(do not paste into A/B). Write results to
 [`ab-results-a.md`](ab-results-a.md) / [`ab-results-b.md`](ab-results-b.md).
 
 Winner of Phase 2 is **wall-clock minutes** to both:
