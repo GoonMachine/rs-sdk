@@ -36,6 +36,7 @@ killed `qstprobe1` once (respawned Lumbridge, kept 3 items). The 8-stack could
 Revised order (source-checked tenths ×25): Restless Ghost (prayer) → Vampire
 Slayer (att) → Waterfall (att/str) → Witch's House / Holy Grail (def+prayer)
 for the cb≥77 jump. Trainer bot: **`qstboot1`** (started combat 3, att/str 0).
+Current: **Prayer 47, Attack 68, combat 30** after quests 1–2.
 
 ### 1. The Restless Ghost — COMPLETE ✅ (2026-08-16)
 - Source: `quest_priest/scripts/quest_priest.rs2` `stat_advance(prayer, 11250)`
@@ -68,8 +69,30 @@ Wall-clock: ~58 min first-login→prayer-47, but that is **not** a clean trainin
 metric — it was dominated by the navigation/collision debugging above, not by
 XP grind. A clean re-run with the low-level-nav workaround would be far shorter.
 
-### 2. Vampire Slayer — pending
-### 3. Waterfall — pending
+### 2. Vampire Slayer — COMPLETE ✅ (2026-08-16)
+- Source: `quest_vampire.rs2` `stat_advance(attack, 48250)` = 4825 base ×25.
+- **Attack XP 0 → 120,895 (+120,625 quest + ~270 combat)**; **Attack level 1 → 68**.
+  Combat 9 → **30**. Matches the planned att 68.
+- Kit (all self-acquired): sold Shortbow+Wooden shield at the Lumbridge general
+  store → coins → **Hammer** (1gp); **Garlic** from a cupboard **upstairs** in
+  Morgan's house, Draynor (`Search` after `Open`); **Stake** from Dr Harlow at
+  the **Jolly Boar Inn (~3277,3492)** after buying him a **beer** (bartender in
+  the same inn). Morgan `(3098,3268)` → "Ok, I'm up for an adventure.".
+- Fight: opened the coffin in the **Draynor Manor basement** (Stairs at
+  `(3115,3357)` down; coffin/Count spawn `(3078,9774)`). **Protect from Melee**
+  (Prayer 43, from quest 1) held me at 10/10 HP; **garlic** dropped Count
+  Draynor's defence to ~0 so attack level 1 could still land hits; on 0 HP the
+  server auto-drove stake+hammer → complete. Once engaged, combat auto-continues
+  even without controller input, so the kill finished on its own.
+
+Wedge (recorded): an **idle-death between scripts** — a **Black Knight (lvl 33)**
+in the Jolly Boar Inn killed the parked bot, dropping Hammer + Garlic + coins
+(kept 3 items). Recovery: sold a ground-spawn Bronze med helm for coins, re-bought
+the hammer, re-grabbed garlic (cupboard respawns). Lesson: **do not leave the
+trainer parked next to an aggressive high-level NPC between scripts.** Dropping
+the spare Ghostspeak amulet kept stake+hammer inside the 3-item death-keep.
+
+### 3. Waterfall — pending (att/str; White Wolf = Taverley→Catherby trail)
 - (Wall White Wolf note: Lumbridge→Baxtorian walk wedged at the mountain; needs
   the Taverley→Catherby trail, not a south pathfind past z=3400.)
 
