@@ -16,9 +16,17 @@ Source: [`mine.dbrow`](../server/content/scripts/skill_mining/configs/mine.dbrow
 **2400-tick** base respawn. Wiki `mining.md` “70” is stale.
 
 Locs: [`rocks.loc`](../server/content/scripts/skill_mining/configs/rocks.loc)
-`runiterock1` / `runiterock2`. Owner review found **five** map placements,
-including Wilderness ([`owner-context.md`](owner-context.md)). Player-count
-scaling can shorten respawn; it does not remove spawn control.
+`runiterock1` (2106) / `runiterock2` (2107). All **five** jm2 placements are
+wilderness (world = mapsquare×64 + local):
+
+| World | Map | Zone |
+|---|---|---|
+| `(3059, 3885)` / `(3060, 3884)` | `m47_60` | Surface wild ~46 (near the hill) |
+| `(2937, 9882)` / `(2941, 9884)` | `m45_154` | Underground wild |
+| `(3046, 10265)` | `m47_160` | KBD-lair pocket |
+
+`~scale_by_playercount` can cut the 2400-tick base (at 2000 online → 1200).
+It does not remove spawn control. No safe-area runite in this checkout.
 
 We cannot mine this on `qstboot1` (mining 1) or a fresh gatherer. Later: one
 dedicated miner + hauler, not a hill body.
@@ -27,8 +35,8 @@ dedicated miner + hauler, not a hill body.
 
 Always-drop black hide:
 
-- Ordinary black dragon — [`black_dragon.rs2`](../server/content/scripts/drop%20tables/scripts/black_dragon.rs2) `obj_add(..., dragonhide_black, 1, ...)`. Combat 227, 60-tick respawn. Samples `(2829, 9826)`, `(3048, 10266)` ([`owner-context.md`](owner-context.md)). Four ordinary spawns in the reviewed maps.
-- KBD — [`king_black_dragon.rs2`](../server/content/scripts/areas/area_wilderness/scripts/king_black_dragon.rs2) also always `dragonhide_black`. Combat 276, `(2716, 9817)`, 150-tick ([`wiki/npcs/king-black-dragon.md`](../wiki/npcs/king-black-dragon.md)). **Saturated** per Max. `Brotha` was live at `(2732,9689)` on 2026-08-16 — this is where the gear elite spends time.
+- Ordinary black dragon — [`black_dragon.rs2`](../server/content/scripts/drop%20tables/scripts/black_dragon.rs2) always `dragonhide_black`. Combat 227, 60-tick. **One** jm2 spawn: `m44_154` `0 4 27: 54` → `(2820, 9883)` underground wild. Owner-context “four spawns” / `(3048, 10266)` is stale — that tile is a runite rock.
+- KBD — [`king_black_dragon.rs2`](../server/content/scripts/areas/area_wilderness/scripts/king_black_dragon.rs2) also always hide. Combat 276, lair `(2717, 9817)`, 150-tick. In lever `(3067, 10253)`. **Saturated** per Max. `Brotha` lives here.
 
 Tan: Al Kharid [`tanner.rs2`](../server/content/scripts/areas/area_alkharid/scripts/tanner.rs2) (`dragonhide_black` → `dragon_leather_black`).
 Craft black d'hide: vambraces **79**, chaps **82**, body **84**
@@ -40,11 +48,12 @@ Generic `wiki/items/dragonhide.md` collapses colors — do not use it.
 
 ## Kalphite Queen (still open)
 
-Max still called KQ unsolved 2026-08-02. Loc sample `(3474, 9496)`
-([`wiki/npcs/kalphite-queen.md`](../wiki/npcs/kalphite-queen.md)). Drop table
+Max still called KQ unsolved 2026-08-02. Surface burrow `(3226, 3108)`,
+queen `(3474, 9496)` ([`wiki/npcs/kalphite-queen.md`](../wiki/npcs/kalphite-queen.md)).
+Rope on both holes (`kalphite_locs.rs2`); no quest flag. Drop table
 [`kalphite_queen.rs2`](../server/content/scripts/drop%20tables/scripts/kalphite_queen.rs2)
-includes rune chain / kite and a dragon-chain roll. Prestige + kit, not a
-first gather.
+includes a dragon-chain roll (~1/128). Prestige + kit, not a first gather.
+No hide drop.
 
 ## What the 340K–1.1M outfits are made of
 
