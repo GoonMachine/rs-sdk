@@ -23,6 +23,7 @@ You are **not** leveling a fleet. Do not create accounts beyond
 
 - After **each** probe: write the number into `learnings/ab-results-b.md`,
   tick your box in `learnings/server-diffs.md`, commit on `cloud/ab-b`.
+  Conflict → [`merge.md`](merge.md). Do not sit still resolving.
 - Prod tick is **300.3 ms/tick** (Agent A, on `main` in `ab-results-a.md`).
   Death-mark 1000 ticks ≈ **300 seconds**. Skull 2000 ticks ≈ **600 seconds**.
   Do not re-measure tickrate.
@@ -50,7 +51,8 @@ Do not cows / foodboot1 / hill.
 Reuse foodprobe1. Buy Waterfall kit (Betty 3012,3259 + rope + food).
 Trade qstboot1 if in range. Then time 1 HP walk to (3303,3878) eastern
 corridor; stop before demons. Log deaths per observe-fidelity.md.
-Write ab-results-b.md, commit cloud/ab-b. Never commit bots/ or print bot.env.
+Write ab-results-b.md, commit cloud/ab-b. Conflict → learnings/merge.md
+(kit first). Never commit bots/ or print bot.env.
 ```
 
 ## Environment

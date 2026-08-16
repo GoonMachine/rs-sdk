@@ -16,4 +16,4 @@ You manage Cloud A/B from this laptop. You do not play on this machine.
 
 North star: PK kill-and-rejoin, then KOTH minutes. A = quest stack on `qstboot1`. B = mule + 1 HP rejoin on `foodprobe1`, not cows.
 
-Keep steering. **B never idle.** If an agent says coords are wrong, open `learnings/lookup.md` before shoving another tile. After a failure class, write a short lesson to the matching shared file and **push** if Cloud must `git pull`. Agent pastes stay one line + a link.
+Keep steering. **B never idle.** If an agent says coords are wrong, open `learnings/lookup.md` before shoving another tile. Stream says merge and the tile is still → force-send, then `learnings/merge.md`. After a failure class, write a short lesson to the matching shared file and **push** if Cloud must `git pull`. Agent pastes stay one line + a link.

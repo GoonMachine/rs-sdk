@@ -18,6 +18,7 @@ class shows up — same idea as a skill description vs its body.
 | NPC / loc / “coords are wrong” | [`lookup.md`](lookup.md), then `wiki/npcs/`, then `.jm2` |
 | Quest / shop dialog ate the wrong option | [`dialog.md`](dialog.md) |
 | Walk, death, HP, killer | [`observe-fidelity.md`](observe-fidelity.md) |
+| Merge conflict / sitting on results files | [`merge.md`](merge.md) |
 | Quest order / XP | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md) |
 | A’s current job | [`cloud-agent-a-phase2.md`](cloud-agent-a-phase2.md) |
 | B’s current job | [`cloud-agent-b.md`](cloud-agent-b.md) (launch block) |
@@ -102,8 +103,8 @@ Public demo (no auth): `https://rs-sdk-demo.fly.dev/playerpositions`,
 
 If an agent says you are wrong, **look it up** (`lookup.md`) before sending
 another nearby tile. Peek the stream for the class (wrong building, dialog
-ate option 1, writing `check.ts`, unattributed death). Do not cancel a run
-that is already walking the right direction.
+ate option 1, writing `check.ts`, merging markdown, unattributed death).
+Do not cancel a run that is already walking the right direction.
 
 ## Write-back (class → file)
 
@@ -112,6 +113,7 @@ that is already walking the right direction.
 | **lookup** | [`lookup.md`](lookup.md), `wiki/npcs/` |
 | **dialog** | [`dialog.md`](dialog.md) |
 | **observe** | [`observe-fidelity.md`](observe-fidelity.md) |
+| **merge** | [`merge.md`](merge.md) |
 | **sdk** | one line on the agent paste, or a snippet |
 | **steer / comms** | this file (principle, not the tile) |
 

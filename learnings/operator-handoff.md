@@ -59,7 +59,7 @@ Known jams this session (already in shared files — do not re-learn):
 - Urhney is `(3235, 3153)`, not OSRS west-swamp. [`lookup.md`](lookup.md)
 - Aereck start line is **"I'm looking for a quest!"** [`dialog.md`](dialog.md)
 - `/status` is not HP. Unnamed death = invalid clock. [`observe-fidelity.md`](observe-fidelity.md)
-- B sat in Lumbridge merging `ab-results-b.md` instead of walking. Kit first; merge later.
+- B sat in Lumbridge merging `ab-results-b.md` instead of walking. [`merge.md`](merge.md).
 - A walked to Taverley at cb 3 once. Restless Ghost first. Do not send Waterfall until pray 47.
 
 ## Do not
