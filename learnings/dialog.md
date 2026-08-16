@@ -21,3 +21,9 @@ Dedupe by dialog signature (npc text + option labels). Never click the same
 page twice. Prefer `clickDialogByText` / `bot.navigateDialog` over raw
 indices. Log the options you saw if a talk "succeeds" and the quest var /
 inventory does not change.
+
+Waterfall (`hudon.rs2`): the raft's forced Hudon chat only sets
+`spoken_to_hudon` if Hudon is found 1 tile west of the crash
+(`quest_waterfall.rs2` raft `npc_find`). A miss leaves `%waterfall_quest`
+at `started`; Hadley's bookcase is empty until you **talk to Hudon on the
+island** (case `started`). Do not treat "I already rafted" as Hudon done.
