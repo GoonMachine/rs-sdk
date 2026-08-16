@@ -209,6 +209,16 @@ cost never spikes on stock. Rope is separate (Ned 15 gp / mugger drop). foodprob
 so this was record-only; it walked back to the Draynor bank tile. Warehouse is sufficient:
 `kitprep1` holds the iron kit, `foodprobe1` holds the food stack, both parked at Draynor.
 
+### Step 2n — Ned rope price confirmed live: 15 coins, unlimited
+Talked to `Ned` at Draynor `(3100,3258)`. Rope is a **fixed 15-coin dialog sale**, **not** a
+stocked shop — so there is **no stock cap and no price decay**: unlimited rope at 15 gp each
+(`ned.rs2` hardcodes `inv_del(coins,15)`; the live dialog reached the "Okay, please sell me
+some rope / That's a little more than I want to pay / I will go and get some wool" choice that
+follows Ned's "sell you some rope for 15 coins" line). Alt: 4 balls of wool → 1 rope (grind).
+foodprobe1 had 0 gp so it declined and returned to the Draynor bank tile. **Waterfall
+re-supply reference is now complete: runes 72 gp @ Betty (stock 1000), rope 15 gp @ Ned
+(unlimited).**
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
