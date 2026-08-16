@@ -8,6 +8,9 @@ Join path he repeats: point a coding agent at [github.com/MaxBittker/rs-sdk](htt
 Discord evidence, local source checks, and the current swarm/PK plan:
 [`discord-meta-2026-08-15.md`](discord-meta-2026-08-15.md).
 
+Current live KOTH formations, fleet sizes, and visible equipment:
+[`koth-swarm-snapshot-2026-08-15.md`](koth-swarm-snapshot-2026-08-15.md).
+
 ---
 
 ## Read this first
@@ -134,6 +137,16 @@ The repo has multi-account connections, verified player trade/muling, a
 specialized pickpocket swarm, and a specialized KBD fast path. It does **not**
 yet have a reusable coordinator for roles, shared targets, synchronized pile or
 retreat commands, recovery, and fleet-wide metrics.
+
+The strongest live formation observed on 2026-08-15 was an eight-account group
+persistently co-located inside KOTH, all with 99 melee stats and Hitpoints but
+mostly cheap or absent visible gear. Separately, all 25 `Goo001`–`Goo025`
+accounts were online; 20 have historical KOTH captures, while 15 were stacked
+away from the hill during the sample. Six `goo` accounts shared a standardized
+rune scimitar + rune chainbody + rune platelegs kit that exactly fills an
+unskulled player's three ordinary protected-item slots. See the dated
+[`KOTH snapshot`](koth-swarm-snapshot-2026-08-15.md) for names, loadouts,
+capture totals, and evidence limits.
 
 1. Start with a 2–5 account canary. A Discord participant's four-bot pilot used
    deterministic tick policies, shared reporting, low-frequency planning, and

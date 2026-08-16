@@ -4,6 +4,10 @@ Read this with [`owner-context.md`](owner-context.md). This file preserves the
 evidence behind the current economy, swarm, and Wilderness strategy; the owner
 context is the shorter decision-ready briefing.
 
+For the public live-server KOTH formations, account counts, stats, and visible
+equipment captured the same day, see
+[`koth-swarm-snapshot-2026-08-15.md`](koth-swarm-snapshot-2026-08-15.md).
+
 ## Scope and reliability
 
 - Source: the current `rs-sdk` Discord, read through the Discord desktop UI on
@@ -44,7 +48,7 @@ captured. Future verification can use these channel ids and locators:
 | Date / channel | Observation | Confidence | Strategic meaning |
 |---|---|---|---|
 | 2026-08-15, `general` | An embedded post from `maxbittker` described cheap labor making ordinary commodities abundant, weak demand for cash, goods-for-goods trade, and heavy contention for fixed-respawn resources. | Owner report | Measure wealth in scarce goods and access time, not headline GP. |
-| 2026-08-15 7:20 PM, `share-progress` | `ijohndoe` reported a four-bot LiteClient pilot using deterministic tick policies, shared reporting/curriculum, low-frequency planning, no model calls in the hot loop, and a 20-stun stop guardrail. | Demonstrated | Start with a small canary; keep the model in the planning/recovery layer and validated loops deterministic. |
+| 2026-08-15 7:20 PM, `share-progress` | `ijohndoe` reported a four-bot LiteClient pilot using deterministic tick policies, shared reporting/curriculum, low-frequency planning, no model calls in the hot loop, and a 20-stun stop guardrail. The 20m30s run reportedly produced 96.8k XP and 1,452 GP; the four bots ended at Thieving 52/54/53/51. | Demonstrated | Start with a small canary; keep the model in the planning/recovery layer and validated loops deterministic. |
 | 2026-07-27 2:30 AM / 12:32 PM, `share-progress` | `Nick` said combat farmers banked at three inventory items, or immediately after a noted/rare drop. `maxbittker` said he killed roughly 20 on their return route and obtained little of value. | Corroborated report | Bank routes are attack surfaces. Bank instantly on rare/noted drops, but calculate the actual worn-plus-carried death-keep order rather than assuming three loot items are protected. |
 | 2026-03-31, `share-progress` | `maxbittker` reported that an account killed a bot he had placed to PK rune miners. `1G` described it as a defensive script and confirmed it watched a mapped area. | Demonstrated | A geofenced sentinel at a scarce node is already a known pattern; the likely next contest is approach and return-route control. |
 | 2026-02-10 to 2026-04-28, server search for `pk` | Search results showed the first reported PK, opportunistic PK while clueing, a bot positioned against rune miners, and multiple attempts to teach agents PK. One participant warned that evolved modern-OSRS PK intuition does not map cleanly onto 2004scape. | Owner reports + anecdotes | Use this revision's source and short live probes, not modern OSRS guides, as the ruleset. |
@@ -53,6 +57,7 @@ captured. Future verification can use these channel ids and locators:
 | 2026-05 to 2026-06, `agent-techniques` | `1G` described using a full headless browser for routes with ropes, trees, doors, and other transitions, then switching to the external/community GoThin implementation for a stable combat loop. Participants described `rsmod-pathfinder` as useful for overland travel but weak on ladders, stairs, boats, and teleports. | Demonstrated | Use a heavy setup/recovery adapter and lightweight workers; cache successful transition routes explicitly. |
 | 2026-02 to 2026-07, `99str-contest` | Quest-based combat bootstrapping was faster than pure grinding. A level-3 Waterfall attempt needed an adaptive rat/food fallback; later advice stacked Waterfall, Grand Tree, Tree Gnome Village, Fight Arena, and Vampyre Slayer. | Demonstrated + anecdotes | Build replacement combat accounts through validated quest prerequisites, with fallback states instead of brittle end-to-end scripts. |
 | 2026-07-02, `share-progress` | A difficult combat script teleported after repeated large hits; the author estimated at least three bots for one or two kills per trip and discussed poison and recoil damage. | Demonstrated PvM, not PK | Shared retreat thresholds and additive damage sources transfer, but must be revalidated for PvP and deep-Wilderness teleport limits. |
+| 2026-07-11, `share-progress` | `Ral` reported running three fishing bots toward a 30k-shark target, reaching 7.6k, and considering scaling the group to ten. | Demonstrated | Scale a proven worker loop in measured stages; the post supplied a concrete 3→10 progression but not enough data to verify per-account rates. |
 | 2026-07-11, `share-progress` | `Ral` said screenshots were requested only when a control-plane view was active, saving worker performance. | Demonstrated | Prefer state/metrics telemetry continuously and turn expensive visual telemetry on only for diagnosis. |
 | 2026-08-08 to 2026-08-12, `share-progress` | Medium clues were fully scripted, while hard clues still needed manual help; the participant reported hundreds of completed clues. | Demonstrated | Automate known-state routines and escalate ambiguous puzzles instead of putting a model in every tick. |
 
