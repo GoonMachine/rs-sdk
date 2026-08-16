@@ -28,7 +28,13 @@ stat prep is the next *quest*.
 
 Do **not** open a combat grind to raise str/def/hp before these quests. Shop iron
 (Horvik) is the prep. 10 HP deaths are an HP problem, not a 1-def problem —
-prot melee already zeros melee if it stays on.
+prot melee already zeros melee if it stays on. Witch’s House experiment is
+**all melee** (crush/slash/stab). `qstboot1` is not underleveled for the shed.
+Deaths happen when prot is off, prayer hits 0 (str 1 vs 144 HP can outlast
+47 points), food is on another account, or they enter at 1 HP (shock =
+`(hp/10)+1`). Do not cow-train. Do not pivot to Observatory / Nature Spirit
+to “get HP first” — Nature Spirit needs Priest in Peril; Observatory is a
+goblin dungeon at 10 HP for a much smaller dump.
 
 Waterfall **alone** is att/str 83 / **cb 56**, prayer 1. Stopping there was the under-strategized plan.
 

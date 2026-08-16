@@ -2,6 +2,27 @@
 
 Successful patterns for thieving training.
 
+**Current lane (2026-08-16):** fleet measured **1 coin**. **`kitprep1` only**
+pickpockets **guards** (30 gp, thieve 40), eat on stun, dump to `goonmule1`.
+`foodprobe1` fishes. Men are emergency 6 gp only. Knights at 55 are
+**Ardougne** (`knight_of_ardougne`) — Falador White Knights are not
+pickpocketable. Stay on Falador guards so dumps stay next to the mule.
+
+## Falador / Varrock guards (level 40+)
+
+| Target | Coordinates | Notes |
+|--------|-------------|-------|
+| Falador north of bank | ~(2950, 3379) | Closest to the mule sit `(2945,3368)` |
+| Varrock palace | palace courtyard | Second printer so both thieves are not on one NPC |
+
+`bot.pickpocketNpc` if it reports XP vs stun; else `sendInteractNpc` on the
+Pickpocket option. Stun is 2 damage — eat if `hp < maxHp`. Bank into the mule
+every few hundred gp. Do not leave the stack on a body that walks the shed.
+
+`kitprep1` guard printer: the only legal `walkTo` tiles are `(2950,3379)`
+and mule `(2945,3368)`. `worldX>3100` is a script bug — abort to the
+guards. Do not copy the Lumbridge men `walkTo(3222,3218)` into this lane.
+
 ## Pickpocketing Men (Level 1-40)
 
 Men at Lumbridge castle are excellent for early thieving. Proven: 1 → 43 in ~10 minutes.

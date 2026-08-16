@@ -103,15 +103,43 @@ Public demo (no auth): `https://rs-sdk-demo.fly.dev/playerpositions`,
 
 - **60s** because KOTH samples once per wall-clock minute. Each tick:
   ingest hill + KOTH day/all + our tiles + outfit/bank watch-list
-  ([`operator-ingest.md`](operator-ingest.md)), then A/B run status. Write
-  [`top-players.md`](top-players.md) only when the top kit or a watched
-  name’s activity class changes. One strategy sentence if the board moved.
-- **B never idle.** The tick a B run `FINISHED`, POST the next job.
+  ([`operator-ingest.md`](operator-ingest.md)), then A/B run status **and
+  what they just said**. If a thread bubbled up (new tile, skill, shop,
+  jam, idea), pull it — source-check, maybe a small B experiment. Do not
+  re-score the same comparison. If the streams are quiet, skip research.
+  Write [`top-players.md`](top-players.md) only when the top kit or a
+  watched name’s activity class changes. One strategy sentence if the
+  board or a thread moved the plan.
+- **B never idle** means the next **progress** job, not a 5-minute sit on
+  `foodprobe1` / `kitprep1`. A sit belongs on `goonmule1` (or `goonrec1`).
+  `FINISHED` → warehouse, food stack, scheduled trade, or spawn the sitter.
+- Combat quests need food **and iron on `qstboot1`**. We own every
+  account — trade it. Food/iron sitting in `foodprobe1` / `kitprep1` is
+  ours; haul it with `goonmule1` or a runner. “A shops for himself” is
+  not a reason to leave a tab unused.
 - Force-send only for idle-lane or wrong-strategy (see ingest file). Agents
   recover from dialog, doors, and short script writes. `CREATING` often will
   not cancel — POST anyway. Wait ~2s on `409 agent_busy`.
 - One controller per bot. Never commit `bots/*/` or print `bot.env`.
 - One operator loop. Stop the previous chat’s 60s tick before starting another.
+- Diagnose **direction** before a yank. Falador-north toward Taverley after
+  Wydin is the return path, not a bank wander. Do not cancel a northbound
+  finish walk.
+- Stacked 60s notifications are **one ingest**, immediately. Do not let a
+  batch sit while B is `FINISHED`.
+
+## Operator mistakes (2026-08-16) — repeatable
+
+| Mistake | Why it repeats | Fix |
+|---|---|---|
+| POST 5-min Falador holds so B is “not idle” | Satisfies the letter of the rule, zero kit/food | Sit job → `goonmule1`. Progress bodies keep shopping / fishing / trading. |
+| “Do not walk `kitprep1`” as a standing order | Started as a 10 HP death, became a freeze | After iron is banked: shrimp → steel shop ladder. Freeze only while 10 HP and no food. |
+| Food staged on `foodprobe1`, quester left naked | Banks are per-account; I treated “staged” as “A has food” | Food on `qstboot1` before shapeshifter / Golrie. Trade or Wydin stack. |
+| Treated two shed deaths as “too weak, need combat grind” | att 68 / prot 47 already beats melee forms | Weakness is prot-off, pray expire (str 1 vs 144 HP), 1 HP shock, no food. Altar + prot at the door + food count. Not cows. |
+| “GP is worthless, no pickpocket lane” | World is rich; we measured **1 coin** | Guard printer (30 gp) → mule treasury (6k). Then shop. |
+| Cancelled a northbound Falador→Taverley finish walk | Tile looked like “went to bank” | Peek stream + last tile delta. Same destination + moving toward it = hold. |
+| Let 15–25 loop ticks stack without ingest | Conversation lag; B idle 20 min | One batch = one ingest + B `FINISHED` POST in that turn. |
+| Accepted A’s “SDK collision / nudge me” after they stood on `(2907,3472)` | Agent hard-block beat live tile | Live tile wins. `walkTo(2909,3469,2)` from fresh `(2901,3463)`. No pause, no nudge. |
 
 ## Diagnose before you shove
 
@@ -150,11 +178,17 @@ You are the operator. Read learnings/operator-ingest.md then operator.md.
 Ingest: /playerpositions (hill box + 1+7 tiles + goo* + our names +
 watch-list in top-players.md), /hiscores/koth?window=day and window=all
 (top 5), /hiscores/outfit and /hiscores/bank (top 10; write top-players.md
-only on change), our A/B run status.
-One strategy sentence if the board or our phase should change
-(leveling / equips / consumables / scarce goods / who is on the hill).
-B FINISHED → POST the next physical job. Force-send only if a lane is idle
-or strategically wrong (cows, hill at low cb while 123s are on it, Taverley
-at pray 1, same jam class twice). Do not cancel a run on the right step.
-Do not run lite or cdx*. Do not print secrets. Do not launch Cloud C.
+only on change), our A/B run status and latest stream / result.
+If A or B (or the board) just surfaced a thread — unexpected tile, new
+skill, shop price, jam, or an idea they floated — pull it. Source-check
+and experiment; it does not have to be a variant of the current task.
+Do not re-check the same comparison. If nothing new bubbled up, skip
+research this tick.
+One strategy sentence if the board or a thread should change the plan.
+B FINISHED → POST the next progress job (kit ladder, food on the
+quester, scheduled trade, or spawn/hold goonmule1). A 5-min sit on
+foodprobe1/kitprep1 is strategically wrong. Force-send only if a lane
+is idle or wrong (cows, hill at low cb while 123s are on it, Taverley
+at pray 1, same jam class twice, combat quest with 0 food on qstboot1).
+Do not cancel a run on the right step. No lite/cdx. No secrets. No Cloud C.
 ```

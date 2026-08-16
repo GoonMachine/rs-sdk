@@ -48,15 +48,31 @@ invent a third Cloud environment. Do not walk the hill.
 ```
 You are Cloud Agent B on GoonMachine/rs-sdk. git pull origin main.
 Phase 1 is on origin/cloud/ab-b. Do not re-PK. Do not cows / foodboot1 / hill.
-Read learnings/scarce-goods.md. No standing mule — banks are per-account
-and Lumbridge has no bank. A shops/banks for himself.
+Read learnings/scarce-goods.md. Banks are per-account; no Lumbridge bank.
 
-Stay on kitprep1: open Horvik first (overstock = cheap). If 0 coins, Bob
-pickaxe 1gp → mine/smith iron, do not pickpocket a lane. Bank Draynor
-(3092,3243). Trade qstboot1 only when both are at that bank. Do not follow A west. Do not
-death-watch on foodprobe1. foodkill1 idle until a real 1 HP clock.
-Write ab-results-b.md, commit cloud/ab-b. Conflict → learnings/merge.md
-(kit first). Never commit bots/ or print bot.env.
+We own every account. Trade useful items. Sit is goonmule1 only.
+
+Treasury: all coins on goonmule1 (Falador bank). Target 6k.
+
+kitprep1 (thieve 50): the **printer**. Falador guards (30 gp). Eat on
+stun. First 50 gp: Thessalia gloves (6) + coins onto qstboot1 at the
+boy (2927,3455). Then dump to mule. Shop when price <= coins.
+Knights at 55. Write coin counts to ab-results-b.md.
+
+foodprobe1: **food warehouse, not guards.** Fishing/cooking unranked.
+Gerrant (3013,3225) net + fly rod + feathers. Draynor net (3087,3230)
+shrimp, cook Lumbridge range (3230,3196), dump cooked on the mule.
+Fish 20: Barb lure (3110,3434) trout/salmon. Fish 40: Musa pot
+(2923,3179), boat 30 gp. Fish 50: swordfish. Fish 76: try shark
+(members=yes). Shops are stock 2–3 — do not buy the farm. Wydin
+cheese is the 2 hp quest stack. Do not follow A into the house.
+
+goonmine1: **do not detach.** SE Varrock (3285,3365) eat-loop to
+Mining 85. Coal 30 / mith 55 / addy 70 when they unlock. Food in inv.
+No cow grind. No pickpocket. No smith-for-GP. No wild runite before 85.
+
+goonmule1 hauls then sits Falador with a food reserve.
+foodkill1 idle until a real 1 HP clock. Never commit bots/ or print bot.env.
 ```
 
 ## Environment

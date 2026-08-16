@@ -23,6 +23,11 @@ Read `sdk.getState()` (or the formatted snapshot). Record:
 `/status/:name` on the public demo host is **not** this. It is name + tile +
 controller only. Do not treat it as HP.
 
+Combat eat is a `player.hp` check plus `bot.eatFood` — see
+[`cloud-agent-a-phase2.md`](cloud-agent-a-phase2.md). Not automatic. At
+10 HP, eat on first damage (`hp < maxHp`). The SDK combat-training
+script already does this.
+
 ## What counts as a death
 
 `lifeId` changed, or `respawnCount` increased, or chat matched `/oh dear/i`,

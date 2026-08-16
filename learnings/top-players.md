@@ -55,9 +55,9 @@ leaders are not wealth.
 
 | Name | Tile | Class |
 |---|---|---|
-| Brotha | `(2734,9690)` | **KBD pocket** (still) |
+| Brotha | `(2734,9692)` | **KBD pocket** |
 | Tqckgxgj08 | `(3289,3887)` | hill, one tile off the old scorer |
-| Goo001 | `(3052,3497)` | Edgeville-west — **not on the hill** |
+| Goo001 | `(3288,3886)` | **scorer** — back on the hill |
 | Goo006 | `(3508,9497)` plane 2 | dungeon (not hill) |
 | Torvesta | `(3267,3430)` | Varrock |
 | Mrmammal / Bjzx62 | `(3213,3464)` | Varrock east |
