@@ -374,3 +374,44 @@ Retries to get a MARKED (1-HP) respawn failed, verified via the death-tracking s
   2.6-min walk-and-stand; a rejoiner needs escort/timing or a shallower hold tile. Treat
   **~2.6 min as the movement lower bound only**, not a survivable 1-HP rejoin. Correct
   death signal for future clocks = `respawnCount`/`lifeId` deltas (walkTo success is not).
+
+### Step 4 — Warehouse transfer to A + live shop price card (2026-08-16)
+**Iron kit delivered to A.** `kitprep1` withdrew the banked iron kit (Iron chainbody +
+Iron platelegs + Iron sword) and gifted it to `goonmule1` at Draynor bank
+(`bot.trade`/`serveTrades`, "Accepted trade."). `goonmule1` hauled it to the boy
+`(2927,3455)` and traded it to `qstboot1` (attempt #0 "busy", #1 succeeded: *gave Iron
+chainbody x1, Iron platelegs x1, Iron sword x1, received nothing*), then walked to Falador
+bank `(2945,3368)` and holds a small food reserve (Shrimps + Bread). **There is only ONE
+iron kit and it is now on A — `goonmule1` has no spare iron.**
+
+**Food not landed on A (yet):** `foodprobe1` carried 22 food (13 Cheese, 3 Banana, 5
+Cabbage, 1 Chocolate) to the boy but `qstboot1` declined / was busy / no-response across 8
+attempts (A was cycling the Witch's House). Bug found + fixed: offering a `give` list that
+includes an item not in inventory (`/bread/i`) fails the *whole* offer with "Item not found
+in inventory" — now only items actually held are offered. Food is still on `foodprobe1`.
+
+**Live smith/armour + food shop prices (buy / sell / stock), read from the open shop
+interface (`shop.shopItems`):**
+
+**Horvik — Varrock `(3229,3438)`:**
+- Bronze chainbody 60/36 (5), Iron chainbody 210/126 (3), **Steel chainbody 750/450 (3)**,
+  Mithril chainbody 1950/1170 (1)
+- Bronze platebody 160/96 (3), Iron platebody 560/336 (1), **Steel platebody 2000/1200 (1)**,
+  Mithril platebody 5200/3120 (1), Black platebody 3840/2304 (1)
+- Iron platelegs 280/168 (1), Studded body 850/510 (1), Studded chaps 750/450 (1)
+
+**Wayne's chains — Falador `(2973,3312)`:**
+- Bronze chainbody 60/39 (3), Iron chainbody 210/136 (2), **Steel chainbody 750/487 (1)**,
+  Black chainbody 1440/936 (1), Mithril chainbody 1950/1267 (1), Adamant chainbody 4800/3120 (1)
+
+**Wydin's food — Port Sarim `(3014,3204)`:**
+- Cheese 4/2 (3), Cabbage 1/0 (3), Banana 2/1 (3), Tomato 4/2 (3), Potato 1/0 (1),
+  Redberries 3/2 (1), Chocolate bar 10/7 (1), Pot of flour 10/7 (3), Bread 12/8 (**0**),
+  Raw beef 1/0 (1), Raw chicken 1/0 (1)
+
+**Method-finding takeaways:** none of these are overstock-cheap right now — steel chain is
+the cheapest useful next-tier piece at **750gp** (Horvik has 3 in stock, Wayne 1). Steel
+platelegs/sword are **not stocked** at Horvik/Wayne (chain + plate only). `kitprep1` has
+only **25 coins**, so no steel/mith buy is possible without ~2150gp for a full steel set —
+GP, not stock, is the wedge. Cheese is 4gp at Wydin (stock 3); `foodprobe1` has 0 coins in
+hand so it read prices only.
