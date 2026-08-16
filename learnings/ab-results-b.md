@@ -260,6 +260,17 @@ approach.) **A 1-HP body respawning at Lumbridge can now walk to Falador (safe l
 and withdraw ~22 food** without passing Draynor's jail guard. kitprep1 unmoved (iron kit at
 Draynor); foodprobe1 back on the Draynor bank tile; foodkill1 idle.
 
+### Step 2s — the real 1HP rejoin corridor: Lumbridge → Falador bank = 2.1 min, safe
+Timed **Lumbridge respawn `(3222,3218)` → Falador bank `(2945,3366)` = 126.0 s (2.10 min)**,
+`reached=true`, **died=false**, and foodprobe1 took **0 damage** (HP 21→25, i.e. it *regened*
++4 en route — no hostile hit). Combat NPCs seen: Man/Woman/Rat at the Lumbridge start
+(harmless), and only a **non-aggressive Guard cb21 @(2949,3380)** at the Falador bank (no
+damage). **This is the safe 1HP rejoin: ~2.1 min Lumbridge→Falador vs ~1 min to Draynor, but
+Draynor's last tiles two-shot a 1HP body (jail guard cb26) and Falador does not.** With
+30 food now banked at Falador, a rejoiner: respawn Lumbridge → 2.1 min walk (safe) → withdraw
+food at Falador. foodprobe1 banked its 8 food at Falador (now ~30 there) and returned to
+Draynor. kitprep1 unmoved.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
