@@ -501,3 +501,10 @@ Walked to the **SE Varrock mine `(3285,3365)`** and ran a mine loop:
   holds 2 cheese again, `foodprobe1` at 0 coins. Sustained resupply needs a real GP source
   or a bigger food shop; cheese-by-cheese from Wydin is the slow lane.
 - `goonmine1`: **Mining ~68** and climbing (SE Varrock eat-loop, banking iron), toward 85.
+
+### Step 8 — steady state (mule shuttle + miner)
+Re-read confirmed Al Kharid live prices are **stable** (Zeke steel scim 400/stock 2, mith
+1040/1; Louie steel legs 1000/2, mith 2600/1, black 1920/1, adamant 6400/1). `foodprobe1`
+ran another coin-pickup + Wydin trip (bought 3 cheese, traded to `goonmule1`) — mule reserve
+now **5 cheese**. `goonmine1` **Mining 71** (145k xp) and still climbing toward 85. `kitprep1`
+parked at Louie `(3316,3175)` with 2 coins (read-only until funded ~2,150gp).
