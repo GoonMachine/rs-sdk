@@ -51,9 +51,9 @@ are a prior, not a hunt list.
 
 1. Positions: who is inside a ruins box (~3270–3310, 3860–3900), who is on
    the two 1+7 tiles, how many `goo*` are on the hill, where **our** three
-   names are, and where the [`top-players.md`](top-players.md) watch list
-   is standing (`brotha`, `hoplite`, `goo001`, plus outfit-top-20 who are
-   online).
+   names plus any `goon*` ([`names.md`](names.md)) are, and where the
+   [`top-players.md`](top-players.md) watch list is standing (`brotha`,
+   `hoplite`, `goo001`, plus outfit-top-20 who are online).
 2. KOTH day + all: top 5, last-held, all-time delta vs last tick if you
    cached it. One sample per wall-clock minute — that is why the loop is 60s.
 3. Outfit + bank top 10 (HTML `data-item-id` / `title` — WebFetch strips

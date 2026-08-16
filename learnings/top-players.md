@@ -35,6 +35,7 @@ canvases.
 `hoplite` is the first “real PKer we might meet”: berserker + dragon halberd +
 rune plate, 474K — more than 3× goo, less than brotha’s museum set.
 The 340K band is **one dragon longsword on a rune 3-piece**, not 8-stack junk.
+id `1540` on peterthiel is **anti-dragon shield**, not a DFS.
 
 ### Bank top (flag gold-only)
 
@@ -54,9 +55,9 @@ leaders are not wealth.
 
 | Name | Tile | Class |
 |---|---|---|
-| Brotha | `(2732,9689)` | **KBD / black-dragon pocket** (KBD sample `(2716,9817)`) |
-| Tqckgxgj08 | `(3289,3887)` | hill scorer |
-| Goo001 | `(3187,3721)` | wild, not on the ruins tile this pull |
+| Brotha | `(2734,9690)` | **KBD pocket** (still) |
+| Tqckgxgj08 | `(3289,3887)` | hill, one tile off the old scorer |
+| Goo001 | `(3052,3497)` | Edgeville-west — **not on the hill** |
 | Goo006 | `(3508,9497)` plane 2 | dungeon (not hill) |
 | Torvesta | `(3267,3430)` | Varrock |
 | Mrmammal / Bjzx62 | `(3213,3464)` | Varrock east |

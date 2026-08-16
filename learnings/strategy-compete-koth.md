@@ -74,8 +74,11 @@ One scoring body + seven just outside
 
 ## Role contracts (four-account canary)
 
-Names: max 12 alphanumeric. Create with `bun bots/create-bot.ts <name>`.
-Never commit `bots/*/`.
+Fleet: **Goonmachines**. Names: [`names.md`](names.md). Max 12
+alphanumeric. `bun bots/create-bot.ts <name>`. Never commit `bots/*/`.
+Keep `qstboot1` / `foodprobe1` / `foodkill1` / `kitprep1`. New bodies are
+`goonqstN` / `goonmuleN` / `goonkitN` / `goonpileN` / `goonscorN` /
+`goonrecN`.
 
 | Role | Job | Skull | Combat |
 |---|---|---|---|
@@ -94,6 +97,8 @@ minute scored.
 Calculate the full worn-plus-carried **configured-cost** keep order before
 every trip. See [`death.rs2`](../server/content/scripts/player/scripts/death.rs2).
 
+- **Quester:** shop iron (Horvik + Varrock sword) as soon as Vampire is done.
+  “Don’t copy goo” is not “wear bronze forever.”
 - **Scorer (unskulled):** three keep slots. Cheap, replaceable. Do not wear a
   high-config item that pushes food or PI off the keep list. goo’s rune
   scim + chain + legs (139,600 configured) *fits* unskulled 3-item keep in

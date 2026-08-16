@@ -20,8 +20,9 @@ kit; do not clone the eight-stack or goo):
 Gear elite: [`top-players.md`](top-players.md). Methods:
 [`scarce-goods.md`](scarce-goods.md).
 Why OSRS/wiki advice is often wrong here: [`server-diffs.md`](server-diffs.md).
-Two Cloud agents: [`cloud-agent-a.md`](cloud-agent-a.md) (quest stack),
+Goonmachines (two Cloud VMs): [`cloud-agent-a.md`](cloud-agent-a.md) (quest stack),
 [`cloud-agent-b.md`](cloud-agent-b.md) (mule + rejoin — not cows).
+New character names: [`names.md`](names.md).
 Quest order at 25×: [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md).
 Operator-only steer notes: [`operator.md`](operator.md) — do not paste into A/B.
 
