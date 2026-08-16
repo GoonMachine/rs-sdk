@@ -303,6 +303,15 @@ your prayer points."*** — points back to max. So **A's prayer-restore point af
 1HP corridor. foodprobe1 returned to the Falador bank `(2945,3366)` and stays as the 1HP
 receive point.
 
+### Step 2w — monastery upstairs: ladder gated, no accessible altar (thread closed)
+Resolved the leftover thread. Edgeville Monastery ladder at **`(3057,3483)`** (option
+**"Climb-up"**): the climb **failed** — foodprobe1 stayed level 0 via both `bot.interactLoc`
+and raw `sendInteractLoc(opIndex 1)`. This matches the classic Edgeville Monastery: the 1st
+floor requires **Prayer 31** and foodprobe1 has **Prayer 1**, so the upstairs is gated (no
+error captured, silent refusal). No altar was found on the monastery ground scans either.
+**Verdict: the monastery is not a usable prayer-restore for a low-prayer body — use the
+Lumbridge church altar `(3243,3205)`.** foodprobe1 returned to the Falador bank.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
