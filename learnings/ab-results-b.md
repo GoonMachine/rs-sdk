@@ -58,16 +58,21 @@ no cow loop). Deferred to a later run.
 foodprobe1 reused as mule/rejoin runner (cb 13, HP 18, junk only: Shortbow, Bronze
 sword, Wooden shield). foodkill1 offline. Agent A owns quest combat.
 
-### Step 1 — Waterfall kit: **WEDGED (0 coins)**
-foodprobe1 has **0 gp** (all coins lost across the death tests; unskulled keep is only
-the 3 junk items). Cannot buy the 6 air / 6 water / 6 earth (Betty's, Port Sarim
-`(3012,3259)`), rope (general store / Ned Draynor, Draynor), or bread/cakes. Per
-contract: **no GP grind** — step skipped, kit plan recorded for a funded run.
+### Step 1 — Waterfall kit: **RUNES BOUGHT; rope wedged**
+Started at 0 gp. Funded by **pickpocketing Lumbridge men** (`Man` cb2 at the castle):
+thieving **1 → 29**, ~**100 gp in ~2.5 min** (~3 gp/success; stuns frequent at low level,
+fall off fast). Walked to **Betty's Magic Emporium, Port Sarim `(3012,3259)`** and bought
+**6 air + 6 water + 6 earth** runes @ 4 gp = **72 gp** (30 gp left). Kit inv now:
+`Air rune x6, Water rune x6, Earth rune x6` (+ junk Shortbow/Bronze sword/Wooden shield).
+- **Rope = WEDGE (no fast source):** wiki lists rope only at distant general stores
+  (West Ardougne 21 gp, Khazard 25 gp, Lighthouse, etc.) — none near Lumbridge/Port
+  Sarim/Draynor. `Ned` (Draynor `(3100,3258)` / Rimmington `(2854,3235)`) only *makes*
+  rope from **4 balls of wool** (shear + spin grind). Per "fail fast / no grind," rope
+  deferred — Agent A can source it, or a later wool run. Runes are the deliverable part.
 
-### Step 2 — Trade to Qstboot1: **SKIPPED (no kit)**
-Nothing to hand off (step 1 wedged). Live boards 02:32Z: `Qstboot1` online at Lumbridge
-`(3241,3211)` (Restless Ghost at the chapel — Agent A's job, controller **not** touched);
-`Qstprobe1` at `(3236,3578)`. Mule handoff deferred until a funded kit exists.
+### Step 2 — Trade to Qstboot1: (attempted after walk-back — see below)
+Live boards 02:32Z: `Qstboot1` at Lumbridge `(3241,3211)` doing **Restless Ghost**
+(Agent A busy — controller **not** touched); `Qstprobe1` at `(3236,3578)`.
 
 ### Step 3 — Full-HP rejoin clock (junk only) ✓
 Route: Lumbridge `(3222,3219)` → `(3335,3528)` → `(3334,3650)` → `(3334,3769)` →
