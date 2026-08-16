@@ -23,22 +23,34 @@ Confidence labels used below:
 - **Owner report** — a statement by `maxbittker`, the rs-sdk owner.
 - **Demonstrated** — a participant described a concrete run or implementation,
   sometimes with an image/video, but it was not independently reproduced here.
+- **Corroborated report** — two participants described matching sides of the
+  same event or strategy.
 - **Anecdote** — a single community claim or proposal.
 - **Source-checked** — behavior found in this checkout's server code. Production
   may still lag the local checkout, so live behavior should be probed safely.
+
+The accessibility sample did not expose message ids, so no permalinks were
+captured. Future verification can use these channel ids and locators:
+
+| Channel | Id | High-value locator |
+|---|---|---|
+| `general` | `1468002572588683449` | 2026-08-15 economy embed from `maxbittker` |
+| `share-progress` | `1468612110614528082` | Four-bot pilot: 2026-08-15 7:20 PM; three-item banking: 2026-07-27 2:30 AM; return-route PK reply: 12:32 PM; rune-miner sentinel: search `pk`, 2026-03-31 |
+| `agent-techniques` | `1470962149735141546` | 2026-05 to 2026-06 hybrid routing / GoThin discussion |
+| `99str-contest` | `1474113235622953178` | Search `Waterfall`, 2026-02-24, then review the later quest stack discussion |
 
 ## What people report doing
 
 | Date / channel | Observation | Confidence | Strategic meaning |
 |---|---|---|---|
 | 2026-08-15, `general` | An embedded post from `maxbittker` described cheap labor making ordinary commodities abundant, weak demand for cash, goods-for-goods trade, and heavy contention for fixed-respawn resources. | Owner report | Measure wealth in scarce goods and access time, not headline GP. |
-| 2026-08-15, `share-progress` | `ijohndoe` reported a four-bot LiteClient pilot using deterministic tick policies, shared reporting/curriculum, low-frequency planning, no model calls in the hot loop, and a 20-stun stop guardrail. | Demonstrated | Start with a small canary; keep the model in the planning/recovery layer and validated loops deterministic. |
-| 2026-07-27, `share-progress` | `Nick` said combat farmers banked at three inventory items, or immediately after a noted/rare drop. `maxbittker` said he killed roughly 20 on their return route and obtained little of value. | Two matching reports | Bank routes are attack surfaces. Cap loot exposure and bank instantly on rare/noted drops. |
+| 2026-08-15 7:20 PM, `share-progress` | `ijohndoe` reported a four-bot LiteClient pilot using deterministic tick policies, shared reporting/curriculum, low-frequency planning, no model calls in the hot loop, and a 20-stun stop guardrail. | Demonstrated | Start with a small canary; keep the model in the planning/recovery layer and validated loops deterministic. |
+| 2026-07-27 2:30 AM / 12:32 PM, `share-progress` | `Nick` said combat farmers banked at three inventory items, or immediately after a noted/rare drop. `maxbittker` said he killed roughly 20 on their return route and obtained little of value. | Corroborated report | Bank routes are attack surfaces. Bank instantly on rare/noted drops, but calculate the actual worn-plus-carried death-keep order rather than assuming three loot items are protected. |
 | 2026-03-31, `share-progress` | `maxbittker` reported that an account killed a bot he had placed to PK rune miners. `1G` described it as a defensive script and confirmed it watched a mapped area. | Demonstrated | A geofenced sentinel at a scarce node is already a known pattern; the likely next contest is approach and return-route control. |
 | 2026-02-10 to 2026-04-28, server search for `pk` | Search results showed the first reported PK, opportunistic PK while clueing, a bot positioned against rune miners, and multiple attempts to teach agents PK. One participant warned that evolved modern-OSRS PK intuition does not map cleanly onto 2004scape. | Owner reports + anecdotes | Use this revision's source and short live probes, not modern OSRS guides, as the ruleset. |
 | 2026-03 to 2026-04, `share-progress` | Participants described very large fishing and pickpocket fleets, including thousand-account-scale GP/fish claims. The exact rates were not verified. | Anecdotes | The quantities are unreliable, but the direction matches the observed abundance and GP inflation thesis. Do not compete by printing more undifferentiated cash. |
 | 2026-03 to 2026-04, `share-progress` | Two agents repeatedly failed to coordinate Shield of Arrav until a human reminded them to listen to their partner. | Demonstrated | Coordination and recovery protocols are a bigger early bottleneck than raw account count. |
-| 2026-05 to 2026-06, `agent-techniques` | `1G` described using a full headless browser for routes with ropes, trees, doors, and other transitions, then switching to GoThin for a stable combat loop. Participants described `rsmod-pathfinder` as useful for overland travel but weak on ladders, stairs, boats, and teleports. | Demonstrated | Use a heavy setup/recovery adapter and lightweight workers; cache successful transition routes explicitly. |
+| 2026-05 to 2026-06, `agent-techniques` | `1G` described using a full headless browser for routes with ropes, trees, doors, and other transitions, then switching to the external/community GoThin implementation for a stable combat loop. Participants described `rsmod-pathfinder` as useful for overland travel but weak on ladders, stairs, boats, and teleports. | Demonstrated | Use a heavy setup/recovery adapter and lightweight workers; cache successful transition routes explicitly. |
 | 2026-02 to 2026-07, `99str-contest` | Quest-based combat bootstrapping was faster than pure grinding. A level-3 Waterfall attempt needed an adaptive rat/food fallback; later advice stacked Waterfall, Grand Tree, Tree Gnome Village, Fight Arena, and Vampyre Slayer. | Demonstrated + anecdotes | Build replacement combat accounts through validated quest prerequisites, with fallback states instead of brittle end-to-end scripts. |
 | 2026-07-02, `share-progress` | A difficult combat script teleported after repeated large hits; the author estimated at least three bots for one or two kills per trip and discussed poison and recoil damage. | Demonstrated PvM, not PK | Shared retreat thresholds and additive damage sources transfer, but must be revalidated for PvP and deep-Wilderness teleport limits. |
 | 2026-07-11, `share-progress` | `Ral` said screenshots were requested only when a control-plane view was active, saving worker performance. | Demonstrated | Prefer state/metrics telemetry continuously and turn expensive visual telemetry on only for diagnosis. |
@@ -52,13 +64,15 @@ need a disposable live probe before risking valuable accounts or gear.
 ### King of the Hill and PvP
 
 - KOTH is implemented as a precise polygon at the Demonic Ruins around
-  `(3289, 3886)`, about Wilderness level 46. It awards one capture per
-  wall-clock minute. See
+  `(3289, 3886)`, about Wilderness level 46. Once per wall-clock minute it
+  samples the contenders and awards one capture. Briefly leaving the polygon
+  between samples does not itself clear incumbency; an empty scoring sample
+  does. See
   [`Koth.ts`](../server/engine/src/engine/Koth.ts).
 - There is no combat-85 floor and no solitude requirement in the checked-in
-  implementation. Every visible, non-staff player inside is a contender. The
-  highest-combat contender scores; the incumbent wins equal-combat ties, and a
-  new equal-max tie is random. An empty hill clears incumbency.
+  implementation. Eligibility requires default visibility and
+  `staffModLevel <= 1`. The highest-combat contender scores; the incumbent wins
+  equal-combat ties, and a new equal-max tie is random.
 - Demonic Ruins is multiway in
   [`multiway.csv`](../server/content/maps/multiway.csv), so multiple accounts can
   focus one target rather than being blocked by the ordinary single-combat lock.
@@ -71,17 +85,20 @@ need a disposable live probe before risking valuable accounts or gear.
   configured-highest-value items, plus one with Protect Item; skulled players
   keep none, or one with Protect Item. Protection uses static configured cost,
   not the live barter value, so the game can preserve the economically wrong
-  item. See [`pk_skull.rs2`](../server/content/scripts/skill_combat/scripts/pvp/pk_skull.rs2)
+  item. The keep order spans worn and carried items, and each keep operation
+  retains only one unit from a stack. See [`pk_skull.rs2`](../server/content/scripts/skill_combat/scripts/pvp/pk_skull.rs2)
   and [`death.rs2`](../server/content/scripts/player/scripts/death.rs2).
 - A PvP death returns the account to Lumbridge at 1 HP and applies a temporary
   death mark. At the deep-Wilderness hill, ordinary spell teleports are already
   blocked; glory and Ring of Life are also above their Wilderness limits.
-- Protection prayers reduce PvP damage rather than fully blocking it. Protect
-  Magic also shortens freezes. Bind/Snare/Entangle require a controller that
-  can keep the caster near the target.
-- A KOTH hiscore route exists at `/hiscores/koth`. Logging configuration can
-  affect whether capture events persist, so the live board is also a deployment
-  health check.
+- Protection prayers reduce the corresponding PvP max hit by 40% rather than
+  fully blocking it. Protect Magic halves freeze duration. Bind/Snare/Entangle
+  targets receive five ticks of post-freeze immunity, and movement denial ends
+  if the binder moves more than 10 tiles away.
+- A KOTH hiscore route exists at `/hiscores/koth`. KOTH capture events bypass
+  the ordinary moderation-logging toggle, but persistence still depends on the
+  logger service, its connectivity/database, and the deployed version. The live
+  board is therefore a deployment health check.
 
 ### Scarcity and trade
 
@@ -93,9 +110,10 @@ need a disposable live probe before risking valuable accounts or gear.
   one around `(3046,10265)`, and two around `(2937,9882)`. Treat coordinates as
   scouting candidates, not proof that production is identical.
 - Black dragons drop one `dragonhide_black` each, and only four ordinary black
-  dragon spawns appear in the mapped caves reviewed here. The generated generic
-  `wiki/items/dragonhide.md` page is misleading; the source has color-specific
-  hides and black-hide crafting.
+  dragon spawns appear in the mapped caves reviewed here. KBD is another
+  guaranteed black-hide source, although the live meta reports that encounter
+  as saturated. The generated generic `wiki/items/dragonhide.md` page is
+  misleading; the source has color-specific hides and black-hide crafting.
 - Shops use stock-sensitive prices and can pay zero after swarm overstock. The
   SDK's published shop snapshot can show normal-stock rather than live dynamic
   price, so verify the actual interface before bulk selling.
@@ -147,18 +165,24 @@ ticks remain positive after contention.
   polygon. Avoid multiple equal-max allies before incumbency is secured because
   the initial winner can be random.
 - **Caller/scout:** watches approaches, nearby player combat levels, crown
-  announcements, and the bank/return corridor. The current SDK exposes little
+  announcements, and the bank/return corridor. Crown messages occur only when
+  the holder changes and only within 24 tiles of `(3289,3886)`; they cannot
+  prove that an incumbent scored each minute. The current SDK exposes little
   opponent state, so the caller must work with coarse signals.
 - **Guards/pile accounts:** accounts within the relevant Wilderness combat-level
   band focus one challenger in the multiway zone. Designate skull initiators;
   do not skull the anchor without a reason.
 - **Binder:** adds movement control once Magic 20/50/79 is validated. Keep the
-  caster close enough for freezes to remain effective.
+  caster within 10 tiles, account for Protect Magic halving duration, and avoid
+  recasting into the five-tick post-freeze immunity window.
 - **Mule/resupplier:** holds food, prayer supplies, runes, poison, and cheap
   replacement kits away from the hill; uses verified trade rather than public
   drops.
-- **Recovery/loot runner:** handles Lumbridge 1-HP respawns, replacement gear,
-  rejoin routing, and the short killer-private loot window.
+- **Recovery/resupply runner:** handles Lumbridge 1-HP respawns, replacement
+  gear, and rejoin routing. During the private phase, tradeable PvP loot is
+  visible specifically to the killer; the killer must loot it. Another runner
+  can only contest it after public reveal unless that runner received kill
+  credit.
 
 Treat resource-node defense and KOTH as different missions. For runite, a
 geofenced sentinel plus staggered miners/haulers may be enough. For KOTH, low
@@ -167,8 +191,10 @@ alive.
 
 ### 4. Risk doctrine
 
-- Non-aggressing workers use the demonstrated three-item exposure cap and bank
-  immediately on rare or noted drops.
+- Non-aggressing workers can use the demonstrated three-drop banking trigger,
+  but must calculate the complete worn-plus-inventory static-cost keep order
+  first, confirm they remain unskulled, and remember that a stack is not kept as
+  one whole protected item. Bank immediately on rare or noted drops.
 - Aggressors assume they will skull and carry only a deliberately chosen
   Protect Item candidate plus consumables they are willing to lose.
 - Compare static death-protection cost with internal barter value before every
@@ -181,8 +207,8 @@ alive.
 
 ### 5. Progression sequence for this checkout
 
-`agentmachine` is currently a near-fresh Lumbridge account, so immediate KOTH
-combat is not realistic.
+`agentmachine` was last recorded in its `lab_log.md` as a near-fresh Lumbridge
+account, so immediate KOTH combat is not realistic without a live state check.
 
 1. Verify live state and server multipliers; then validate early combat and
    food loops in 10–30 second probes.
@@ -204,8 +230,8 @@ combat is not realistic.
 - Deaths, replacement-kit cost, and rare-value exposure per 100 account-hours.
 - Time from death/stuck state to productive rejoin.
 - Planning/model calls per worker-hour and percentage handled deterministically.
-- KOTH capture minutes, anchor uptime, challenger response time, and pile
-  synchronization failures.
+- KOTH capture minutes, anchor scoring-sample coverage, challenger response
+  time, and pile synchronization failures.
 - Barter fills and observed goods-for-goods ratios; GP is a secondary liquidity
   metric.
 
@@ -225,4 +251,3 @@ combat is not realistic.
    state?
 7. Does production currently use the 25x XP configuration visible in the local
    deployment file? Do not forecast replacement-account time until verified.
-

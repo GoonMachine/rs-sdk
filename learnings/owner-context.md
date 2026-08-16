@@ -25,8 +25,8 @@ Current live meta, in Max's words:
 Local-source corrections that matter before acting:
 
 - KOTH is implemented in this checkout. It scores the highest-combat contender
-  inside the Demonic Ruins polygon once per wall-clock minute; it does not use
-  the earlier proposed combat-85 / sole-occupant rule.
+  sampled inside the Demonic Ruins polygon once per wall-clock minute; it does
+  not use the earlier proposed combat-85 / sole-occupant rule.
 - Runite requires Mining 85 with a 2,400-tick base respawn in the authoritative
   server table. The handwritten mining wiki's level-70 claim is stale.
 - PvP item protection follows static configured cost, not the live barter
@@ -34,7 +34,11 @@ Local-source corrections that matter before acting:
 - Treat these as checkout truth, not guaranteed production truth. Verify them
   with a disposable live probe before risking scarce gear.
 
-Do **not** mix this up with **RuneBench**. Bench is a separate timed eval (8x tick, 25x XP, peak XP/min scoring). Strategies from bench (bank-then-burst cooking, many tiny tool calls) transfer. The multipliers do not.
+Do **not** mix this up with **RuneBench**. Bench is a separate timed eval (8x
+tick, 25x XP, peak XP/min scoring). Strategies from bench (bank-then-burst
+cooking, many tiny tool calls) transfer. Do not assume Bench timing or scoring
+applies to the demo. This checkout separately configures 25x XP and 300 ms
+ticks, but verify those values on production before forecasting.
 
 ---
 
@@ -44,7 +48,7 @@ Do **not** mix this up with **RuneBench**. Bench is a separate timed eval (8x ti
 |---|---|---|
 | What | Persistent shared world, competing swarms | Isolated timed tasks |
 | URL | [hiscores](https://rs-sdk-demo.fly.dev/hiscores) | [runebench](https://maxbittker.github.io/runebench) |
-| Clock | Normal-ish tick (local servers can raise `NODE_TICKRATE`) | 8x tick, 25x XP ([tweet](https://x.com/maxbittker/status/2087969860521193745)) |
+| Clock | Checkout config: 300 ms ticks and 25x XP; verify production | 8x tick, 25x XP ([tweet](https://x.com/maxbittker/status/2087969860521193745)) |
 | Score | Total level / playtime; social / economic play | Peak XP rate in any 15s window |
 | Mods | Faster XP curve, infinite run, no randoms | Same SDK + wiki dump |
 | Persistence | Not guaranteed. Hold accounts lightly. | Single-run |
@@ -68,7 +72,7 @@ Follow-ups in the same thread:
 - Inflation is [from the environment, with very few sinks](https://x.com/maxbittker/status/2088500017308844310) in this revision. Not AI-specific, just accelerated.
 - Illiquidity matters as much as inflation: [many accounts do not trade, trading is inconvenient, and there is not much reason to sell](https://x.com/maxbittker/status/2088610738310963455).
 
-**Agent implication:** do not optimize for GP, shop gold, or “max cash.” Stack and trade scarce contested items. Use public chat / PMs to barter. Shop sell prices and general-store dumps are a weak sink.
+**Agent implication:** do not optimize for GP, shop gold, or “max cash.” Stack and trade scarce contested items. Use public chat to barter; the SDK has no send-PM action unless one is separately implemented. Shop sell prices and general-store dumps are a weak sink.
 
 ### Wilderness is the live PvP contest
 
@@ -78,10 +82,12 @@ Follow-ups in the same thread:
 
 The combat-85 / only-player design was an earlier proposal, not the current
 checked-in rule. In this checkout, KOTH is a precise Demonic Ruins polygon near
-`(3289, 3886)` and awards one capture per wall-clock minute. Every visible
-non-staff player in the polygon is eligible; the highest-combat contender wins.
-The incumbent wins equal-combat ties, otherwise a new equal-max tie is random.
-An empty hill clears incumbency. A `/hiscores/koth` implementation also exists.
+`(3289, 3886)`. Once per wall-clock minute it samples eligible contenders and
+awards one capture. Eligibility requires default visibility and
+`staffModLevel <= 1`; the highest-combat contender wins. The incumbent wins
+equal-combat ties, otherwise a new equal-max tie is random. An empty scoring
+sample clears incumbency; briefly leaving between samples does not. A
+`/hiscores/koth` implementation also exists.
 See [`Koth.ts`](../server/engine/src/engine/Koth.ts) and the detailed
 [`Discord/source note`](discord-meta-2026-08-15.md).
 
@@ -118,8 +124,9 @@ generated wiki is stale here; use
 
 Black-hide source check: black dragons drop a color-specific black hide, and
 only four ordinary black-dragon spawns were found in the reviewed local map
-data. The generated generic `wiki/items/dragonhide.md` page collapses colors and
-is misleading for this decision.
+data. KBD is another guaranteed source, though the live meta reports it as
+saturated. The generated generic `wiki/items/dragonhide.md` page collapses
+colors and is misleading for this decision.
 
 ### Current swarm operating thesis
 
@@ -143,14 +150,16 @@ retreat commands, recovery, and fleet-wide metrics.
    rune-mining area.
 6. For KOTH, use an anchor + level-compatible guards/binder + caller/scout +
    mule/recovery formation. Keep the anchor uniquely highest combat.
-7. Cap non-aggressor loot exposure at three protected items and bank immediately
-   on noted or rare drops. Aggressors should assume a skull and carry only a
-   deliberate Protect Item candidate plus expendable supplies.
+7. Use the reported three-drop banking trigger only after calculating the full
+   worn-plus-carried static-cost keep order and confirming unskulled status;
+   stacks are not automatically retained as one item. Bank immediately on noted
+   or rare drops. Aggressors should assume a skull and carry only a deliberate
+   Protect Item candidate plus expendable supplies.
 8. Value targets in risk-adjusted worker-minutes, contention delay, and barter
    fills—not GP. Keep GP only as operating liquidity.
 
-Full evidence, metrics, roles, and the staged path for the near-fresh
-`agentmachine` account are in
+Full evidence, metrics, roles, and the staged path for the last-recorded
+near-fresh `agentmachine` account are in
 [`discord-meta-2026-08-15.md`](discord-meta-2026-08-15.md).
 
 ### How Max wants people to join
@@ -239,7 +248,8 @@ Concrete pointers already in this repo:
 
 - Memecoins, pump.fun, Bankr, “claim fees” replies under Max's tweets. Not part of the game.
 - Official OSRS GE prices, bonds, or current-era mechanics. This is a 2004 revision.
-- Assuming RuneBench tick/XP rates apply on the demo server.
+- Assuming RuneBench timing/scoring—or this checkout's 25x XP setting—matches
+  live production without a probe.
 - Assuming the demo server will keep your bank forever.
 
 ---
