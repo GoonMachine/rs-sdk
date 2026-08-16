@@ -73,13 +73,19 @@ fall off fast). Walked to **Betty's Magic Emporium, Port Sarim `(3012,3259)`** a
   it, don't grind muggers. (The distant general stores in `wiki/items/rope.md` are all
   Kandarin/Karamja; the `(3018,3185)` mugger spawn is unpathable from Draynor.)
 
-### Step 2 — Trade to Qstboot1: **HOLDING full kit (partner not in range)**
-`Qstboot1` was repeatedly **not in range** (Agent A mid–Restless Ghost: wizard's tower /
-graveyard, not the castle). Controller **not** touched. **Holding the full kit**, parked
-at **`(3235,3213)`** (Lumbridge castle courtyard): `Air rune x6, Water rune x6, Earth
-rune x6, Rope x1` (+ 30 gp, junk). Hand-off pending Qstboot1 returning to Lumbridge;
-the call is `bot.trade(/qstboot1/i, {give:[air6,water6,earth6,rope1]})`. Kit is safe in
-inventory (persists on the account; Lumbridge has no aggressive NPCs).
+### Step 2 — Trade to Qstboot1: **COMPLETED (kit delivered)**
+**Hand-off done 2026-08-16 ~04:09 UTC.** foodprobe1 served the trade at Lumbridge and
+gave `Qstboot1` the full Waterfall kit — **Rope x1, Air rune x6, Water rune x6, Earth
+rune x6** (pure gift, received nothing). `bot.trade` result: `success=true`.
+- Timeline: Qstboot1 finished Vampire Slayer (was in Draynor Manor crypt `(3077,9774)`),
+  walked to Lumbridge, entered range at `(3230,3227)` d=14; foodprobe1 (parked at
+  `(3235,3213)`) auto-initiated and the trade completed at `(3232,3223)`.
+- Earlier attempts held: two prior serve windows found Qstboot1 out of range (Restless
+  Ghost / crypt). Controller **never** touched — foodprobe1 initiated from its own side.
+- Mule pipeline proven end-to-end: 0 gp → pickpocket men → Betty runes → mugger rope →
+  serve trade to the quest bot. Ned (`(3100,3258)`, 15 gp) is the faster rope source next.
+- **Post-handoff:** foodprobe1 stays mule (30 gp, junk), parked near Lumbridge, ready to
+  ferry food / replacement kits on request.
 
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
