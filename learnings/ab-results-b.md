@@ -521,6 +521,20 @@ pickpockets**; `foodprobe1` (thieve 42) got 30gp in **1**. Bootstrapped eat-on-s
   printer → `goonmule1` (6k target); `foodprobe1` = food warehouse via net-fish shrimp → cook
   Lumbridge range `(3230,3196)` → dump cooked on the mule (GP-free food).
 
+**All three lanes proven end-to-end (2026-08-16 ~16:35Z):**
+- **Guard printer + pool:** `kitprep1` pickpockets Falador guards, eats cheese on stun, and
+  dumps coins to `goonmule1` at the sit (`bot.trade` → `serveTrades` pool). Thieving climbed
+  **50→55**; first 300gp pooled on `goonmule1`. It is **food-gated**: HP 10 + only the 5 cheese
+  means it takes stuns and retreats when cheese runs out — the fix is the shrimp loop below
+  feeding the mule, which re-supplies the thief.
+- **Shrimp→cook→mule (GP-free food), proven:** `foodprobe1` net-fished **15 raw shrimp** at
+  Draynor `(3087,3230)`, cooked at the **Draynor fireplace `(3100,3256)`** (much closer than
+  the Lumbridge range), and delivered **7 cooked shrimp** to `goonmule1` (8 burned at low
+  level). One cycle took Fishing **1→28** and Cooking **1→25**. `goonmule1` now holds 300
+  coins + 7 cooked shrimp. Burn rate drops as Cooking levels, so cooked yield rises over time.
+- **Closed loop:** guard GP → `goonmule1` (→ steel/gloves for A); shrimp food → `goonmule1`
+  (→ re-supply the guard-thief and A). No shop GP needed for food; guard GP funds the kit.
+
 ### Step 9 — fleet coin count + the GP wall (2026-08-16 ~16:08Z)
 Inventory coins, read live from each bot:
 
