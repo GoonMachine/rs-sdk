@@ -25,13 +25,21 @@ while local default is 400ms. Do not forecast from unchecked boxes.
       rate). Do not wait for Waterfall to tick this box. Waterfall lists 13,750
       att/str in [`wiki/quests/waterfall-quest.md`](../wiki/quests/waterfall-quest.md)
       (`137500` tenths in `quest_waterfall.rs2`).
-- [ ] PvP death respawns Lumbridge at 1 HP — **agent B**, low wild, junk only
-- [ ] Death mark still blocks NPC-suicide full-heal — **agent B**
+- [x] PvP death respawns Lumbridge at 1 HP — **agent B**, 2026-08-16: two junk
+      accounts, Edgeville wild 4. Victim respawned (3222,3218) at 1 HP (`death.rs2`
+      `stat_sub(hitpoints,…,1)`); kept 3 highest-cost items, dropped 15.
+- [x] Death mark still blocks NPC-suicide full-heal — **agent B**, 2026-08-16:
+      marked victim died to a Dark wizard at PvP+174s → respawn **1/18 HP**; the
+      same NPC death at PvP+510s (mark expired) → **18/18 HP**. Duration
+      `^pvp_death_mark_duration=1000` × 300.3 ms ≈ 300s. See `ab-results-b.md`.
 - [ ] KOTH polygon matches [`Koth.ts`](../server/engine/src/engine/Koth.ts)
       vertices (stand just inside / just outside) — **agent A**, disposable junk,
       do not attack
-- [ ] `/playerpositions` and `/hiscores/koth` still match the dated snapshot —
-      **agent B**
+- [x] `/playerpositions` and `/hiscores/koth` still match the dated snapshot —
+      **agent B**, 2026-08-16: 8-stack names all present and **back on the hill**
+      (~(3287,3885), `Tqckgxgj08` on crown, `Goo001` adjacent, both capturing now);
+      15 `goo` parked underground. Names match snapshot; occupancy is live-current
+      (supersedes Agent A's empty-polygon read). See `ab-results-b.md`.
 
 ## Diffs that change advice
 
