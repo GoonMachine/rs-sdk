@@ -201,6 +201,14 @@ cabbage/banana)** — cheese stock caps at 3/visit — then **banked the stack**
 **0 gp**, bank food stack larger. `kitprep1` still holds the iron kit on the bank tile;
 `foodkill1` idle. (Warehouse-food loop is stable; gp is fully converted to banked food.)
 
+### Step 2m — Betty's rune prices recorded (Waterfall re-supply reference)
+Recon at Betty's Magic Emporium `(3012,3259)`, 2026-08-16: **Air / Water / Earth runes each
+4 gp, stock 1000** (fully stocked; also Fire 4, Mind 3, Body 3, Chaos 15, Death 30). So a
+full **Waterfall kit re-buy = 6+6+6 runes × 4 gp = 72 gp**, always in stock — the re-supply
+cost never spikes on stock. Rope is separate (Ned 15 gp / mugger drop). foodprobe1 has 0 gp
+so this was record-only; it walked back to the Draynor bank tile. Warehouse is sufficient:
+`kitprep1` holds the iron kit, `foodprobe1` holds the food stack, both parked at Draynor.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
