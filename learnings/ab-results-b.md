@@ -251,6 +251,15 @@ Draynor's last ~10 tiles have a **Jail guard cb26** (two-shots 1 HP) + Dark wiza
 ~90 s extra travel, cheap insurance for a 1-HP body. Kit warehouse stays at Draynor;
 route 1-HP banking to Falador. foodprobe1 returned to the Draynor bank tile.
 
+### Step 2r — Falador bank now stocked with food (1HP rejoin ready)
+Moved the food stack to the safe bank: withdrew **22 food** at Draynor, walked to **Falador
+bank `(2945,3366)`**, deposited it, and confirmed the bank (opened at the Falador booth) now
+holds **22 food** (`falBankFood=22`, invFoodLeft=0), then returned to Draynor. (RS bank is
+shared across booths, so this stocks the one bank reachable from the hazard-free Falador
+approach.) **A 1-HP body respawning at Lumbridge can now walk to Falador (safe last tiles)
+and withdraw ~22 food** without passing Draynor's jail guard. kitprep1 unmoved (iron kit at
+Draynor); foodprobe1 back on the Draynor bank tile; foodkill1 idle.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
