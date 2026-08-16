@@ -79,14 +79,14 @@ was **one brain on pickpocket while the quester death-spiraled at 10 HP**.
 
 | Body | VM | Priority | Job now |
 |---|---|---|---|
-| `qstboot1` | A | **1** | Quest only. **Witch’s House cut-in** (HP), then Waterfall (str), then TGV/Arena/Grail. Never Accurate. Accept trades. Do not grind def/str. |
-| `foodprobe1` | B | **1 if A lumbs / needs a shop item** | Reactive mule: Betty 6/6/6, rope, Wydin cheese, trade. Park Draynor. Do not follow A to Taverley/Golrie. |
-| `kitprep1` | B | 2 | Warehouse: GP → iron → bank → Wydin stacks → steel. Thessalia gloves `(3204,3417)` if A still needs them. |
-| `foodkill1` | B | idle | Real 1 HP clock only (`sdk.getState()`). |
+| `qstboot1` | A | **1** | Quest + **his own bank**. Shop gloves/cheese/runes himself. Bank extras at Falador/Draynor before caves. Witch’s House → Waterfall → stack. Never Accurate. |
+| `kitprep1` | B | **1** | Warehouse in *his* bank. Iron → steel → Wydin. Scheduled Draynor trade only. |
+| `foodprobe1` | B | spare | Parked at Draynor bank. Not a death-watch. |
+| `foodkill1` | B | idle | Real 1 HP clock. Self-banks food before the trip. |
 
-B’s one model: **death-watch / quest-item trade beats warehouse.** Two lites,
-one priority queue. Next bodies (`goonpile1`, `goonscor1`) only after cb ≥ 80
-and the 1 HP rejoin is boring.
+B’s one model stays on **`kitprep1`**. Do not follow A. A mule exists only
+to **trade between banks** — not to carry A’s Waterfall kit. Next bodies
+(`goonpile1`, `goonscor1`) only after cb ≥ 80 and the 1 HP rejoin is boring.
 
 ## Role contracts (later four-account canary)
 

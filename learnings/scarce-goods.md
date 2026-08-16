@@ -93,13 +93,25 @@ if Heroes’ is done. That is the 340K band, not brotha’s museum.
 Not runite (mining 85). Not black dragons (combat 227). Not cows. Not the hill.
 `qstboot1` does **not** farm this mid-quest. Warehouse first; wear later.
 
-**B’s brain has one priority queue.** Do not pickpocket while A is dead in
-Lumbridge or missing a quest item B can buy in five minutes.
+**No standing mule.** Banks are **per-account** — `foodprobe1` cannot
+withdraw for `qstboot1`. There is **no Lumbridge bank**
+([`banking.md`](banking.md)). Closest after a death: **Draynor `(3092,3243)`**.
+A is at Falador-south now; Falador bank is ~`(2945,3366)` (`m46_52`).
+
+`qstboot1` **shops and banks for himself** (Betty, Ned, Wydin, Horvik, Thessalia).
+Park extras in *his* bank before Golrie / fire giants. After Lumbridge, walk
+Draynor and withdraw. Do not wait for a courier.
+
+B spends the model on **`kitprep1` warehouse** (iron → steel → food stacks in
+*kitprep1’s* bank). Move items across accounts only with a **scheduled
+Draynor trade**, then each side banks. `foodprobe1` stays parked at that
+bank as a spare inventory, not a watcher. `foodkill1` stays idle until a
+real 1 HP clock — that body also self-banks food before the wild trip.
 
 | Priority | Body | Job |
 |---|---|---|
-| 1 | `foodprobe1` | Reactive mule. If `qstboot1` is in Lumbridge/Draynor/Falador: Betty `(3012,3259)` 6/6/6, Ned rope, food, trade. Death-watch. |
-| 2 | `kitprep1` | Proactive warehouse. GP → shop kit → bank Draynor. |
+| 1 | `kitprep1` | Warehouse. GP → shop kit → **his** Draynor bank. Trade A only when both are at Draynor. |
+| 2 | `foodprobe1` | Spare. Do not death-watch. Trade only if kitprep1 is busy and A is at Draynor. |
 | 3 | `foodkill1` | Idle until a real `sdk.getState()` 1 HP clock. |
 
 ### Shop ladder (source-checked)

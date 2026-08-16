@@ -17,7 +17,7 @@ KOTH minute, **and** a scarce-goods kit that survives a real PKer.
 | **Equips** | Hill trip: cheap replaceable. Configured-cost keep in `death.rs2`. Unskulled 3, skulled 0 unless PI. Do not copy goo’s rune 3-piece onto an attacker. Bank the elite kit off-hill ([`scarce-goods.md`](scarce-goods.md)). | `/hiscores/outfit` top kit or KOTH median loadout changes |
 | **Consumables** | Cheap food for the 1 HP corridor. Waterfall: rope + 6 air/water/earth. Bones unnecessary after Restless Ghost (pray 47). | Next `.rs2` item list; mule inventory |
 | **Scarce goods** | Runite + black d'hide are the trade goods ([`owner-context.md`](owner-context.md)). GP / bank-hiscore gold is a trap. | Outfit elite moves; a watched name farms a contested spawn |
-| **Fleet** | Two VMs. B priority: trade/death-watch **beats** kitprep warehouse. Extra low-cb bodies add zero KOTH score. | A lumbs; kitprep finishes iron; 8-stack leaves |
+| **Fleet** | Two VMs. **No standing mule.** A self-banks (Draynor/Falador). B = `kitprep1` warehouse + scheduled Draynor trade. Extra low-cb bodies add zero KOTH score. | kitprep finishes iron; 8-stack leaves |
 
 Live boards beat a dated snapshot. This checkout beats OSRS memory.
 
