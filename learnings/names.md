@@ -16,7 +16,7 @@ Progress lives on the existing characters. Same name + new password does
 |---|---|---|
 | `qstboot1` | Goonmachine A | 25× quest stack |
 | `qstprobe1` | leftover | Phase 1 scout. Not a job. |
-| `foodprobe1` | Goonmachine B | Spare at Draynor bank. Not a standing mule. |
+| `foodprobe1` | Goonmachine B | Food warehouse (fish → cook → mule). Not guards. |
 | `foodkill1` | Goonmachine B | Idle until a real 1 HP clock |
 | `kitprep1` | Goonmachine B | Warehouse (iron → Wydin). After `foodprobe1` death-watch. |
 | `goonmine1` | Goonmachine B | Runite miner. Copper/tin → iron 15 → coal 30 → mith 55 → addy 70 → rune 85. |

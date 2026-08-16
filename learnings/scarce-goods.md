@@ -123,7 +123,7 @@ naked re-quest.
 | **5** | Glory | craft | No shop. Heroes’ = 55 QP + Lost City + Dragon Slayer + Merlin + Arrav. Not a gatherer quest. |
 | **6** | Rune platebody | +84.5k | Oziach after Dragon Slayer, or smith 99. |
 
-Food: Wydin cheese `(3014,3204)` (also Witch’s House item) → Brimhaven lobster `(2793,3188)` ~195 gp / 12 HP when GP allows. No monkfish. Shark is fish 76 / cook 80, no cooked-shark shop.
+Food heals (`consume_normal.dbrow`): cheese **2**, shrimp **3**, trout **7**, salmon **9**, lobster **12**, swordfish **14**, karambwan **18**, shark **20**. Shops are **not** the warehouse — Brimhaven lobster/swordfish/karambwan stock **2–3**, Wydin cheese stock **3**, Gerrant raw lobster/sword stock **0**. `brotha`’s 78k shark and `nickai3`’s raw-shark bank were **caught**. `foodprobe1` fishes; `kitprep1` does not.
 
 ### GP — the world is rich, we measured **1 coin**
 
@@ -142,7 +142,7 @@ coins on a body that walks the shed.
 |---|---|---|---|---|
 | Man | 1 | 3 | 1 | Emergency 6 gp only |
 | Warrior | 25 | 18 | 2 | — |
-| **Guard** | **40** | **30** | 2 | `kitprep1` (50) and `foodprobe1` (42) **now**. Falador / Varrock. |
+| **Guard** | **40** | **30** | 2 | **`kitprep1` only** (thieve 50). `foodprobe1` fishes. |
 | Knight (Ardougne) | 55 | 50 | 3 | `kitprep1` next |
 | Hero | 80 | 200–300 | 4 | Later |
 
@@ -156,7 +156,7 @@ overstock cuts the price we pay (floor 1 gp). It kills **sellers**.
 |---|---|---|
 | 1–20 gp (pickaxe, gloves, cheese) | Pull from the mule treasury. If the mule is at 0, **guard-pickpocket** until 50, then buy. Bob pickaxe 1 gp. | A walking Varrock broke. Leaving 1 coin on `kitprep1`. |
 | Iron / steel / mith kit | Guard printer → mule → **open Horvik and read live price.** Buy if coins cover. Do **not** mine-to-smith iron legs. | Hoping overstock is 1 gp when we have 1 coin. |
-| Food | Wydin. Overstocked cheese is nearly free. | Farm GP to buy lobster. |
+| Food | `foodprobe1` fishes (shrimp → trout → lobster → sword → shark). Wydin cheese is the 2 hp quest stack. | Buy Brimhaven lobster as the farm (stock 3). Park `foodprobe1` on guards. |
 | 100k+ (Scavvo / Jakut) | Quester QP + **barter** (runite / hides later). High alch is 60% of `oc_cost` (`alchemy.rs2`) — only if we already have natures and alchable loot. | Hero pickpocket. Selling into Lumbridge gen store. |
 
 Rule: `bot.openShop` and read `shopItems` price/count **before** any GP grind.
@@ -183,16 +183,18 @@ configured `cost` is **not** cash.
 | Iron ore | mine **15** | 17 | Horvik iron | Unlock, do not grind for legs. |
 | Iron bar / legs | smith 15 / **31** | 3 bars / legs | Horvik 280 | Shop wins until we are already 31 for another reason. |
 | Steel | mine coal 30 + smith 30 | — | Horvik / Wayne / Louie ~2.1k | Shop first. |
-| Shrimp (Draynor) | fish 1, cook 1 | cooked 5 | Wydin cheese / 1 HP food | **Best adjacent at level 1** if Horvik is still short. Dual-use: food in the bank, not a GP printer. |
-| Trout / salmon | fish 20 / 30 | — | better food | After a net + feathers, still food, not GP. |
-| Lobster | fish 40 + cook 40 | 150 | Brimhaven shop ~195 / 12 HP | Switch food here when the levels exist. No monkfish. |
-| Shark | fish 76 + cook 80 | 500 | late food | Not a first gather. |
+| Shrimp (Draynor `(3087,3230)`) | fish 1, cook 1 | 3 hp | Wydin cheese 2 hp | **`foodprobe1` start.** Net at Gerrant `(3013,3225)`. Cook Lumbridge range `(3230,3196)`. Dark wizards — stay south of z≈3232. |
+| Trout / salmon | fish 20 / 30, cook 15 / 25 | 7 / 9 hp | shrimp | Barb village lure `(3110,3434)`. Fly rod + feathers. No boat. |
+| Lobster | fish 40 + cook 40 | 12 hp | Brimhaven shop stock **3** / 195 gp | **Catch** at Musa `(2923,3179)`. Boat 30 gp (`sailors.rs2`). Pot 20 gp at Gerrant. |
+| Swordfish | fish 50 + cook 45 | 14 hp | Brimhaven stock **2** | F2P ceiling. Same Musa cage/harpoon spots. |
+| Karambwan (shop) | walk Brimhaven | 18 hp / **1 gp** | shark 20 | **Probe only.** Shrimp-and-Parrot `(2793,3188)` stock **3**. Not a warehouse. |
+| Shark | fish **76** + cook **80**, `members=yes` | 20 hp | no cooked-shark shop | End-game food. Try at 76; if the catch is members-blocked, stay on swordfish. Elites already have the stacks. |
 | Logs / oak / willow | wc 1 / 15 / 30 | 4 / 20 / 40 | “any GP” | Skip. Dark wizards sit on Draynor willows. Gen stores pay ~0. |
 | Flax → bowstring | members flax + spin | flax cost 5 | Lowe / Hickton | **No lane.** Flax is `members=yes`. Lowe already holds 2000 bronze arrows (sell **0**). Hickton mith/addy/rune arrows wiki-stock 0 — only useful if we already fletch those, which we do not. Elites rushed fletching for **kit** (hoplite’s 1k magic shorts), not GP. |
 | Fletch short/longbow → Lowe | wc + fletch + string | Lowe sell 27–88 | “flax money” | Skip. Four-stock bows, then overstock → 0. Same dump as hides into Lumbridge gen. |
 | Yew / magic | wc 60 / 75 | 160 / 320 | high alch 60% of `oc_cost` | Only with natures already in bank. |
 | Runite | mine **85** + smith 85 + 8 coal | ore 3200 | the scarce good | The mining endgame. Do not start this on `qstboot1`. |
-| Pickpocket **guards** | thieve 40 | 30 gp | shop lubricant | **The lane.** `kitprep1` + `foodprobe1` → mule. Knights at 55. |
+| Pickpocket **guards** | thieve 40 | 30 gp | shop lubricant | **`kitprep1` only** → mule. Knights at 55. Not `foodprobe1`. |
 | Pickpocket men | thieve 1 | 3 gp | emergency 6 gp | Only if no 40+ thief is up. |
 | 1 HP bank after death | food in inv | — | Draynor `(3092,3243)` | **Falador `(2945,3366)`.** Lumbridge→Falador **126 s**, 0 dmg, ~30 food staged (`foodprobe1` 2026-08-16). Draynor last tiles two-shot: jail guard cb26 `(3101,3238)` + dark wizard `(3084,3237)`. Pray first at Lumbridge church altar **`(3243,3205)`** (Pray-at; live restore). No Falador ground altar. Monastery upstairs gated (Pray 31; ladder at 3057,3483 will not climb). |
 | Falador chests / drawers | none | 1–10 coins on a hit | “free gp” | **Skip.** `findsomethingnice.rs2` is ~1/10 then 1/4 coins. Live: 44 searches, 0 gp (`foodprobe1`). |
@@ -201,15 +203,16 @@ configured `cost` is **not** cash.
 **Now (warehouse — do not sit):**
 
 GP is **shop lubricant**, not a hiscore. We still need a **6k mule
-treasury** (measured 1 coin). Guard-pickpocket into `goonmule1`, then
-open Horvik and read live `price`/`count`. Overstock can make steel 1 gp.
-Gen stores pay ~0 — do not dump shrimp for cash.
+treasury** (measured 1 coin). **`kitprep1`** prints (guards → mule).
+**`foodprobe1`** fishes. **`goonmine1`** stays on Mining 85. Do not
+cross those jobs.
 
 | Body | Loop |
 |---|---|
-| `kitprep1` | **Guards first** (Falador north of bank ~`(2950,3379)`). First 50 gp: Thessalia gloves `(3204,3417)` + coins onto `qstboot1` at the boy `(2927,3455)` — not the Falador sit. Then dump to mule and keep printing until the mule holds ~6k. Shop Horvik/Wayne/Louie/Zeke only when `price <=` coins. Knights at thieve 55. Write coin counts into `ab-results-b.md`. |
-| `foodprobe1` | Guards (Varrock palace or Falador) → mule. Wydin cheese onto the mule. Do not follow A into the house. |
-| `goonmule1` | Treasury. Sit Falador `(2945,3368)` with coins + a food reserve. After every A death, trade coins + gloves + food onto `qstboot1`. |
+| `kitprep1` | **Printer only.** Falador guards ~`(2950,3379)`. First 50 gp: Thessalia gloves `(3204,3417)` + coins onto `qstboot1` at the boy `(2927,3455)` — not the Falador sit. Then dump to mule until ~6k. Shop Horvik/Wayne/Louie/Zeke when `price <=` coins. Knights at 55. Write coin counts into `ab-results-b.md`. |
+| `foodprobe1` | **Food warehouse.** Hiscores fishing/cooking unranked. Gerrant `(3013,3225)` net + fly rod + feathers (~20 gp from mule, or one guard stack then **stop**). Draynor net `(3087,3230)` → cook `(3230,3196)` → mule. Fish 20: Barb lure `(3110,3434)`. Fish 40: Musa pot `(2923,3179)` (boat 30 gp). Fish 50: sword. Fish 76: try shark. Wydin cheese is the 2 hp quest stack. Do not follow A into the house. |
+| `goonmine1` | **Runite path.** Do not detach. SE Varrock eat-loop to 85. Coal 30 / mith 55 / addy 70 when they unlock. No wild runite before 85. No pickpocket. No smith-for-GP. |
+| `goonmule1` | Treasury. Sit Falador `(2945,3368)` with coins + cooked food. After every A death, trade coins + gloves + food onto `qstboot1`. |
 
 **Now (`qstboot1`):** Witch’s House (HP dump) still beats any gather. Wear
 the traded iron. Food in inv before the shed. After HP, Waterfall.
