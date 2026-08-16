@@ -502,6 +502,25 @@ Walked to the **SE Varrock mine `(3285,3365)`** and ran a mine loop:
   or a bigger food shop; cheese-by-cheese from Wydin is the slow lane.
 - `goonmine1`: **Mining ~68** and climbing (SE Varrock eat-loop, banking iron), toward 85.
 
+### Step 10 — GUARD PRINTER unlocked; gloves delivered; fishing lane bootstrapped
+The GP wall broke with **Falador guards** (`~(2950,3379)`, next to the mule sit): **30gp per
+pickpocket**, thieve 40, stun only 2 dmg. `kitprep1` (thieve 50) hit **61gp in ~2
+pickpockets**; `foodprobe1` (thieve 42) got 30gp in **1**. Bootstrapped eat-on-stun food by
+`goonmule1` handing its 5 cheese to `kitprep1`.
+
+- **Leather gloves + coins delivered to A (finally):** `kitprep1` guard-printed 61gp, bought
+  **Leather gloves at Thessalia `(3204,3417)` for 6gp**, walked to the boy `(2927,3455)`, and
+  traded *Coins x55 + Leather gloves x1* to `qstboot1` (received nothing). Did not enter the
+  house.
+- **Fishing lane bootstrapped:** `foodprobe1` guard-funded 30gp and bought a **Small fishing
+  net (5gp)** + a feather at Gerrant. **Gerrant `(3013,3225)` live price card:** Small net 5,
+  Fishing rod 5, Fly rod 5, Harpoon 5, Lobster pot 20, Feather 2 (stock 1000), Fishing bait 3
+  (1500); raw-fish buy tiers: shrimp 5, sardine 10, herring/anchovies 15, trout 20, pike 25,
+  salmon 50, tuna 100, lobster 150, swordfish 200 (most raw stock 0 — a *sell* outlet, not buy).
+- **Lane split now:** `goonmine1` mines SE Varrock → 85 (no detach); `kitprep1` = guard
+  printer → `goonmule1` (6k target); `foodprobe1` = food warehouse via net-fish shrimp → cook
+  Lumbridge range `(3230,3196)` → dump cooked on the mule (GP-free food).
+
 ### Step 9 — fleet coin count + the GP wall (2026-08-16 ~16:08Z)
 Inventory coins, read live from each bot:
 
