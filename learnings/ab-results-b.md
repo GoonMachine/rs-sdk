@@ -535,6 +535,21 @@ pickpockets**; `foodprobe1` (thieve 42) got 30gp in **1**. Bootstrapped eat-on-s
 - **Closed loop:** guard GP → `goonmule1` (→ steel/gloves for A); shrimp food → `goonmule1`
   (→ re-supply the guard-thief and A). No shop GP needed for food; guard GP funds the kit.
 
+### Step 11 — Mining 85 reached; guard printer fixed (flee-on-catch)
+- **`goonmine1` hit Mining 85** (378,875 xp) on the SE Varrock iron eat-loop — runite is now
+  unlocked (all 5 runite rocks are wilderness per `scarce-goods.md`; needs a dedicated wild
+  trip, not this safe loop). Kept mining SE Varrock iron; no wild runite yet.
+- **Guard-printer bug + fix:** on a **cb-3 / HP-10** body, a *failed* guard pickpocket makes
+  the guard aggro, and auto-retaliate then **locks kitprep1 in a losing melee** (seen taking
+  8–11 dmg with no XP gain — it was punching a guard, not thieving). Fix = **flee-on-catch**:
+  when hp drops, run to the mule tile `(2945,3368)` (outside guard aggro — the mule sits there
+  un-attacked), eat, let combat drop, then return. With that, `kitprep1` pickpockets safely
+  (Thieving 55→56, HP stayed 10/10, no lock). Dumps coins to `goonmule1` via a
+  `want:[shrimp]` trade so it self-feeds. **Caveat:** cb-126 players farm/kill these guards,
+  so target availability is intermittent — throughput is modest on a fragile body.
+- All four lanes now run under tmux supervisors (`mine-goonmine1`, `grind-kitprep1`,
+  `shrimp-foodprobe1`, plus goonmule1 `pool`) for continuous, self-restarting operation.
+
 ### Step 9 — fleet coin count + the GP wall (2026-08-16 ~16:08Z)
 Inventory coins, read live from each bot:
 
