@@ -157,6 +157,13 @@ receiver runs `bot.serveTrades({from, want, maxTrades:1})` in the background, bu
 `bot.trade(receiver, {give})`; receiver then banks. `foodprobe1` is the errand body,
 `kitprep1` the stationary bank holder (never send kitprep1 across the map).
 
+### Step 2h — foodprobe1 food stack banked for the 1 HP corridor
+Opened Wydin `(3014,3204)` first: cheese **4 gp** (not the hoped 1 gp overstock; stock 3),
+cabbage 1 gp, banana 2 gp. With ~13 gp foodprobe1 bought the cheap edibles it could and
+**banked a ~14-item food stack (cheese/banana/cabbage/chocolate) at Draynor** for a future
+1 HP rejoin corridor. foodprobe1 now 0 gp, food banked; `kitprep1` stationary on the bank
+tile (0 gp, holds iron chain+legs+sword); `foodkill1` idle.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
