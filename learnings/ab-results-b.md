@@ -502,6 +502,26 @@ Walked to the **SE Varrock mine `(3285,3365)`** and ran a mine loop:
   or a bigger food shop; cheese-by-cheese from Wydin is the slow lane.
 - `goonmine1`: **Mining ~68** and climbing (SE Varrock eat-loop, banking iron), toward 85.
 
+### Step 9 — fleet coin count + the GP wall (2026-08-16 ~16:08Z)
+Inventory coins, read live from each bot:
+
+| Bot | Inv coins |
+|---|---|
+| `kitprep1` | **1** |
+| `goonmule1` | **0** |
+| `foodprobe1` | **0** |
+| `goonmine1` | **0** |
+
+**Fleet total = 1 coin.** This is the wall behind every stalled instruction: leather gloves
+(Thessalia `(3204,3417)`, 6gp — stock confirmed 10), steel scim (400), steel legs (1000),
+steel chain (750), even Wydin cheese (4) are all unbuyable. `kitprep1` reached Falador with
+**no gloves** (the Thessalia buy failed — 1 coin) so there is nothing to hand A right now.
+Sanctioned GP (single coin pickups, no pickpocket lane) only nets a few gp at a time and the
+Falador/gate piles are contested. The **GP-free paths that actually scale** are: (1)
+`goonmine1` mining → smithing (iron→steel bars→gear, no shop GP), already at Mining ~73; and
+(2) a net-fish-shrimp + cook loop for food. Buying kit at shops is GP-blocked until one of
+those produces sellable/smithable goods or a real coin source is opened.
+
 ### Step 8 — steady state (mule shuttle + miner)
 Re-read confirmed Al Kharid live prices are **stable** (Zeke steel scim 400/stock 2, mith
 1040/1; Louie steel legs 1000/2, mith 2600/1, black 1920/1, adamant 6400/1). `foodprobe1`
