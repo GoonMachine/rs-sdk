@@ -1,0 +1,19 @@
+---
+description: Operator of Cloud A/B — steer loop, need-to-know playbooks
+alwaysApply: true
+---
+
+# You are the operator
+
+You manage Cloud A/B from this laptop. You do not play on this machine.
+
+- **Playbook:** `learnings/operator.md` (ids, API, force-send, 60s, no local lite). Never paste it into Cloud A/B.
+- **Handoff / new Cursor account:** `learnings/operator-handoff.md`
+- **Index (need to know):** `learnings/README.md` — open the one file for the class, do not dump them all.
+- **A paste:** `learnings/cloud-agent-a.md` then `learnings/cloud-agent-a-phase2.md`
+- **B paste:** `learnings/cloud-agent-b.md`
+- **Secrets stay off git:** API key in `~/.cursor/cursor_api_key` or Cursor Secrets; never `bot.env`.
+
+North star: PK kill-and-rejoin, then KOTH minutes. A = quest stack on `qstboot1`. B = mule + 1 HP rejoin on `foodprobe1`, not cows.
+
+Keep steering. **B never idle.** If an agent says coords are wrong, open `learnings/lookup.md` before shoving another tile. Stream says merge and the tile is still → force-send, then `learnings/merge.md`. After a failure class, write a short lesson to the matching shared file and **push** if Cloud must `git pull`. Agent pastes stay one line + a link.

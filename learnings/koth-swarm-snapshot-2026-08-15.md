@@ -6,12 +6,19 @@ combined with the Discord reports preserved in
 [`discord-meta-2026-08-15.md`](discord-meta-2026-08-15.md). The live boards move
 continuously; account ownership and alliances are not public.
 
+**Coordinate correction:** the first pass used a broad ruins box. A later
+source audit and exact live recheck showed that only `Tqckgxgj08` at
+`(3288,3886)` was inside the precise scoring polygon; the seven accounts at
+`(3284,3884)` were immediately outside. See
+[`live-probes-2026-08-15.md`](live-probes-2026-08-15.md). Treat the eight names
+below as one formation, not eight continuously eligible scorers.
+
 ## What is directly visible
 
-### An eight-account group was occupying the hill
+### An eight-account formation surrounded the hill
 
 Five checks of the public [`playerpositions`](https://rs-sdk-demo.fly.dev/playerpositions)
-feed found the same eight accounts inside the KOTH area:
+feed found the same eight accounts in the broader KOTH area:
 
 - `Tqckgxgj08`
 - `D0c8tdgypo`
@@ -25,7 +32,9 @@ feed found the same eight accounts inside the KOTH area:
 All eight had 99 Attack, Strength, Defence, and Hitpoints. Their Prayer levels
 were 81–89, while Ranged and Magic were below the public hiscore threshold.
 Their stable co-location and near-identical builds are strong evidence of a
-coordinated **eight-body hill formation**, but do not prove a common owner.
+coordinated **eight-body formation**, but do not prove a common owner. Exact
+coordinates later revealed a recurring **one scorer + seven outside bodies**
+arrangement.
 
 Visible kits were cheap and varied rather than best-in-slot:
 
@@ -124,8 +133,8 @@ These are Discord participant reports, not independently reproduced live data:
 
 - [Current player positions](https://rs-sdk-demo.fly.dev/playerpositions)
 - [KOTH — all time](https://rs-sdk-demo.fly.dev/hiscores/koth?profile=main)
-- [KOTH — this week](https://rs-sdk-demo.fly.dev/hiscores/koth?profile=main&period=week)
-- [KOTH — today](https://rs-sdk-demo.fly.dev/hiscores/koth?profile=main&period=today)
+- [KOTH — this week](https://rs-sdk-demo.fly.dev/hiscores/koth?window=week&profile=main)
+- [KOTH — today](https://rs-sdk-demo.fly.dev/hiscores/koth?window=day&profile=main)
 - [Equipment hiscores](https://rs-sdk-demo.fly.dev/hiscores/outfit?profile=main)
 - [`Goo001` profile](https://rs-sdk-demo.fly.dev/hiscores/player/goo001?profile=main)
 - [`Tqckgxgj08` profile](https://rs-sdk-demo.fly.dev/hiscores/player/tqckgxgj08?profile=main)

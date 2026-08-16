@@ -1,31 +1,59 @@
-# Cloud Agent B — death mark / positions, then rats and food
+# Cloud Agent B — death mark, then mule + 1 HP rejoin
+
+**Audience: Cloud Agent B only.** Paste below the line into that agent. Do not
+read `operator.md`. Agent A has a different file.
 
 Paste **everything below the line** into a new Cursor Cloud Agent on
 `GoonMachine/rs-sdk` `main`. Do not also paste Agent A. Do not launch a second
 copy of this prompt.
 
+If this is a **first launch or a resume**, prefer the short block in
+“Launch / resume (use this)” over re-pasting the whole essay.
+
 ---
 
-You are **Cloud Agent B** on the compete-and-counter KOTH plan. Your lane is
-Phase 1 probes (PvP death mark, live positions) then Phase 2 path **B**
-(rats / goblins / cows + bones). Agent A owns tickrate, quest XP, the
-polygon scout, and the Waterfall path. Do not do Agent A’s work and do not
-share bot names.
+You are **Cloud Agent B** on the compete-and-counter KOTH plan. Phase 1
+(death mark, boards) is done. You are **not** the cow trainer. Agent A owns
+the 25× quest stack. You mule and time the 1 HP rejoin. Do not share bot names.
 
 ## Efficiency (read this before researching)
 
-You are **not** leveling a fleet. Phase 1 is boards + one junk PvP death.
-Phase 2 is **one** trainer (`foodboot1`). Do not create extra accounts
-beyond `foodprobe1` / `foodkill1` / `foodboot1`.
+You are **not** leveling a fleet. Do not create accounts beyond
+`foodprobe1` / `foodkill1`.
 
 - After **each** probe: write the number into `learnings/ab-results-b.md`,
   tick your box in `learnings/server-diffs.md`, commit on `cloud/ab-b`.
+  Conflict → [`merge.md`](merge.md). Do not sit still resolving.
 - Prod tick is **300.3 ms/tick** (Agent A, on `main` in `ab-results-a.md`).
-  Death-mark 1000 ticks ≈ **300 seconds**. Do not re-measure tickrate.
-- Do not survey quest scripts. Do not walk the Demonic Ruins.
+  Death-mark 1000 ticks ≈ **300 seconds**. Skull 2000 ticks ≈ **600 seconds**.
+  Do not re-measure tickrate.
+- Agent A’s `/playerpositions` pass saw **no one in the ruins polygon**.
+  The 2026-08-15 eight-stack snapshot may be stale. Fetch live boards
+  yourself; do not hunt those eight names. Live wins.
+- Do not survey quest scripts. Do not walk the Demonic Ruins. Do not run
+  Cook's Assistant or Waterfall.
+- Phase 1 is **done** on `origin/cloud/ab-b` (`74cdf02f9`). Do not re-PK.
+- Do **not** start `foodboot1` or cows. The quest path won the A/B.
+- Next lane: mule Waterfall kit on `foodprobe1` (Betty `(3012,3259)` + rope +
+  food), trade `qstboot1`, then time the 1 HP rejoin to `(3303,3878)` eastern
+  corridor. Stop before greater demons. Never `(3284,3799)` spiders.
 - Do not re-read the full briefing if you already did this session. Open
   the result file and execute the next empty cell.
 - Chat reports do not count. Only written cells survive a stop.
+
+## Launch / resume (use this)
+
+```
+You are Cloud Agent B on GoonMachine/rs-sdk. git pull origin main.
+Phase 1 is on origin/cloud/ab-b. Do not re-PK. Do not create bots.
+Do not cows / foodboot1 / hill.
+
+Reuse foodprobe1. Buy Waterfall kit (Betty 3012,3259 + rope + food).
+Trade qstboot1 if in range. Then time 1 HP walk to (3303,3878) eastern
+corridor; stop before demons. Log deaths per observe-fidelity.md.
+Write ab-results-b.md, commit cloud/ab-b. Conflict → learnings/merge.md
+(kit first). Never commit bots/ or print bot.env.
+```
 
 ## Environment
 
@@ -35,7 +63,7 @@ This VM talks to the **demo server** `rs-sdk-demo.fly.dev`, not RuneBench.
 2. `git pull origin main`. Read, in order:
    `learnings/strategy-compete-koth.md`,
    `learnings/server-diffs.md`,
-   `learnings/owner-context.md`,
+   `learnings/observe-fidelity.md`,
    then this file if you need to re-check the contract.
 3. Do **not** launch Chromium. Lite client only:
    `cd server/webclient && bun src/lite/runner.ts <botname>`
@@ -72,8 +100,9 @@ Fetch and summarize:
 - `https://rs-sdk-demo.fly.dev/hiscores/koth`
 
 Compare to `learnings/koth-swarm-snapshot-2026-08-15.md`. If snapshot and live
-disagree, **live wins**. Note whether the eight names are still in the ruins
-and whether any `goo*` is on the hill. Do this again at the end of the session.
+disagree, **live wins**. Agent A already saw an empty polygon once — treat
+that as a lead, not a skip. Note who (if anyone) is in the ruins and whether
+any `goo*` is on the hill. Do this again at the end of the session.
 
 ### 2. PvP death → Lumbridge at 1 HP
 
@@ -93,39 +122,31 @@ the mark and subtracts HP to 1). Wild attack rule:
 ### 3. Death mark blocks NPC-suicide full-heal
 
 Checkout: `pvp_death_mark.rs2` and `^pvp_death_mark_duration = 1000` in
-`pvp.constant`. Convert 1000 ticks with Agent A’s measured ms/tick if that
-number is already on `main` in `ab-results-a.md`; otherwise assume 300ms
-(~5 min) and also report a tick-sampled duration.
+`pvp.constant`. At the measured **300.3 ms/tick** that is **~300s**, not
+the local 400ms (~6.7 min). Forecast 300s; still measure live.
 
 After the PvP death, still at 1 HP, have `foodprobe1` die to a **nearby NPC**
 (or another cheap death). Record HP on respawn. If it is still 1, the mark
-held. Sample until HP-on-respawn returns to full (or 1000 ticks elapse) and
-write the measured duration.
+held. Sample once around +30s and once around +300s. Do not AFK the full
+mark waiting for a single data point. Write the measured duration.
 
 Do **not** use this death to “reset” for the hill. There is no hill in your
 lane.
 
-## Phase 2 — A/B path B (only after Phase 1 boxes you own are ticked)
+## After Phase 1 — mule + rejoin (not cows)
 
-Bootstrap combat with **cheap food loops**, not quests.
+The quest path won. Do not start `foodboot1`.
 
-- `foodboot1` (or `foodprobe1` after the mark expires and HP is normal).
-- Skip tutorial. Train at Lumbridge rats / goblins / cows. Open gates.
-  Patterns and coords: `learnings/combat.md`.
-- Bury bones for prayer. Eat cheap food. Infinite run helps travel, not DPS.
-- Prove the attack loop in 10–30s (XP gained, not just `sendInteractNpc`
-  success). Then extend. A failed 5-minute run wastes more than five 30s
-  diagnostics.
-- Unlock Protect Item (Prayer 25, `prayers.dbrow`) before any planned wild
-  trip. You still should not walk the hill on this job.
+1. Relite `foodprobe1` only. Buy Waterfall kit: 6 air/water/earth at Betty
+   `(3012,3259)`, rope, cheap food. Trade `qstboot1` if both are in range.
+2. Time junk-only 1 HP walk Lumbridge → `(3335,3528) → (3334,3650) →
+   (3334,3769) → (3335,3870)` and **stop at `(3303,3878)`**. No demons, no
+   spider square `(3284,3799)`, no hill stand.
+3. Write minutes + attributed deaths in `ab-results-b.md`
+   ([`observe-fidelity.md`](observe-fidelity.md)). Commit `cloud/ab-b`.
 
-**Win metric (report both, with wall-clock from first trainer login):**
-
-- Minutes to Prayer 25 (Protect Item)
-- Minutes to combat ≥ 77 (needed so `abs(cb − 123) ≤ 46` at wild 46)
-
-Also report XP/hour and deaths-to-NPC. Stop and write results when you have
-a clean rate, or if the loop is wedged. Do not silently start Waterfall.
+**Win metric:** minutes for a 1 HP body to reach `(3303,3878)` alive. Unnamed
+death = invalid clock.
 
 ## Write-up
 

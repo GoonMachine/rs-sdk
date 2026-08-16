@@ -33,8 +33,12 @@ Use this order in every decision. Do not flatten it.
 
 ## Counter thesis
 
-Observed 2026-08-15 (snapshot + a later live re-check): the same eight names
-held the ruins; all 25 goo accounts were online and **none** were on the hill.
+Observed 2026-08-15 (snapshot + later live re-checks): the same eight names
+formed a recurring 1+7 shape—`Tqckgxgj08` on the checked-in scoring tile and
+seven bodies immediately outside. They briefly converged inside with `Goo001`,
+then returned to 1+7. All 25 goo accounts were online and usually **none** were
+on the hill. Exact probe evidence is in
+[`live-probes-2026-08-15.md`](live-probes-2026-08-15.md).
 
 Their visible pattern is occupancy + replaceable maxed bodies. Our edge is
 this server's PvP death rules, which modern guides get wrong: a PvP death
@@ -44,7 +48,7 @@ minute sample, repeat.
 
 | What they do | Weakness | Our response |
 |---|---|---|
-| 8 maxed melee, junk/empty kits, stacked on `(3284,3884)` + one on `(3288,3886)` | Low visible DPS/tank; stacked = easy multiway pile; no tele off wild 46 | One slightly higher-cb **unskulled scorer**; 2–3 **skulled pile** accounts with food + Protect Item consumables only; the killer loots during private drop |
+| One scorer at `(3288,3886)` + seven maxed junk/empty bodies just outside at `(3284,3884)` | Only the inside highest-combat body scores in the recurring shape; the seven can converge quickly; no tele off wild 46 | Displace or outlevel the scorer at a sample; treat the seven as a response stack, not seven passive capture points |
 | goo 25 / 20 historical scorers, rune 3-piece kit, often elsewhere | Kit is death-safe only unskulled; 15 were not defending | Do not fight their bench. Contest the hill while they are away. If they return, pile the scorer, not the kit |
 | Daily board led by a shortbow iron-helm account | KOTH ignores gear | Do not buy rune to look like goo. Buy food, prayers, and replacement bodies |
 | Deterministic workers, no model on the tick | Coordination is the scarce skill | Same: lite hot loops; model only for plan/recover |
@@ -53,8 +57,9 @@ Do **not** start with 8 or 25 accounts. Start with 4 once combat exists. Extra
 low levels add **zero** KOTH score.
 
 ```
-Eight junk kits on hill
-        → focus-fire one body
+One scoring body + seven just outside
+        → response stack converges when threatened
+        → displace or focus-fire the scorer
         → PvP death: Lumbridge 1hp + death mark
         → long walk back at 1hp
         → our highest-cb account stands the minute sample
@@ -119,13 +124,14 @@ rune vs junk kits, 4 vs 8 bodies, or two fleets on the same hill.
 
 Reserved bot prefixes (max 12 alphanumeric). Do not touch `agentmachine`.
 
-| Agent | Phase 1 (parallel) | Phase 2 (A/B) | Bots |
+| Agent | Phase 1 (parallel) | After Phase 1 (A won the A/B) | Bots |
 |---|---|---|---|
-| **A** (quest) | Prod tick clock; quest XP via Cook's Assistant (`stat_advance(cooking, 3000)` in `quest_cook.rs2`); polygon stand-in / stand-out | Waterfall first (`stat_advance(attack/strength, 137500)` tenths in `quest_waterfall.rs2`). Later quests only after a source check of that quest script | `qstprobe1`, `qstboot1` |
-| **B** (food) | Junk-only PvP death in **low wild** (two fresh accounts; not the hill); death-mark duration; `/playerpositions` + `/hiscores/koth` | Lumbridge rats / goblins / cows + bury bones. Infinite run helps travel, not DPS | `foodprobe1`, `foodkill1`, `foodboot1` |
+| **A** (quest) | Tick, Cook's 25×, polygon — **done** on `cloud/ab-a` | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md): Restless Ghost → Vampire → Waterfall (prot melee) → TGV / Arena → Witch's House / Holy Grail. Do not stop after Waterfall. | `qstprobe1`, `qstboot1` |
+| **B** (mule / rejoin) | Junk PvP 1 HP + mark + boards — **done** on `cloud/ab-b` | **Not cows.** Reuse `foodprobe1`: mule Waterfall kit, trade `qstboot1`, time 1 HP walk to `(3303,3878)` eastern corridor. | `foodprobe1`, `foodkill1` |
 
-Paste-ready launch text: [`cloud-agent-a.md`](cloud-agent-a.md),
-[`cloud-agent-b.md`](cloud-agent-b.md). Write results to
+Paste-ready **agent** text: [`cloud-agent-a.md`](cloud-agent-a.md),
+[`cloud-agent-b.md`](cloud-agent-b.md). Operator steer:
+[`operator.md`](operator.md) (do not paste into A/B). Write results to
 [`ab-results-a.md`](ab-results-a.md) / [`ab-results-b.md`](ab-results-b.md).
 
 Winner of Phase 2 is **wall-clock minutes** to both:
@@ -154,10 +160,17 @@ deterministic workers, staggered starts, exclusive leases.
 Prove: login, skip tutorial, mule trade, death → 1 HP → rejoin timer. No
 Demonic Ruins until that loop is boring.
 
+Route warning: the direct central approach crossed dense poison spiders near
+`(3284,3799)`. The empty eastern corridor was safe to `(3303,3878)`, but a
+greater-demon screen killed a 15-HP combat-10 scout during the final approach.
+Use the route evidence in [`live-probes-2026-08-15.md`](live-probes-2026-08-15.md)
+before sending another body.
+
 ### 4. First PK, then minutes
 
-- Scout watches the 8-stack and goo. Do not send the scorer in first.
-- Pile **one** of the stacked junk kits. Killer loots. Scorer steps onto
+- Scout watches the 1+7 formation and goo. Do not send the scorer in first.
+- Displace or pile the eligible scorer only after combat-band and route probes
+  are proven. Killer loots. Our scorer steps onto
   `(3288, 3886)` for the next minute sample.
 - Success: a kill, a 1 HP rejoin, and at least one capture minute.
 - Only then add a binder if Magic is source-checked.

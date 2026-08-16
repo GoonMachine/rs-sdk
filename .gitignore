@@ -16,6 +16,11 @@ backups/
 bots/*/
 !bots/_template/
 
+# Operator secrets — never commit
+.cursor/cursor_api_key
+cursor_api_key
+**/.cursor_api_key
+
 # Daemon type checker temp file
 sdk/__exec_check.ts
 

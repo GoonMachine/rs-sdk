@@ -1,5 +1,8 @@
 # Cloud Agent A — tick / quest XP / polygon, then Waterfall
 
+**Audience: Cloud Agent A only.** Paste below the line into that agent. Do not
+read `operator.md`. Agent B has a different file.
+
 Paste **everything below the line** into a new Cursor Cloud Agent on
 `GoonMachine/rs-sdk` `main`. Do not also paste Agent B. Do not launch a second
 copy of this prompt.
