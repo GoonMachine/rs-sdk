@@ -195,6 +195,12 @@ full chicken→feather→Gerrant→cheese chain does yield a little gp + food �
 GP if speed matters. foodprobe1 now **17 gp**, bank food stack expanded (+3 cheese);
 `kitprep1` unchanged (iron kit banked); `foodkill1` idle.
 
+### Step 2l — spent 17 gp on Wydin food, banked
+foodprobe1 opened Wydin `(3014,3204)` and spent its 17 gp on **~5 food (3 cheese @4 + cheap
+cabbage/banana)** — cheese stock caps at 3/visit — then **banked the stack**. foodprobe1 now
+**0 gp**, bank food stack larger. `kitprep1` still holds the iron kit on the bank tile;
+`foodkill1` idle. (Warehouse-food loop is stable; gp is fully converted to banked food.)
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
