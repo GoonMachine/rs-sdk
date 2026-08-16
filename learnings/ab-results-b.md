@@ -547,6 +547,13 @@ the dump threshold to 60** so contended earnings still land on the mule. Result:
 (639k xp) on safe SE Varrock rocks — no wilderness. Note: demo-server `BotDisconnectedError`
 still flaps control connections; the tmux supervisors auto-recover.
 
+**Flapping root cause found (the repeated "kitprep1 has no controller"):** a **duplicate grind
+controller** survived each supervisor restart, so two `bun grind.ts` processes fought over
+`kitprep1` and kicked each other (`BotDisconnectedError`). Fix = kill all but the youngest
+grind PID after any restart (verify `ps` shows exactly 1). With a single controller + a fresh
+`lite-kitprep1`, kitprep1 is stable: Thieving now **60**, mule **780 → 840** and climbing,
+`goonmine1` **Mining 93**. Guard contention (cb-126 farmers) remains the throughput cap.
+
 ### Step 12 — pipeline unstuck: mule coins 300 → 420; Mining 90
 The mule was stuck at 300 for a long time due to three compounding bugs, now fixed:
 1. **Orphaned duplicate controllers** — restarting supervisors without killing the old `bun`
