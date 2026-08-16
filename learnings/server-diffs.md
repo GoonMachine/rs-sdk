@@ -26,9 +26,11 @@ while local default is 400ms. Do not forecast from unchecked boxes.
       therefore imply **343,750 each** at 25× (`quest_waterfall.rs2`).
 - [ ] PvP death respawns Lumbridge at 1 HP — **agent B**, low wild, junk only
 - [ ] Death mark still blocks NPC-suicide full-heal — **agent B**
-- [ ] KOTH polygon matches [`Koth.ts`](../server/engine/src/engine/Koth.ts)
-      vertices (stand just inside / just outside) — **agent A**, disposable junk,
-      do not attack
+- [x] KOTH polygon matches [`Koth.ts`](../server/engine/src/engine/Koth.ts)
+      vertices (stand just inside / just outside) — **agent A**, 2026-08-16.
+      `qstprobe1` stood on `(3288,3879)`=IN and `(3288,3878)`=OUT (one tile across
+      the z=3879 south wall). 8-stack still holds the ruins; Greater demons are
+      aggressive and killed the scout once. Did not attack.
 - [ ] `/playerpositions` and `/hiscores/koth` still match the dated snapshot —
       **agent B**
 
