@@ -241,6 +241,16 @@ the friendly rejoin is ~1 min direct, but the last ~10 tiles into Draynor bank p
 jail/wizard; a 1-HP body wants food up before that approach (or use a different bank).
 foodprobe1 banked food, stays on the bank tile.
 
+### Step 2q — Falador IS the safe 1HP bank (Draynor is not)
+Tested **Falador bank `(2945,3366)`**: Draynor→Falador = **92.3 s (1.54 min)** (farther), but
+the **approach is hazard-free** — **0 combat NPCs within 12 tiles of the bank**, foodprobe1
+took **0 damage** (HP 25→25, no death), bank **opens** fine. Only combat NPCs seen were the
+Draynor Dark wizard (at the start) and a harmless **Imp cb2 @(2931,3372)** near Falador.
+**Verdict: use FALADOR as the 1HP rejoin/resupply bank** — its last tiles are safe, whereas
+Draynor's last ~10 tiles have a **Jail guard cb26** (two-shots 1 HP) + Dark wizard. Cost is
+~90 s extra travel, cheap insurance for a 1-HP body. Kit warehouse stays at Draynor;
+route 1-HP banking to Falador. foodprobe1 returned to the Draynor bank tile.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
