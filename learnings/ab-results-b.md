@@ -128,6 +128,22 @@ trade to `qstboot1` when both are at Draynor. Iron sword `(3203,3397)` 91 / Zeke
 Draynor (104 gp + food). Note: `buyFromShop`/`sellToShop` need a `waitForTicks(2)` after
 `openShop` or `shopItems` is empty and the buy false-fails "out of stock".
 
+### Step 2f — iron sword + food warehouse: both wedged (kitprep1 too fragile)
+- **Iron sword:** Varrock sword shop `(3203,3397)` opens by **dialog** ("Yes, please!"),
+  keepers are generic "Shop keeper"/"Shop assistant" (no direct Trade option). Iron sword
+  ~91 gp, stock ~4 (not overstocked). kitprep1 had **18 gp** → unaffordable; deferred (no
+  pickpocket lane).
+- **Food warehouse (shrimp):** bought a Small fishing net at Gerrant `(3013,3225)`, but
+  kitprep1 **died en route to the Draynor fishing spot** `(3087,3230)` — respawned Lumbridge
+  with 0 coins and no net (a death drops the low-`oc_cost` net + coin stack, same failure as
+  the earlier stun-death). No shrimp fished/cooked.
+- **Root issue:** `kitprep1` is a fresh ~10-HP / low-cb body with **no food**; every
+  multi-hop errand risks a death that wipes its coins/consumables. It cannot self-sustain a
+  fish→cook→bank loop or hold GP. Recommend: either give it a small HP/combat buffer + food
+  first, or accept its warehouse = the **iron chainbody + platelegs already banked at
+  Draynor** (the quester kit is done). `foodprobe1` (104 gp + food, cb 13) is the robust mule.
+- kitprep1 now: Draynor bank `(3092,3245)`, **0 gp**, iron chain+legs still banked.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
