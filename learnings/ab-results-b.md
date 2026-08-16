@@ -561,6 +561,9 @@ so kitprep1 looked alive (process running) but did nothing. Fix: each loop check
 a fresh connection. In one 5-min window it auto-recovered **6 disconnects** while the mule
 climbed **840 → 990** and `goonmine1` held Mining 93 on safe rocks. The demo server drops
 kitprep1's control link often, but the loop now recovers on its own without manual reattach.
+**Confirmed steady:** with self-heal + single controller, kitprep1 stays live and productive
+(Thieving 62), mule crossed **1,000 → 1,050** (~17% of the 6k target), `goonmine1` Mining 94
+on safe SE Varrock rocks. No manual reattach needed anymore.
 
 ### Step 12 — pipeline unstuck: mule coins 300 → 420; Mining 90
 The mule was stuck at 300 for a long time due to three compounding bugs, now fixed:
