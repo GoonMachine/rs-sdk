@@ -271,6 +271,18 @@ Draynor's last tiles two-shot a 1HP body (jail guard cb26) and Falador does not.
 food at Falador. foodprobe1 banked its 8 food at Falador (now ~30 there) and returned to
 Draynor. kitprep1 unmoved.
 
+### Step 2t — warehouse split set: iron @ Draynor, food @ Falador (1HP receive point)
+Final standing layout:
+- **Draynor bank — `kitprep1`** (stationary): holds the **iron quester kit (chainbody +
+  platelegs + sword)** for `qstboot1`. Do not walk kitprep1.
+- **Falador bank `(2945,3366)` — `foodprobe1`** (now parked here, HP 25): holds **4 food in
+  inventory** + **~30 food banked** at the safe Falador booth — the **1HP receive point**. A
+  body respawning at Lumbridge walks the safe 2.1-min corridor to Falador and tops up food
+  from foodprobe1 / the Falador bank (no Draynor jail-guard hazard).
+- `foodkill1` idle.
+This splits the two warehouses across the map's two nearest banks so a 1HP rejoin has safe
+food at Falador while the combat kit stays banked at Draynor.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
