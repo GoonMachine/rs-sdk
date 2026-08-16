@@ -164,6 +164,17 @@ cabbage 1 gp, banana 2 gp. With ~13 gp foodprobe1 bought the cheap edibles it co
 1 HP rejoin corridor. foodprobe1 now 0 gp, food banked; `kitprep1` stationary on the bank
 tile (0 gp, holds iron chain+legs+sword); `foodkill1` idle.
 
+### Step 2i — Falador findsomethingnice search: poor gp source, skip it
+Walked foodprobe1 to the SE Falador house `(3035,3335)` (confirmed: Range + Crate +
+Drawers on the floor — the documented "range + treasure chests" house). Searched furniture
+**44 times → 0 finds, 0 gp**. Source math (`findsomethingnice.rs2` + `_chance=10`):
+**1/10** to find anything, and only **case 3 of random(4)** is coins (1–10) → **~1/40 per
+search for ~5 gp**, the rest gloves/boots/pot/broken junk. Even when it fires it's a
+terrible gp rate, and the drawers-search interaction may not register cleanly via
+`interactLoc`. **Recommendation: do not use findsomethingnice for gp** — it is far slower
+than any shop-overstock buy or a single kill-and-pickup. foodprobe1 back at Draynor, 0 gp,
+food stack still banked.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
