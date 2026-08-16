@@ -64,8 +64,9 @@ Known jams this session (already in shared files — do not re-learn):
 
 ## Do not
 
-- Local lite / `cdx*` / a third Cloud agent for the same lane
-- Cows, hill raid, new bot names, guessed OSRS tiles
+- Local lite / `cdx*` / a third Cloud VM
+- Cows, hill raid, guessed OSRS tiles, random new names
+- Extra lite on B’s VM except `kitprep1` after [`scarce-goods.md`](scarce-goods.md) + a POST
 - Cancel a run that is already walking the right direction
 - Paste this file or `operator.md` into A/B
 - Commit `bots/*/` or print secrets

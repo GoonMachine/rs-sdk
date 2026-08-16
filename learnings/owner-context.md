@@ -14,9 +14,11 @@ Current live KOTH formations, fleet sizes, and visible equipment:
 Exact polygon correction, disposable death test, and scout-route results:
 [`live-probes-2026-08-15.md`](live-probes-2026-08-15.md).
 
-Compete-and-counter plan (prove PK kill-and-rejoin, then convert to KOTH minutes;
-do not clone the eight-stack or goo):
+Compete-and-counter plan (kill-and-rejoin, contestable KOTH minutes, scarce-goods
+kit; do not clone the eight-stack or goo):
 [`strategy-compete-koth.md`](strategy-compete-koth.md).
+Gear elite: [`top-players.md`](top-players.md). Methods:
+[`scarce-goods.md`](scarce-goods.md).
 Why OSRS/wiki advice is often wrong here: [`server-diffs.md`](server-diffs.md).
 Two Cloud agents: [`cloud-agent-a.md`](cloud-agent-a.md) (quest stack),
 [`cloud-agent-b.md`](cloud-agent-b.md) (mule + rejoin — not cows).
@@ -87,7 +89,9 @@ Follow-ups in the same thread:
 - Inflation is [from the environment, with very few sinks](https://x.com/maxbittker/status/2088500017308844310) in this revision. Not AI-specific, just accelerated.
 - Illiquidity matters as much as inflation: [many accounts do not trade, trading is inconvenient, and there is not much reason to sell](https://x.com/maxbittker/status/2088610738310963455).
 
-**Agent implication:** do not optimize for GP, shop gold, or “max cash.” Stack and trade scarce contested items. Use public chat to barter; the SDK has no send-PM action unless one is separately implemented. Shop sell prices and general-store dumps are a weak sink.
+[Gavin Basuel](https://x.com/gavinbasuel/status/2088746501300441525) on the same thread: item values get confusing once agents can hit max GP; commodities that still take real time / contention are the valuable ones; the moat is **sophisticated private scripts that consistently claim those scarce resources**, not bot volume or another cloud sandbox.
+
+**Agent implication:** do not optimize for GP, shop gold, or “max cash.” Stack and trade scarce contested items. Use public chat to barter; the SDK has no send-PM action unless one is separately implemented. Shop sell prices and general-store dumps are a weak sink. Index the public outfit/bank boards ([`top-players.md`](top-players.md)); methods live in [`scarce-goods.md`](scarce-goods.md).
 
 ### Wilderness is the live PvP contest
 
