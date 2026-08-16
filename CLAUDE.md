@@ -345,7 +345,7 @@ Cloud agents run on Ubuntu VMs. This checkout talks to the **demo server** (`rs-
 3. Create bots with `bun bots/create-bot.ts <name>` (max 12 alphanumeric). `bots/*/` is gitignored — never commit `bot.env`.
 4. Standalone `script.ts` does not auto-open a client. Start lite first, then `bun bots/<name>/script.ts`.
 5. One VM can run several lite processes. Demo-server cap is **200 logins per IP**; world cap is 2048. Start with 2–5 bots, not 200.
-6. Read `learnings/owner-context.md` before a long-horizon goal. Hiscores are total level / playtime (cap 1881).
+6. Read `learnings/strategy-compete-koth.md` and `learnings/server-diffs.md` before a long-horizon goal, then `learnings/owner-context.md`. Hiscores are total level / playtime (cap 1881). First Cloud job is Phase 1 probes, not a hill raid.
 7. Hold accounts lightly. Demo persistence is not guaranteed.
 8. Do not put bot passwords in prompts, PRs, or this file. Use Cursor Secrets if a credential must survive a VM.
 

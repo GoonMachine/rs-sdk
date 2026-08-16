@@ -45,4 +45,6 @@ Do not paste context-prefixed runner expressions into `execute_code`.
 
 See [`../sdk/API.md`](../sdk/API.md) for exact signatures.
 
-Live-server meta from the project owner (economy, wilderness, what is already saturated) lives in [`owner-context.md`](owner-context.md), which links the dated Discord evidence and source-checked swarm/PK strategy. Read that before picking a long-horizon goal.
+Live-server meta from the project owner (economy, wilderness, what is already saturated) lives in [`owner-context.md`](owner-context.md), which links the dated Discord evidence and source-checked swarm/PK notes. Read that before picking a long-horizon goal.
+
+Compete-and-counter plan (PK kill-and-rejoin, then KOTH minutes — do not clone goo or the eight-stack): [`strategy-compete-koth.md`](strategy-compete-koth.md). Server diffs vs OSRS/wiki: [`server-diffs.md`](server-diffs.md).
