@@ -15,7 +15,7 @@ Three audiences. Do not mix them.
 
 | Audience | Files | Do not |
 |---|---|---|
-| **Operator** (laptop manager) | [`operator.md`](operator.md), [`.cursor/rules/koth-steer.mdc`](../.cursor/rules/koth-steer.mdc) | Paste operator notes into Cloud A/B. Run lite on this machine. |
+| **Operator** (laptop manager) | [`operator.md`](operator.md), [`operator-handoff.md`](operator-handoff.md), [`.cursor/rules/koth-steer.mdc`](../.cursor/rules/koth-steer.mdc) | Paste operator notes into Cloud A/B. Run lite on this machine. |
 | **Cloud Agent A / B** | [`cloud-agent-a.md`](cloud-agent-a.md), [`cloud-agent-a-phase2.md`](cloud-agent-a-phase2.md), [`cloud-agent-b.md`](cloud-agent-b.md) | Read `operator.md`. Do the other agent's lane. |
 | **Shared facts** (both) | [`strategy-compete-koth.md`](strategy-compete-koth.md), [`server-diffs.md`](server-diffs.md), [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md), [`lookup.md`](lookup.md), [`dialog.md`](dialog.md), [`observe-fidelity.md`](observe-fidelity.md), [`live-probes-2026-08-15.md`](live-probes-2026-08-15.md), [`ab-results-a.md`](ab-results-a.md), [`ab-results-b.md`](ab-results-b.md) | Put steer tactics or API keys here. |
 

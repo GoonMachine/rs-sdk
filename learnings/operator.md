@@ -14,6 +14,7 @@ class shows up — same idea as a skill description vs its body.
 | When | Open |
 |---|---|
 | Who reads what | [`README.md`](README.md) |
+| New Cursor account / where we left off | [`operator-handoff.md`](operator-handoff.md) |
 | NPC / loc / “coords are wrong” | [`lookup.md`](lookup.md), then `wiki/npcs/`, then `.jm2` |
 | Quest / shop dialog ate the wrong option | [`dialog.md`](dialog.md) |
 | Walk, death, HP, killer | [`observe-fidelity.md`](observe-fidelity.md) |
@@ -46,6 +47,47 @@ physical step — pull on the next job).
 - Need **cb ≥ 77** vs 123 at wild 46. Restless Ghost first. Do not stop after Waterfall.
 - Phase 1 is on `origin/cloud/ab-a` and `origin/cloud/ab-b`.
 
+## Secrets (never git, never chat, never A/B paste)
+
+| What | Where | If you lose it |
+|---|---|---|
+| Cursor API key that owns Cloud A/B | `~/.cursor/cursor_api_key` (mode 600) on the operator machine. Cursor Secrets on a new login. | You cannot POST to the existing agent ids. New key = new Cloud agents. |
+| `bots/<name>/bot.env` for `qstboot1`, `foodprobe1`, `foodkill1` | Cloud VM only (gitignored). Not on this laptop. | Same name + new password does **not** log into the existing character. Save into Cursor Secrets on the live VMs before they die. |
+
+Do not commit, print, or paste passwords or the API key. The key was typed in
+an old operator thread — rotate it after you copy it privately. Local
+`bots/cdx*` / `agentmachine` are leftover laptop play; do not use them.
+
+## Cursor Cloud API
+
+Base `https://api.cursor.com`. Auth: `Authorization: Bearer $CURSOR_API_KEY`
+or basic `-u "$CURSOR_API_KEY:"`. Load the key from the file; never echo it.
+
+| Call | Use |
+|---|---|
+| `GET /v1/agents/{id}` | status, `latestRunId`, watch URL |
+| `GET /v1/agents/{id}/runs?limit=2` | latest run statuses |
+| `GET /v1/agents/{id}/runs/{runId}` | `result` text |
+| `GET /v1/agents/{id}/runs/{runId}/stream` | SSE; peek last ~1k chars if the tile is stuck |
+| `POST /v1/agents/{id}/runs` body `{"prompt":{"text":"..."}}` | force-send / next job |
+| `POST /v1/agents/{id}/runs/{runId}/cancel` body `{}` | stop a wander |
+
+`CREATING` ghosts often return `run_not_cancellable` — POST cancel anyway.
+`409 agent_busy` → wait ~2s and retry. Do not launch a third Cloud agent for
+the same lane.
+
+These agent ids belong to the **Cursor account that created them**. A new
+Cursor login cannot steer them unless it uses **that same API key**.
+
+| | Id | Watch |
+|---|---|---|
+| **A** | `bc-9ef936bf-19d3-4e78-bc92-189fe6d15015` | https://cursor.com/agents/bc-9ef936bf-19d3-4e78-bc92-189fe6d15015 |
+| **B** | `bc-426ffd7b-4368-4f0c-9d16-8e1a6e158d1b` | https://cursor.com/agents/bc-426ffd7b-4368-4f0c-9d16-8e1a6e158d1b |
+| **B2** | `bc-52c85732-6cea-49bc-87d7-7b8ac9a25742` | dead end — leave idle |
+
+Public demo (no auth): `https://rs-sdk-demo.fly.dev/playerpositions`,
+`/status/:name` (name + tile + controller only), `/hiscores/koth`.
+
 ## Steer loop
 
 - **60s**. Tiles + controllers + latest run. Peek the stream if the tile has
@@ -54,8 +96,7 @@ physical step — pull on the next job).
   Cancel a `RUNNING` wander; wait ~2s on `409 agent_busy`.
 - **B never idle.** The tick a B run `FINISHED`, POST the next job.
 - One controller per bot. Never commit `bots/*/` or print `bot.env`.
-- A: `bc-9ef936bf-19d3-4e78-bc92-189fe6d15015`
-- B: `bc-426ffd7b-4368-4f0c-9d16-8e1a6e158d1b`
+- One operator loop. Stop the previous chat’s 60s tick before starting another.
 
 ## Diagnose before you shove
 
@@ -82,3 +123,16 @@ class: write the file before the next POST, then push.
 Every POST: live `/playerpositions` tile, one source path, next physical
 step, what not to research. Lite `sdk.getState()` is the HP/combat
 endpoint. `/status` is not.
+
+## 60s loop prompt
+
+`/loop 60s` then:
+
+```
+Steer Cloud A/B. Read learnings/operator.md and learnings/operator-handoff.md.
+Fetch /playerpositions + /status/qstboot1 + /status/foodprobe1 + latest A/B runs.
+Peek a stream only if a tile has not moved. Force-send if jammed or B FINISHED idle.
+Diagnose from lookup.md before shoving a tile. Do not cancel a run walking the right way.
+If you wrote a playbook lesson, commit and push the same turn.
+Do not run lite or cdx* on this machine. Do not print secrets.
+```
