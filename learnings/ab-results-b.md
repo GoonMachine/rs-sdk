@@ -114,11 +114,19 @@ coin stack; kitprep1 lost its starter food/net that way once). No-food rest-to-r
 is self-sufficient but slow (~90 gp/260s early, accelerates as thieving climbs; hit ~41→48).
 Live **Horvik `(3229,3438)`** prices (read before buying, per scarce-goods): Iron chainbody
 **210 gp** (stock 3), Iron platelegs **280 gp** (stock 1), Iron platebody 560, Steel chain 750.
-Bought **1 iron chainbody (210 gp)** → **banked at Draynor `(3092,3245)`**. Iron platelegs
-**deferred** — had 201 gp after the chain (< 280), and "do not pickpocket a lane" so no more
-grinding. kitprep1 parked Draynor with **201 gp + iron chainbody banked**; trade A only when
-both at Draynor. Sword shop `(3203,3397)` iron sword (91) / Zeke scim `(3288,3190)` (112)
-also pending funds. `foodkill1` idle; `foodprobe1` still death-watch mule (104 gp + food).
+Bought **1 iron chainbody (210 gp)** → **banked at Draynor `(3092,3245)`**.
+
+### Step 2e — iron platelegs bought + banked (kit complete)
+Dwarven Mine descent works via the surface **Trapdoor `(3016,3441)` → underground
+`(~3037,9846)`** (Drogo's Mining Emporium: bronze pickaxe 1 gp stock 4, buys iron ore 11 gp
+depleted / coal overstocked 1026). Skipped the mine-to-15 grind per operator: with **298 gp**
+on hand, climbed back out the Trapdoor and **bought Iron platelegs at Horvik `(3229,3438)`
+for 280 gp** (stock 1), then **banked at Draynor**. kitprep1 now holds **iron chainbody +
+iron platelegs banked at Draynor**, 18 gp left. **Iron quester kit (chain+legs) complete** —
+trade to `qstboot1` when both are at Draynor. Iron sword `(3203,3397)` 91 / Zeke scim
+`(3288,3190)` 112 still pending funds. `foodkill1` idle; `foodprobe1` death-watch mule at
+Draynor (104 gp + food). Note: `buyFromShop`/`sellToShop` need a `waitForTicks(2)` after
+`openShop` or `shopItems` is empty and the buy false-fails "out of stock".
 
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
