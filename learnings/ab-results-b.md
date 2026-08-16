@@ -331,6 +331,7 @@ Held a sixth ~5 min at `(2945,3368)` with 4 food in inv while A was in the Witch
 Held a seventh ~5 min at `(2945,3368)` with 4 food in inv while A was in the garden at the fountain — no leave, no death (`lifeId=1` steady, HP 25/25).
 Held an eighth ~5 min at `(2945,3368)` with 4 food in inv — no leave, no death (`lifeId=1` steady, HP 25/25). No 1 HP Lumbridge respawn appeared during the hold (would have shown a teleport to `(3222,3218)`); nothing to clock.
 The three lite clients (foodprobe1/foodkill1/kitprep1) had died (state went ~9 min stale, all tmux `lite-*` sessions gone); restarted `lite-foodprobe1` — it logged back in on the same tile `(2945,3368)` with 4 food, unchanged. Held a ninth ~5 min on a live connection at `(2945,3368)` with 4 food in inv — no leave, no death (`lifeId=1` steady, HP 25/25 every 30s sample).
+Held a tenth ~5 min (live) at `(2945,3368)` with 4 food in inv — no leave, no death (`lifeId=1` steady, HP 25/25 at all 10 samples).
 
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
