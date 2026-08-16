@@ -22,7 +22,8 @@ Urhney is **`(3235, 3153)`** ([`lookup.md`](lookup.md)), not OSRS `(3147,3174)`.
 Aereck: **"I'm looking for a quest!"** ([`dialog.md`](dialog.md)).
 
 Then, one quest at a time, source `.rs2` first, wiki last, fail fast 10–30s,
-write `ab-results-a.md` + commit `cloud/ab-a` after each complete:
+write `ab-results-a.md` + commit `cloud/ab-a` after each complete
+(conflict → [`merge.md`](merge.md); quest step first):
 
 1. Vampire Slayer (`quest_vampire.rs2`)
 2. Waterfall (`quest_waterfall.rs2`). Prot melee on. White Wolf = Taverley →

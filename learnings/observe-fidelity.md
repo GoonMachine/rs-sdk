@@ -64,3 +64,7 @@ if (p.lifeId !== startLife) {
 
 A clock with an unattributed death is invalid. Re-run the segment or mark the
 cell `died to <name> at (x,z)`.
+
+`bot.walkTo` can fail with "no waypoints" on a reachable tile when
+`collision-data.json` is stale (Wizard Tower ladder, swamp). Low-level
+`sdk.sendWalk` / `sdk.sendInteractLoc` use live client collision.

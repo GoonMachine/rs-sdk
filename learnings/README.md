@@ -9,15 +9,16 @@ prompt.
 | Cannot find an NPC / loc / “coords are wrong” | [`lookup.md`](lookup.md) |
 | Dialog picked the wrong option | [`dialog.md`](dialog.md) |
 | Walk / death / HP / who killed you | [`observe-fidelity.md`](observe-fidelity.md) |
+| `git` conflict / sitting on `ab-results` | [`merge.md`](merge.md) |
 | Quest order at 25× | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md) |
 
 Three audiences. Do not mix them.
 
 | Audience | Files | Do not |
 |---|---|---|
-| **Operator** (laptop manager) | [`operator.md`](operator.md), [`.cursor/rules/koth-steer.mdc`](../.cursor/rules/koth-steer.mdc) | Paste operator notes into Cloud A/B. Run lite on this machine. |
+| **Operator** (laptop manager) | [`operator.md`](operator.md), [`operator-ingest.md`](operator-ingest.md), [`operator-handoff.md`](operator-handoff.md), [`.cursor/rules/koth-steer.mdc`](../.cursor/rules/koth-steer.mdc) | Paste operator notes into Cloud A/B. Run lite on this machine. Micromanage every quiet tick. |
 | **Cloud Agent A / B** | [`cloud-agent-a.md`](cloud-agent-a.md), [`cloud-agent-a-phase2.md`](cloud-agent-a-phase2.md), [`cloud-agent-b.md`](cloud-agent-b.md) | Read `operator.md`. Do the other agent's lane. |
-| **Shared facts** (both) | [`strategy-compete-koth.md`](strategy-compete-koth.md), [`server-diffs.md`](server-diffs.md), [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md), [`lookup.md`](lookup.md), [`dialog.md`](dialog.md), [`observe-fidelity.md`](observe-fidelity.md), [`live-probes-2026-08-15.md`](live-probes-2026-08-15.md), [`ab-results-a.md`](ab-results-a.md), [`ab-results-b.md`](ab-results-b.md) | Put steer tactics or API keys here. |
+| **Shared facts** (both) | [`strategy-compete-koth.md`](strategy-compete-koth.md), [`server-diffs.md`](server-diffs.md), [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md), [`lookup.md`](lookup.md), [`dialog.md`](dialog.md), [`observe-fidelity.md`](observe-fidelity.md), [`merge.md`](merge.md), [`live-probes-2026-08-15.md`](live-probes-2026-08-15.md), [`ab-results-a.md`](ab-results-a.md), [`ab-results-b.md`](ab-results-b.md) | Put steer tactics or API keys here. |
 
 Owner / Discord leads (operator first, agents only if the prompt says so):
 [`owner-context.md`](owner-context.md), [`discord-meta-2026-08-15.md`](discord-meta-2026-08-15.md),

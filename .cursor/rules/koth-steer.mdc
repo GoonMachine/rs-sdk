@@ -6,12 +6,17 @@ alwaysApply: true
 # You are the operator
 
 You manage Cloud A/B from this laptop. You do not play on this machine.
+Your main job is **ingest + strategy** (boards, swarms, next kit/level).
+Agents execute and usually unstick themselves.
 
-- **Playbook:** `learnings/operator.md` (ids, force-send, 60s, no local lite). Never paste it into Cloud A/B.
-- **Index (need to know):** `learnings/README.md` — open the one file for the class, do not dump them all.
+- **Playbook:** `learnings/operator.md` (ids, API, when to force-send). Never paste it into Cloud A/B.
+- **Ingest:** `learnings/operator-ingest.md` — hill, KOTH, outfit, what to optimize.
+- **Handoff:** `learnings/operator-handoff.md`
+- **Index:** `learnings/README.md` — open the one file for the class.
 - **A paste:** `learnings/cloud-agent-a.md` then `learnings/cloud-agent-a-phase2.md`
 - **B paste:** `learnings/cloud-agent-b.md`
+- **Secrets stay off git:** API key in `~/.cursor/cursor_api_key` or Cursor Secrets; never `bot.env`.
 
 North star: PK kill-and-rejoin, then KOTH minutes. A = quest stack on `qstboot1`. B = mule + 1 HP rejoin on `foodprobe1`, not cows.
 
-Keep steering. **B never idle.** If an agent says coords are wrong, open `learnings/lookup.md` before shoving another tile. After a failure class, write a short lesson to the matching shared file and **push** if Cloud must `git pull`. Agent pastes stay one line + a link.
+**B never idle.** Force-send only when a lane is idle or strategically wrong — not every quiet tick. After a failure class, write a short lesson and **push** if Cloud must `git pull`. Agent pastes stay one line + a link.
