@@ -426,15 +426,26 @@ Louie/Zeke stock/prices below are read from
 [`alkharid.inv`](../server/content/scripts/areas/area_alkharid/configs/alkharid.inv)
 (item, start stock, base cost); live buy price ≈ base at full stock:
 
-**Zeke's scimitars — Al Kharid `(3288,3190)`:** Bronze scim 100 (5), Iron scim 200 (3),
-**Steel scim 600 (2)**, Mithril scim 4000 (1).
+Config base costs (start stock): Zeke bronze 100(5)/iron 200(3)/steel 600(2)/mith 4000(1);
+Louie bronze 100(5)/iron 400(3)/steel 900(2)/black 1200(1)/mith 2000(1)/adamant 13000(1).
 
-**Louie's Legs — Al Kharid `(3316,3175)`:** Bronze legs 100 (5), Iron legs 400 (3),
-**Steel legs 900 (2)**, Black legs 1200 (1), Mithril legs 2000 (1), Adamant legs 13000 (1).
+**LIVE capture (2026-08-16, `kitprep1` crossed the toll):** funded via a few Lumbridge-man
+pickpockets (Thieving 50, 12gp), paid the 10gp toll **once** by talking to the **Border
+Guard** NPC (the fixed single-pay handler works; the gate `loc` `interactLoc` fails with
+`cant_reach` — talk the guard instead), crossed to `(3313,3175)`, and read both shops LIVE.
+Live prices differ from config base (stock-based `price_mod`):
 
-**Full steel set cost (source-checked):** chain 750 (Horvik/Wayne) + legs 900 (Louie) +
-scim 600 (Zeke) = **~2,250gp** (matches the ~2,150 estimate). To land a live Louie/Zeke
-capture + actually buy, `kitprep1` needs ~2,250gp in hand — GP is the wedge, not stock.
+**Louie's Legs — Al Kharid `(3316,3175)` LIVE:** Bronze 80 (5), Iron 280 (3),
+**Steel 1000 (2)**, Black 1920 (1), Mithril 2600 (1), Adamant 6400 (1).
+
+**Zeke's scimitars — Al Kharid `(3288,3190)` LIVE:** Bronze 32 (5), Iron 112 (3),
+**Steel 400 (2)**, Mithril 1040 (1).
+
+**Full steel set LIVE:** chain 750 (Horvik) + legs 1000 (Louie) + scim 400 (Zeke) =
+**~2,150gp** (matches the estimate). Zeke's steel scim (400) is the cheapest steel weapon —
+cheaper than Varrock's iron-sword tier once you count the chain/legs. `kitprep1` had 2 coins
+after the toll so it read-only; it is now in Al Kharid (task done). GP (~2,150) is the wedge
+to actually buy a set, not stock.
 
 ### Step 5 — goonmine1 runite-miner pipeline (foundation) ✓
 Created `goonmine1` (new gatherer). `bot.skipTutorial()` drops it at Lumbridge with the
@@ -471,9 +482,10 @@ Walked to the **SE Varrock mine `(3285,3365)`** and ran a mine loop:
 ### Warehouse state after this pass
 - `goonmine1`: SE Varrock mine, **Mining ~59 and rising** (persistent miner in tmux
   `mine-goonmine1`, auto-restarts), banking iron at Varrock east. Toward 85 for wild runite.
-- `goonmule1`: Falador bank `(2945,3368)`, food reserve (Shrimps + Bread + Cheese x3).
-- `foodprobe1`: Falador `(2945,3368)`, 13 coins; its Falador bank food warehouse was spent
-  feeding A (rebuild via Wydin trips).
-- `kitprep1`: at the Al Kharid gate `(3267,3227)`, **0 coins, toll-blocked** — cannot fund
-  the 10gp toll (contested ground-coin piles) and could not buy anyway. Louie/Zeke prices
-  captured from config above; a live capture + buy needs `kitprep1` funded (~2,250gp).
+- `goonmule1`: Falador bank `(2945,3368)`, food reserve (Shrimps + Bread + **Cheese x6**
+  after two Wydin restocks of 3 each).
+- `foodprobe1`: ~1 coin after the Wydin buys; shuttles Wydin cheese (stock 3/trip) to the
+  mule. Wydin cheese restocks ~3 at a time, so the reserve grows a few per round trip.
+- `kitprep1`: **crossed the toll and captured LIVE Louie/Zeke prices** (above), now in Al
+  Kharid with 2 coins. Funding the toll: Lumbridge-man pickpockets (Thieving 50) → talk
+  Border Guard → single 10gp pay. To actually buy a steel set it still needs ~2,150gp.
