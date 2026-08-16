@@ -18,3 +18,10 @@ is wider. Neither finds an NPC 80 tiles away. "West/north blocked, no door"
 on the looked-up tile means you are on a **different building**.
 
 Do not write a discovery-ring script. Walk to the sourced tile, scan, talk.
+
+Waterfall Golrie: surface climb-down is `loc_1754` at **`(2533, 3155)`**
+(`m39_49.jm2` `0 37 19: 1754`). That loc is `+6400` z
+([`ladders.rs2`](../server/content/scripts/ladders+stairs/scripts/ladders.rs2)).
+Golrie himself is `(2515, 9581)` (`m39_149` `0 19 45: 306`). Elkoy
+(`elkoy.rs2`) only leads the maze after Tree Gnome Village has **started** —
+the intro is flavor, not an escort.

@@ -11,6 +11,8 @@ prompt.
 | Walk / death / HP / who killed you | [`observe-fidelity.md`](observe-fidelity.md) |
 | `git` conflict / sitting on `ab-results` | [`merge.md`](merge.md) |
 | Quest order at 25× | [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md) |
+| Gear elite / who is online | [`top-players.md`](top-players.md) |
+| Runite, hides, target keep-kit | [`scarce-goods.md`](scarce-goods.md) |
 
 Three audiences. Do not mix them.
 
@@ -18,7 +20,7 @@ Three audiences. Do not mix them.
 |---|---|---|
 | **Operator** (laptop manager) | [`operator.md`](operator.md), [`operator-ingest.md`](operator-ingest.md), [`operator-handoff.md`](operator-handoff.md), [`.cursor/rules/koth-steer.mdc`](../.cursor/rules/koth-steer.mdc) | Paste operator notes into Cloud A/B. Run lite on this machine. Micromanage every quiet tick. |
 | **Cloud Agent A / B** | [`cloud-agent-a.md`](cloud-agent-a.md), [`cloud-agent-a-phase2.md`](cloud-agent-a-phase2.md), [`cloud-agent-b.md`](cloud-agent-b.md) | Read `operator.md`. Do the other agent's lane. |
-| **Shared facts** (both) | [`strategy-compete-koth.md`](strategy-compete-koth.md), [`server-diffs.md`](server-diffs.md), [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md), [`lookup.md`](lookup.md), [`dialog.md`](dialog.md), [`observe-fidelity.md`](observe-fidelity.md), [`merge.md`](merge.md), [`live-probes-2026-08-15.md`](live-probes-2026-08-15.md), [`ab-results-a.md`](ab-results-a.md), [`ab-results-b.md`](ab-results-b.md) | Put steer tactics or API keys here. |
+| **Shared facts** (both) | [`strategy-compete-koth.md`](strategy-compete-koth.md), [`server-diffs.md`](server-diffs.md), [`bootstrap-quest-stack.md`](bootstrap-quest-stack.md), [`top-players.md`](top-players.md), [`scarce-goods.md`](scarce-goods.md), [`lookup.md`](lookup.md), [`dialog.md`](dialog.md), [`observe-fidelity.md`](observe-fidelity.md), [`merge.md`](merge.md), [`live-probes-2026-08-15.md`](live-probes-2026-08-15.md), [`ab-results-a.md`](ab-results-a.md), [`ab-results-b.md`](ab-results-b.md) | Put steer tactics or API keys here. |
 
 Owner / Discord leads (operator first, agents only if the prompt says so):
 [`owner-context.md`](owner-context.md), [`discord-meta-2026-08-15.md`](discord-meta-2026-08-15.md),
@@ -80,4 +82,6 @@ Live-server meta from the project owner (economy, wilderness, what is already sa
 
 Compete-and-counter plan: [`strategy-compete-koth.md`](strategy-compete-koth.md).
 Server diffs: [`server-diffs.md`](server-diffs.md). 25× quest order:
-[`bootstrap-quest-stack.md`](bootstrap-quest-stack.md).
+[`bootstrap-quest-stack.md`](bootstrap-quest-stack.md). Gear elite:
+[`top-players.md`](top-players.md). Scarce goods:
+[`scarce-goods.md`](scarce-goods.md).

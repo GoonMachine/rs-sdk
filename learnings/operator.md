@@ -3,9 +3,11 @@
 Audience: **you (the laptop)**. Cloud agents get a short lane paste plus
 shared files they open when stuck. They must not read this file.
 
-North star: PK kill-and-rejoin, then KOTH minutes. Do not clone goo or the
-8-stack. **Your job is ingest + strategy.** Agents execute and usually
-unstick themselves. Write-back is extra, not a substitute.
+North star: kill-and-rejoin, KOTH minutes when contestable, **and** a
+scarce-goods kit that can beat a real PKer. Do not clone goo or the 8-stack.
+The hill is occupancy; [`top-players.md`](top-players.md) is the gear elite.
+**Your job is ingest + strategy.** Agents execute and usually unstick
+themselves. Write-back is extra, not a substitute.
 
 ## Need to know
 
@@ -17,6 +19,8 @@ class shows up — same idea as a skill description vs its body.
 | Who reads what | [`README.md`](README.md) |
 | New Cursor account / where we left off | [`operator-handoff.md`](operator-handoff.md) |
 | Boards, swarms, next kit / level | [`operator-ingest.md`](operator-ingest.md) |
+| Gear elite / bank / who is online | [`top-players.md`](top-players.md) |
+| Runite, hides, target keep-kit | [`scarce-goods.md`](scarce-goods.md) |
 | NPC / loc / “coords are wrong” | [`lookup.md`](lookup.md), then `wiki/npcs/`, then `.jm2` |
 | Quest / shop dialog ate the wrong option | [`dialog.md`](dialog.md) |
 | Walk, death, HP, killer | [`observe-fidelity.md`](observe-fidelity.md) |
@@ -39,8 +43,8 @@ physical step — pull on the next job).
 
 | | Operator | Cloud A | Cloud B |
 |---|---|---|---|
-| Job | Ingest boards, evaluate leveling/equips/consumables, steer the phase. Unstick only when a lane is idle or strategically wrong. | 25× quest stack on `qstboot1` | Mule + 1 HP rejoin on `foodprobe1` |
-| Do not | Lite / `cdx*` here. Third VM for the same lane. Micromanage every quiet tick. | Cows, hill, B’s bots | Cows, `foodboot1`, new names, hill, A’s quests |
+| Job | Ingest hill **and** outfit/bank/watch-list. Steer quest + mule + scarce-goods ladder. Unstick only when a lane is idle or strategically wrong. | 25× quest stack on `qstboot1` | Mule + 1 HP rejoin on `foodprobe1`. Extra lite on **this VM** only after [`scarce-goods.md`](scarce-goods.md) names a first gather. |
+| Do not | Lite / `cdx*` here. Third Cloud VM. Micromanage every quiet tick. | Cows, hill, B’s bots, runite mid-quest | Cows, `foodboot1`, hill at low cb, A’s quests, a new Cloud environment |
 
 ## Live facts (do not re-measure)
 
@@ -89,13 +93,16 @@ Cursor login cannot steer them unless it uses **that same API key**.
 | **B2** | `bc-52c85732-6cea-49bc-87d7-7b8ac9a25742` | dead end — leave idle |
 
 Public demo (no auth): `https://rs-sdk-demo.fly.dev/playerpositions`,
-`/status/:name` (name + tile + controller only), `/hiscores/koth`.
+`/status/:name` (name + tile + controller only), `/hiscores/koth`,
+`/hiscores/outfit`, `/hiscores/bank`.
 
 ## Steer loop
 
 - **60s** because KOTH samples once per wall-clock minute. Each tick:
-  ingest hill + KOTH day/all + our tiles ([`operator-ingest.md`](operator-ingest.md)),
-  then A/B run status. One strategy sentence if the board moved.
+  ingest hill + KOTH day/all + our tiles + outfit/bank watch-list
+  ([`operator-ingest.md`](operator-ingest.md)), then A/B run status. Write
+  [`top-players.md`](top-players.md) only when the top kit or a watched
+  name’s activity class changes. One strategy sentence if the board moved.
 - **B never idle.** The tick a B run `FINISHED`, POST the next job.
 - Force-send only for idle-lane or wrong-strategy (see ingest file). Agents
   recover from dialog, doors, and short script writes. `CREATING` often will
@@ -137,12 +144,14 @@ endpoint. `/status` is not.
 
 ```
 You are the operator. Read learnings/operator-ingest.md then operator.md.
-Ingest: /playerpositions (hill box + 1+7 tiles + goo* + our names),
-/hiscores/koth?window=day and window=all (top 5), our A/B run status.
+Ingest: /playerpositions (hill box + 1+7 tiles + goo* + our names +
+watch-list in top-players.md), /hiscores/koth?window=day and window=all
+(top 5), /hiscores/outfit and /hiscores/bank (top 10; write top-players.md
+only on change), our A/B run status.
 One strategy sentence if the board or our phase should change
-(leveling / equips / consumables / who is on the hill).
+(leveling / equips / consumables / scarce goods / who is on the hill).
 B FINISHED → POST the next physical job. Force-send only if a lane is idle
 or strategically wrong (cows, hill at low cb while 123s are on it, Taverley
 at pray 1, same jam class twice). Do not cancel a run on the right step.
-Do not run lite or cdx*. Do not print secrets.
+Do not run lite or cdx*. Do not print secrets. Do not launch Cloud C.
 ```

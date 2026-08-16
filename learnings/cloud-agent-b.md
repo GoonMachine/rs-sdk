@@ -18,8 +18,10 @@ the 25× quest stack. You mule and time the 1 HP rejoin. Do not share bot names.
 
 ## Efficiency (read this before researching)
 
-You are **not** leveling a fleet. Do not create accounts beyond
-`foodprobe1` / `foodkill1`.
+You are **not** leveling a fleet. Stay on `foodprobe1` / `foodkill1` until
+[`scarce-goods.md`](scarce-goods.md) names a first gather **and** the
+operator POST says to create **one** extra lite on this same VM. Do not
+invent a third Cloud environment. Do not walk the hill.
 
 - After **each** probe: write the number into `learnings/ab-results-b.md`,
   tick your box in `learnings/server-diffs.md`, commit on `cloud/ab-b`.
@@ -45,12 +47,13 @@ You are **not** leveling a fleet. Do not create accounts beyond
 
 ```
 You are Cloud Agent B on GoonMachine/rs-sdk. git pull origin main.
-Phase 1 is on origin/cloud/ab-b. Do not re-PK. Do not create bots.
-Do not cows / foodboot1 / hill.
+Phase 1 is on origin/cloud/ab-b. Do not re-PK. Do not cows / foodboot1 / hill.
+Read learnings/scarce-goods.md. Create kitprep1 on THIS VM only if the
+operator POST says so. Otherwise stay on foodprobe1.
 
 Reuse foodprobe1. Buy Waterfall kit (Betty 3012,3259 + rope + food).
-Trade qstboot1 if in range. Then time 1 HP walk to (3303,3878) eastern
-corridor; stop before demons. Log deaths per observe-fidelity.md.
+Trade qstboot1 if in range. Death-watch if A is west. Then time 1 HP walk
+to (3303,3878) eastern corridor; stop before demons.
 Write ab-results-b.md, commit cloud/ab-b. Conflict → learnings/merge.md
 (kit first). Never commit bots/ or print bot.env.
 ```
