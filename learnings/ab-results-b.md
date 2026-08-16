@@ -228,6 +228,19 @@ the Draynor warehouse/bank in ~1 min with no hazard. (Contrast: the deep-wild ru
 corridor to `(3303,3878)` was ~2.6 min movement but lethal to a lone cb-low body.) foodprobe1
 banked its leftover food and stays on the Draynor bank tile.
 
+### Step 2p — safer northern path (north of z=3248): slower, hazards still at the bank
+Re-ran Lumbridge `(3222,3218)` → Draynor bank `(3092,3243)` routed **north of z=3248**
+(above the willow/wizard strip): **75.5 s (1.26 min)** — **slower** than the direct 58.6 s
+(the northern detour costs ~17 s). died=false (food carried, cb ~20), but foodprobe1 still
+took ~2 dmg (HP 22→20) because the **Draynor bank approach itself is guarded**:
+- **Jail guard cb26 @(3101,3238)**
+- **Dark wizard cb7 @(3084,3237)**
+Both sit at z~3237-3238 right beside the bank `(3092,3243)`, so a **1-HP rejoiner cannot
+fully avoid them** — the jail guard (cb26) in particular can two-shot a 1-HP body. Takeaway:
+the friendly rejoin is ~1 min direct, but the last ~10 tiles into Draynor bank pass the
+jail/wizard; a 1-HP body wants food up before that approach (or use a different bank).
+foodprobe1 banked food, stays on the bank tile.
+
 **Codex parallel probes (2026-08-15, preserved from main):** live-probes recorded PvP
 spawn `(3219,3219)` at 2/10 HP (frame 1 missed); a death-keep fixture (worn shield +
 dagger + 25 arrows → kept shield+dagger+1 arrow, 24 dropped); `bot.attackPlayer` once
