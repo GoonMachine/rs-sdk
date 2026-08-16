@@ -454,10 +454,26 @@ Walked to the **SE Varrock mine `(3285,3365)`** and ran a mine loop:
   no Al Kharid (scorpions) until cb 27, no cow grind.** Iron ore in `goonmine1`'s Varrock
   east bank is itself a barter good / smith feedstock in the meantime.
 
+### Step 6 — food to A + Wydin cheese restock onto goonmule1
+- **A fed at the Falador sit:** when `qstboot1` sat on `(2945,3368)` at 1 HP, `foodprobe1`
+  withdrew its 22-food stack and traded it to `qstboot1` in place (*gave Cheese x13, Banana
+  x3, Cabbage x5, Chocolate x1, received nothing* — confirmed by `foodprobe1` inventory
+  emptying). A then left Falador for the Witch's House `(2900,3477)` — not followed.
+- **Wydin cheese restock onto the mule:** `foodprobe1` withdrew 25 coins, walked to Wydin
+  `(3014,3204)`, bought the **entire cheese stock (3 @ 4gp = 12gp)**, returned to Falador,
+  and traded the 3 cheese to `goonmule1` (`serveTrades` accept). Wydin cheese stock is only
+  **3** at a time, so a bigger reserve needs repeated trips as it restocks. `goonmule1` now
+  holds Shrimps + Bread + Cheese x3; `foodprobe1` has 13 coins left.
+- Note: agent-to-agent gifts fail with *"doesn't have enough inventory space"* if the
+  receiver's inventory is full — `goonmule1` still carries its ~18-item tutorial starter
+  kit, so it can only hold ~10 more items; bank its junk first for a larger food reserve.
+
 ### Warehouse state after this pass
-- `goonmine1`: SE Varrock mine, Mining ~50+ and rising, banking iron at Varrock east.
-- `goonmule1`: Falador bank `(2945,3368)`, food reserve (Shrimps + Bread). No spare iron
-  (the one iron kit went to A).
-- `foodprobe1`: Falador `(2945,3368)`; its Falador bank holds the **22-food warehouse**
-  (Cheese 13, Banana 3, Cabbage 5, Chocolate 1) + 25 coins.
-- `kitprep1`: at the Al Kharid gate, 0 coins, toll-blocked (see above).
+- `goonmine1`: SE Varrock mine, **Mining ~59 and rising** (persistent miner in tmux
+  `mine-goonmine1`, auto-restarts), banking iron at Varrock east. Toward 85 for wild runite.
+- `goonmule1`: Falador bank `(2945,3368)`, food reserve (Shrimps + Bread + Cheese x3).
+- `foodprobe1`: Falador `(2945,3368)`, 13 coins; its Falador bank food warehouse was spent
+  feeding A (rebuild via Wydin trips).
+- `kitprep1`: at the Al Kharid gate `(3267,3227)`, **0 coins, toll-blocked** — cannot fund
+  the 10gp toll (contested ground-coin piles) and could not buy anyway. Louie/Zeke prices
+  captured from config above; a live capture + buy needs `kitprep1` funded (~2,250gp).
