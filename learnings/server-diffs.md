@@ -20,21 +20,22 @@ while local default is 400ms. Do not forecast from unchecked boxes.
 - [x] Prod tick length (watch `sdk.getState().tick` vs wall clock) — **agent A**
       **300.3 ms/tick** on `qstprobe1` (100 ticks / 30,025 ms), 2026-08-15.
       Use 300ms for duration forecasts.
-- [ ] Quest XP is multiplied by `xpRate` — **agent A**, measure Cook's Assistant
-      first (`stat_advance(cooking, 3000)` tenths in `quest_cook.rs2`; 300 XP ×
-      rate). Do not wait for Waterfall to tick this box. Waterfall lists 13,750
-      att/str in [`wiki/quests/waterfall-quest.md`](../wiki/quests/waterfall-quest.md)
-      (`137500` tenths in `quest_waterfall.rs2`).
+- [x] Quest XP is multiplied by `xpRate` — **agent A**. Cook's Assistant on
+      `qstprobe1` gave **+7,500 cooking** (0 → 7,500), i.e. 300 base × 25, 2026-08-16.
+      Quest XP IS multiplied. Waterfall's `137500` tenths (13,750 base) att/str
+      therefore imply **343,750 each** at 25× (`quest_waterfall.rs2`).
 - [ ] PvP death respawns Lumbridge at 1 HP — **agent B**, low wild, junk only
       Codex observed `(3219,3219)` and 2/10 HP on the first post-death read;
       the exact respawn frame was missed, so do not tick the 1-HP claim yet.
 - [ ] Death mark still blocks NPC-suicide full-heal — **agent B**
-- [ ] KOTH polygon matches [`Koth.ts`](../server/engine/src/engine/Koth.ts)
-      vertices (stand just inside / just outside) — **agent A**, disposable junk,
-      do not attack
+- [x] KOTH polygon matches [`Koth.ts`](../server/engine/src/engine/Koth.ts)
+      vertices (stand just inside / just outside) — **agent A**, 2026-08-16.
+      `qstprobe1` stood on `(3288,3879)`=IN and `(3288,3878)`=OUT (one tile across
+      the z=3879 south wall). 8-stack still holds the ruins; Greater demons are
+      aggressive and killed the scout once. Did not attack.
 - [x] `/playerpositions` and `/hiscores/koth` rechecked — recurring 1+7 rather
       than eight eligible scorers, plus a brief all-inside convergence with
-      `Goo001`; see [`live-probes-2026-08-15.md`](live-probes-2026-08-15.md).
+      `Goo001`; see [`live-probes-2026-08-15.md`](live-probes-2026-08-15.md). **agent B**
 - [x] Production death-keep selector matches source for one disposable fixture:
       worn shield + carried dagger + 25 arrows returned shield + dagger + one
       arrow; 24 arrows dropped to the killer. Skulled/PI branches remain source-only.
