@@ -59,4 +59,16 @@ from the porch — that is the **front** door. After unlock: open `2862`,
 `sendWalk(2901,3463)`, wait until `worldZ<=3464`, **then**
 `walkTo(2909,3469,2)` and Check. Fountain **is** reachable: `qstboot1`
 stood on `(2907,3472)` this session. Not an SDK collision bug. No
-boy-side route.
+boy-side route. Do **not** relaunch a new script while still on
+`(2901,3466)` — that is the door-sit. Run this verbatim (timeout is the
+second arg, not `{timeout}`):
+
+```typescript
+const door = sdk.findNearbyLoc(/^door$/i);
+if (door) await bot.interactLoc(door);
+await sdk.sendWalk(2901, 3463);
+await sdk.waitForCondition((s) => s.player.worldZ <= 3464, 20000);
+await bot.walkTo(2909, 3469, 2);
+const fountain = sdk.findNearbyLoc(/fountain/i);
+if (fountain) await bot.interactLoc(fountain, "check");
+```
